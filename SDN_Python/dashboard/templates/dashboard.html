@@ -1,0 +1,83 @@
+{% extends "default.html" %}
+{% block title %} Dashboard {% endblock %}
+{% block page_title %} Dashboard {% endblock %}
+{% block page_subtitle %} General Overview {% endblock %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="row" style="margin-top: 15px;">
+  <!-- no of nodes -->
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-aqua">
+        <i class="fa fa-laptop"></i>
+      </span>
+      <div class="info-box-content">
+        <span class="info-box-test">Number of Nodes</span>
+        <span class="info-box-number" id="nodes">0</span>
+      </div>
+    </div>
+  </div>
+  <!--/ nodes -->
+
+  <!-- no of openflow switches -->
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-red">
+        <i class="fa fa-square"></i>
+      </span>
+      <div class="info-box-content">
+        <span class="info-box-test">Number of OpenFlow Switches</span>
+        <span class="info-box-number" id="switches">0</span>
+      </div>
+    </div>
+  </div>
+  <!--/ openflow switches -->
+
+  <!-- controller IP Address -->
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-green">
+        <i class="fa fa-server"></i>
+      </span>
+      <div class="info-box-content">
+        <span class="info-box-test">VM IP Address</span>
+        <span class="info-box-number" id="ip">0.0.0.0</span>
+      </div>
+    </div>
+  </div>
+  <!--/ controller IP Address -->
+
+  <!-- OpenFlow Software Version -->
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-yellow">
+        <i class="fa fa-terminal"></i>
+      </span>
+      <div class="info-box-content">
+        <span class="info-box-test">OpenFlow Version</span>
+        <span class="info-box-number" id="version">0.0</span>
+      </div>
+    </div>
+  </div>
+  <!--/ version -->
+</div>
+
+
+<!-- tx/rx graph display -->
+<div class="row" style="margin-top: 10px;">
+  <div class="col-xs-12">
+    <div class="box box-primary">
+      <div class="box-header with-border">
+        <i class="fa fa-bar-chart-o"></i>
+        <h3 class="box-title">Network Traffic</h3>
+      </div>
+      <div class="box-body">
+        <div id="interactive" style="height: 300px;"></div>
+      </div>
+    </div>
+  </div>  
+</div>
+<!--/ tx/rx graph -->
+
+{% endblock %}

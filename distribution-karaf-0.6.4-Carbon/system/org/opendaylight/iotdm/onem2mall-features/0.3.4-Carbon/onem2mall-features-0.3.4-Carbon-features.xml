@@ -1,0 +1,40 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-onem2mall-0.3.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.yangtools/features-yangtools/1.1.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-mdsal/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/0.10.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-restconf/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.dluxapps/features-dluxapps/0.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.iotdm/onem2m-features/0.3.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.iotdm/onem2msimpleadapter-features/0.3.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.iotdm/onem2moic-features/0.3.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.iotdm/iotdmbundleloader-features/0.1.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.iotdm/iotdmkaraffeatureloader-features/0.1.4-Carbon/xml/features</repository>
+  <feature name="odl-onem2mall-api" version="0.3.4-Carbon" description="OpenDaylight :: onem2mall :: api">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <bundle>mvn:org.opendaylight.iotdm/onem2mall-api/0.3.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-onem2mall" version="0.3.4-Carbon" description="OpenDaylight :: onem2mall">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="0.3.4-Carbon">odl-onem2mall-api</feature>
+    <bundle>mvn:org.opendaylight.iotdm/onem2mall-impl/0.3.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/onem2mall.xml">mvn:org.opendaylight.iotdm/onem2mall-impl/0.3.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-onem2mall-rest" version="0.3.4-Carbon" description="OpenDaylight :: onem2mall :: REST">
+    <feature version="0.3.4-Carbon">odl-onem2mall</feature>
+    <feature version="1.5.4-Carbon">odl-restconf</feature>
+  </feature>
+  <feature name="odl-onem2mall-iotdm" version="0.3.4-Carbon" description="OpenDaylight :: onem2mall :: IOTDM">
+    <feature version="0.3.4-Carbon">odl-iotdm-onem2m</feature>
+    <feature version="0.1.4-Carbon">odl-iotdmbundleloader</feature>
+    <feature version="0.1.4-Carbon">odl-iotdmkaraffeatureloader</feature>
+    <feature version="0.3.4-Carbon">odl-onem2msimpleadapter</feature>
+    <feature version="0.3.4-Carbon">odl-onem2moic</feature>
+  </feature>
+  <feature name="odl-onem2mall-ui" version="0.3.4-Carbon" description="OpenDaylight :: onem2mall :: UI">
+    <feature version="0.3.4-Carbon">odl-onem2mall-iotdm</feature>
+    <feature version="0.3.4-Carbon">odl-onem2mall-rest</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-apidocs</feature>
+    <feature version="0.5.4-Carbon">odl-dluxapps-yangman</feature>
+    <bundle>mvn:org.opendaylight.iotdm/onem2m-ui-bundle/0.3.4-Carbon</bundle>
+  </feature>
+</features>

@@ -1,0 +1,26 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-openflowjava-0.9.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.yangtools/features-yangtools/1.1.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-config/0.6.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.mdsal/features-mdsal/2.2.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-mdsal/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/0.10.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.odlparent/features-odlparent/1.8.4-Carbon/xml/features</repository>
+  <feature name="odl-openflowjava-all" description="OpenDaylight :: Openflow Java :: All">
+    <feature version="0.9.4-Carbon">odl-openflowjava-protocol</feature>
+  </feature>
+  <feature name="odl-openflowjava-protocol" version="0.9.4-Carbon" description="OpenDaylight :: Openflow Java :: Protocol">
+    <feature version="2.2.4-Carbon">odl-mdsal-binding-base</feature>
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <feature version="0.6.4-Carbon">odl-config-api</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-common</feature>
+    <feature version="[4.0.30,5.0.0)">odl-netty</feature>
+    <bundle>mvn:org.opendaylight.openflowjava/openflow-protocol-api/0.9.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.openflowjava/openflow-protocol-spi/0.9.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.openflowjava/openflow-protocol-impl/0.9.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.openflowjava/openflowjava-util/0.9.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.openflowjava/openflowjava-blueprint-config/0.9.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/45-openflowjava-stats.xml">mvn:org.opendaylight.openflowjava/openflowjava-config/0.9.4-Carbon/xml/configstats</configfile>
+    <configfile finalname="etc/opendaylight/datastore/initial/config/default-openflow-connection-config.xml">mvn:org.opendaylight.openflowjava/openflowjava-blueprint-config/0.9.4-Carbon/xml/config</configfile>
+    <configfile finalname="etc/opendaylight/datastore/initial/config/legacy-openflow-connection-config.xml">mvn:org.opendaylight.openflowjava/openflowjava-blueprint-config/0.9.4-Carbon/xml/legacyConfig</configfile>
+  </feature>
+</features>

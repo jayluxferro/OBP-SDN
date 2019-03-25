@@ -1,0 +1,20 @@
+{
+  "parent_uuid" : "b109dbcf-47bb-4121-b244-e623b3421d6e",
+  "row" : {
+  	"QoS": {
+      "type": "linux-htb",
+	  "queues": [
+        "map",
+        [
+          [
+            0,
+            [
+              "uuid",
+              "6dac9d40-d99e-442f-ac76-fdfe4fae1f61"
+            ]
+          ]
+        ]
+      ]
+    }	
+	}	
+}

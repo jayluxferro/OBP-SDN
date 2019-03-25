@@ -1,0 +1,55 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-topoprocessing-0.3.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.yangtools/features-yangtools/1.1.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/0.10.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-mdsal/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-restconf/1.5.4-Carbon/xml/features</repository>
+  <feature name="odl-topoprocessing-framework" version="0.3.4-Carbon" description="OpenDaylight :: Topology Processing Framework :: Framework">
+    <feature version="1.1.4-Carbon">odl-yangtools-common</feature>
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-common</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <bundle>mvn:org.opendaylight.controller.thirdparty/net.sf.jung2/2.0.1</bundle>
+    <bundle>mvn:org.opendaylight.controller.model/model-inventory/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.topoprocessing/topoprocessing-api/0.3.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.topoprocessing/topoprocessing-impl/0.3.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.topoprocessing/topoprocessing-spi/0.3.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.topoprocessing/topoprocessing-common/0.3.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-topoprocessing-mlmt" version="0.3.4-Carbon" description="OpenDaylight :: Topology Processing Framework :: Mlmt">
+    <feature version="0.3.4-Carbon">odl-topoprocessing-framework</feature>
+    <bundle>mvn:org.opendaylight.controller.model/model-topology/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.topoprocessing/administrative-topology-model/0.3.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.topoprocessing/rwa-model/0.3.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.topoprocessing/mlmt-topology-common-model/0.3.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.topoprocessing/mlmt-topology-common-impl/0.3.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.topoprocessing/multitechnology-topology-model/0.3.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.topoprocessing/multitechnology-topology-impl/0.3.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.topoprocessing/multilayer-topology-model/0.3.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.topoprocessing/multilayer-impl/0.3.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.topoprocessing/forwarding-adjacency-impl/0.3.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.topoprocessing/mlmt-topology-inventory-model/0.3.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.topoprocessing/mlmt-topology-inventory-impl/0.3.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.topoprocessing/mlmt-topology-parser-model/0.3.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.topoprocessing/mlmt-topology-parser-impl/0.3.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.topoprocessing/mlmt-topology-factory-model/0.3.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.topoprocessing/mlmt-topology-factory-impl/0.3.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.topoprocessing/mlmt-topology-observer-model/0.3.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.topoprocessing/mlmt-topology-observer-impl/0.3.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-topoprocessing-network-topology" version="0.3.4-Carbon" description="OpenDaylight :: Topology Processing Framework :: Network Topology Model">
+    <feature version="0.3.4-Carbon">odl-topoprocessing-framework</feature>
+    <bundle>mvn:org.opendaylight.topoprocessing/topoprocessing-nt/0.3.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-topoprocessing-inventory" version="0.3.4-Carbon" description="OpenDaylight :: Topology Processing Framework :: Inventory Model">
+    <feature version="0.3.4-Carbon">odl-topoprocessing-framework</feature>
+    <bundle>mvn:org.opendaylight.topoprocessing/topoprocessing-inventory/0.3.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-topoprocessing-i2rs" version="0.3.4-Carbon" description="OpenDaylight :: Topology Processing Framework :: I2RS Model">
+    <feature version="0.3.4-Carbon">odl-topoprocessing-framework</feature>
+    <bundle>mvn:org.opendaylight.topoprocessing/topoprocessing-i2rs/0.3.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-topoprocessing-inventory-rendering" version="0.3.4-Carbon" description="OpenDaylight :: Topology Processing Framework :: Inventory Rendering Model">
+    <feature version="0.3.4-Carbon">odl-topoprocessing-framework</feature>
+    <bundle>mvn:org.opendaylight.topoprocessing/topoprocessing-inventory-rendering/0.3.4-Carbon</bundle>
+  </feature>
+</features>

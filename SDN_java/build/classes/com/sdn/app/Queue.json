@@ -1,0 +1,25 @@
+{
+    "parent_uuid": "c5f7ce39-847c-4a69-bf8a-2a0181898581",
+    "row": {
+        "Queue": {
+            "other_config": [
+                "map", [
+                    [
+                        "min-rate",
+                        "8000000"
+                    ],
+                    [
+                        "max-rate",
+                        "20000000"
+                    ]
+                ]
+            ],
+            "dscp": [
+                "set", []
+            ],
+            "external_ids": [
+                "map", []
+            ]
+        }
+    }
+}

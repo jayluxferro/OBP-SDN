@@ -1,0 +1,49 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="l2switch-0.5.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.openflowplugin/features-openflowplugin/0.4.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-restconf/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.dluxapps/features-dluxapps/0.5.4-Carbon/xml/features</repository>
+  <feature name="odl-l2switch-all" description="OpenDaylight :: L2Switch :: All" version="0.5.4-Carbon">
+    <feature version="0.5.4-Carbon">odl-l2switch-switch</feature>
+  </feature>
+  <feature name="odl-l2switch-switch" description="OpenDaylight :: L2Switch :: Switch" version="0.5.4-Carbon">
+    <feature version="0.5.4-Carbon">odl-l2switch-hosttracker</feature>
+    <feature version="0.5.4-Carbon">odl-l2switch-arphandler</feature>
+    <bundle>mvn:org.opendaylight.l2switch.main/main-impl/0.5.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-l2switch-switch-rest" description="OpenDaylight :: L2Switch :: Switch" version="0.5.4-Carbon">
+    <feature version="0.5.4-Carbon">odl-l2switch-switch</feature>
+    <feature version="1.5.4-Carbon">odl-restconf</feature>
+  </feature>
+  <feature name="odl-l2switch-switch-ui" description="OpenDaylight :: L2Switch :: Switch" version="0.5.4-Carbon">
+    <feature version="0.5.4-Carbon">odl-l2switch-switch-rest</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-apidocs</feature>
+    <feature version="0.5.4-Carbon">odl-dluxapps-topology</feature>
+  </feature>
+  <feature name="odl-l2switch-hosttracker" description="OpenDaylight :: L2Switch :: HostTracker" version="0.5.4-Carbon">
+    <feature version="0.5.4-Carbon">odl-l2switch-addresstracker</feature>
+    <bundle>mvn:org.opendaylight.l2switch.hosttracker/hosttracker-model/0.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.l2switch.hosttracker/hosttracker-impl/0.5.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-l2switch-addresstracker" description="OpenDaylight :: L2Switch :: AddressTracker" version="0.5.4-Carbon">
+    <feature version="0.5.4-Carbon">odl-l2switch-packethandler</feature>
+    <bundle>mvn:org.opendaylight.l2switch.addresstracker/addresstracker-model/0.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.l2switch.addresstracker/addresstracker-impl/0.5.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-l2switch-arphandler" description="OpenDaylight :: L2Switch :: ArpHandler" version="0.5.4-Carbon">
+    <feature version="0.5.4-Carbon">odl-l2switch-packethandler</feature>
+    <feature version="0.5.4-Carbon">odl-l2switch-loopremover</feature>
+    <bundle>mvn:org.opendaylight.l2switch.addresstracker/addresstracker-model/0.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.l2switch.arphandler/arphandler-impl/0.5.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-l2switch-loopremover" description="OpenDaylight :: L2Switch :: LoopRemover" version="0.5.4-Carbon">
+    <feature version="0.4.4-Carbon">odl-openflowplugin-flow-services</feature>
+    <bundle>mvn:org.opendaylight.l2switch.loopremover/loopremover-model/0.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.l2switch.loopremover/loopremover-impl/0.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller.thirdparty/net.sf.jung2/2.0.1</bundle>
+  </feature>
+  <feature name="odl-l2switch-packethandler" description="OpenDaylight :: L2Switch :: PacketHandler" version="0.5.4-Carbon">
+    <feature version="0.4.4-Carbon">odl-openflowplugin-southbound</feature>
+    <bundle>mvn:org.opendaylight.l2switch.packethandler/packethandler-model/0.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.l2switch.packethandler/packethandler-impl/0.5.4-Carbon</bundle>
+  </feature>
+</features>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.1" name="odl-netty-4">
+    <feature name="odl-netty-4" version="1.8.4-Carbon" description="OpenDaylight :: Netty">
+        <details>OpenDaylight is leading the transformation to Open Software Defined Networking (SDN). For more information, please see https://www.opendaylight.org</details>
+        <bundle>mvn:io.netty/netty-buffer/4.1.8.Final</bundle>
+        <bundle>mvn:io.netty/netty-common/4.1.8.Final</bundle>
+        <bundle>mvn:io.netty/netty-transport/4.1.8.Final</bundle>
+        <bundle>mvn:io.netty/netty-resolver/4.1.8.Final</bundle>
+        <bundle>mvn:io.netty/netty-codec/4.1.8.Final</bundle>
+        <bundle>mvn:io.netty/netty-codec-http/4.1.8.Final</bundle>
+        <bundle>mvn:io.netty/netty-handler/4.1.8.Final</bundle>
+        <bundle>mvn:io.netty/netty-transport-native-epoll/4.1.8.Final/jar/linux-x86_64</bundle>
+    </feature>
+</features>

@@ -1,0 +1,19 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-bgpcep-0.7.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.controller/features-config/0.6.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-mdsal/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.yangtools/features-yangtools/1.1.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/0.10.4-Carbon/xml/features</repository>
+  <feature name="odl-bgpcep-dependencies" version="0.7.4-Carbon">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/concepts/0.7.4-Carbon</bundle>
+    <bundle>mvn:io.netty/netty-common/4.1.8.Final</bundle>
+    <bundle>mvn:io.netty/netty-buffer/4.1.8.Final</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/util/0.7.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bgpcep-data-change-counter" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-dependencies</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="0.6.4-Carbon">odl-config-api</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/data-change-counter/0.7.4-Carbon</bundle>
+  </feature>
+</features>

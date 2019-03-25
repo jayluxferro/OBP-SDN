@@ -1,0 +1,10 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="openflowplugin-extension-0.4.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.openflowplugin/features-openflowplugin/0.4.4-Carbon/xml/features</repository>
+  <feature name="odl-openflowplugin-nxm-extensions" description="OpenDaylight :: Openflow Plugin :: Nicira Extensions" version="0.4.4-Carbon">
+    <feature version="0.4.4-Carbon">odl-openflowplugin-southbound</feature>
+    <bundle>mvn:org.opendaylight.openflowplugin/openflowjava-extension-nicira-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.openflowplugin/openflowjava-extension-nicira/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.openflowplugin/openflowplugin-extension-nicira/0.4.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/43-openflowjava-nx-config.xml">mvn:org.opendaylight.openflowplugin/openflowplugin-extension-nicira-config/0.4.4-Carbon/xml/config</configfile>
+  </feature>
+</features>

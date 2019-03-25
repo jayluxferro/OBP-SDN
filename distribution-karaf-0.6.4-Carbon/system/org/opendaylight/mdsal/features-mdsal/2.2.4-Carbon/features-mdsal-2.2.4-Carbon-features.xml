@@ -1,0 +1,113 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.3.0" name="odl-yangtools-2.2.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.3.0 http://karaf.apache.org/xmlns/features/v1.3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.odlparent/features-odlparent/1.8.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.yangtools/features-yangtools/1.1.4-Carbon/xml/features</repository>
+  <feature name="odl-mdsal-binding" version="2.2.4-Carbon" description="OpenDaylight :: MD-SAL :: Binding">
+    <feature version="2.2.4-Carbon">odl-mdsal-binding-dom-adapter</feature>
+    <feature version="2.2.4-Carbon">odl-mdsal-dom</feature>
+  </feature>
+  <feature name="odl-mdsal-binding2" version="2.2.4-Carbon" description="OpenDaylight :: MD-SAL :: Binding 2">
+    <feature version="2.2.4-Carbon">odl-mdsal-binding2-dom-adapter</feature>
+    <feature version="2.2.4-Carbon">odl-mdsal-dom</feature>
+  </feature>
+  <feature name="odl-mdsal-dom" version="2.2.4-Carbon" description="OpenDaylight :: MD-SAL :: DOM">
+    <feature version="2.2.4-Carbon" dependency="true">odl-mdsal-dom-broker</feature>
+  </feature>
+  <feature name="odl-mdsal-common" version="2.2.4-Carbon" description="OpenDaylight :: MD-SAL :: DOM Broker">
+    <feature version="1.1.4-Carbon" dependency="true">odl-yangtools-common</feature>
+    <bundle>mvn:org.opendaylight.mdsal/mdsal-common-api/2.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-mdsal-dom-api" version="2.2.4-Carbon" description="OpenDaylight :: MD-SAL :: DOM API &amp; SPI">
+    <feature version="2.2.4-Carbon" dependency="true">odl-mdsal-common</feature>
+    <feature version="1.1.4-Carbon" dependency="true">odl-yangtools-yang-data</feature>
+    <bundle>mvn:org.opendaylight.mdsal/mdsal-dom-api/2.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal/mdsal-dom-spi/2.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-mdsal-dom-broker" version="2.2.4-Carbon" description="OpenDaylight :: MD-SAL :: DOM Broker">
+    <feature version="1.1.4-Carbon" dependency="true">odl-yangtools-yang-parser</feature>
+    <feature version="1.8.4-Carbon" dependency="true">odl-lmax-3</feature>
+    <feature version="2.2.4-Carbon" dependency="true">odl-mdsal-dom-api</feature>
+    <bundle>mvn:org.opendaylight.mdsal/mdsal-dom-broker/2.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal/mdsal-dom-inmemory-datastore/2.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-mdsal-binding-base" version="2.2.4-Carbon" description="OpenDaylight :: MD-SAL :: Binding Base Concepts">
+    <feature version="1.1.4-Carbon" dependency="true">odl-yangtools-common</feature>
+    <bundle>mvn:org.opendaylight.mdsal/yang-binding/0.10.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal.model/yang-ext/2013.09.07.10.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-mdsal-binding2-base" version="2.2.4-Carbon" description="OpenDaylight :: MD-SAL :: Binding2 Base Concepts">
+    <feature version="1.1.4-Carbon" dependency="true">odl-yangtools-common</feature>
+    <feature version="1.1.4-Carbon" dependency="true">odl-yangtools-yang-parser</feature>
+    <bundle>mvn:org.opendaylight.mdsal/mdsal-binding2-spec/0.10.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal.model.binding2/yang-ext/2013.09.07.10.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-mdsal-binding-runtime" version="2.2.4-Carbon" description="OpenDaylight :: MD-SAL :: Binding Generator">
+    <feature version="1.1.4-Carbon" dependency="true">odl-yangtools-yang-data</feature>
+    <feature version="2.2.4-Carbon" dependency="true">odl-mdsal-binding-base</feature>
+    <bundle dependency="true">mvn:org.javassist/javassist/3.20.0-GA</bundle>
+    <bundle dependency="true">mvn:org.apache.commons/commons-lang3/3.5</bundle>
+    <bundle>mvn:org.opendaylight.mdsal/mdsal-binding-generator-api/0.10.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal/mdsal-binding-generator-impl/0.10.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal/mdsal-binding-generator-util/0.10.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal/mdsal-binding-dom-codec/0.10.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-mdsal-binding2-runtime" version="2.2.4-Carbon" description="OpenDaylight :: MD-SAL :: Binding2 Generator">
+    <feature version="1.1.4-Carbon" dependency="true">odl-yangtools-yang-data</feature>
+    <feature version="2.2.4-Carbon" dependency="true">odl-mdsal-binding2-api</feature>
+    <bundle dependency="true">mvn:org.javassist/javassist/3.20.0-GA</bundle>
+    <bundle dependency="true">mvn:org.apache.commons/commons-lang3/3.5</bundle>
+    <bundle>mvn:org.opendaylight.mdsal/mdsal-binding2-generator-api/0.10.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal/mdsal-binding2-generator-util/0.10.4-Carbon</bundle>
+    <bundle dependency="true">mvn:org.opendaylight.mdsal/mdsal-binding2-dom-codec/0.10.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-mdsal-binding-api" version="2.2.4-Carbon" description="OpenDaylight :: MD-SAL :: Binding Base Concepts">
+    <feature version="2.2.4-Carbon" dependency="true">odl-mdsal-common</feature>
+    <feature version="2.2.4-Carbon" dependency="true">odl-mdsal-binding-base</feature>
+    <feature version="1.1.4-Carbon" dependency="true">odl-yangtools-yang-parser</feature>
+    <bundle>mvn:org.opendaylight.mdsal.model/general-entity/0.10.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal/mdsal-binding-api/2.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal/mdsal-binding-util/2.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-mdsal-binding2-api" version="2.2.4-Carbon" description="OpenDaylight :: MD-SAL :: Binding2 Base Concepts">
+    <feature version="2.2.4-Carbon" dependency="true">odl-mdsal-common</feature>
+    <feature version="2.2.4-Carbon" dependency="true">odl-mdsal-binding2-base</feature>
+    <feature version="2.2.4-Carbon" dependency="true">odl-mdsal-dom-api</feature>
+    <bundle>mvn:org.opendaylight.mdsal/mdsal-binding2-api/0.10.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal/mdsal-binding2-util/0.10.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-mdsal-binding-dom-adapter" version="2.2.4-Carbon" description="OpenDaylight :: MD-SAL :: Binding Generator">
+    <feature version="2.2.4-Carbon" dependency="true">odl-mdsal-binding-runtime</feature>
+    <feature version="2.2.4-Carbon" dependency="true">odl-mdsal-binding-api</feature>
+    <feature version="2.2.4-Carbon" dependency="true">odl-mdsal-dom-api</feature>
+    <bundle>mvn:org.opendaylight.mdsal/mdsal-binding-dom-adapter/2.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-mdsal-binding2-dom-adapter" version="2.2.4-Carbon" description="OpenDaylight :: MD-SAL :: Binding2 Generator">
+    <feature version="2.2.4-Carbon" dependency="true">odl-mdsal-binding2-runtime</feature>
+    <bundle dependency="true">mvn:org.opendaylight.mdsal/mdsal-binding2-dom-adapter/0.10.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-mdsal-eos-common" version="2.2.4-Carbon" description="OpenDaylight :: MD-SAL :: EOS :: Common">
+    <feature version="1.1.4-Carbon" dependency="true">odl-yangtools-common</feature>
+    <feature version="1.1.4-Carbon" dependency="true">odl-yangtools-yang-data</feature>
+    <bundle>mvn:org.opendaylight.mdsal/mdsal-eos-common-api/2.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal/mdsal-eos-common-spi/2.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-mdsal-eos-dom" version="2.2.4-Carbon" description="OpenDaylight :: MD-SAL :: EOS :: DOM">
+    <feature version="2.2.4-Carbon" dependency="true">odl-mdsal-eos-common</feature>
+    <bundle>mvn:org.opendaylight.mdsal/mdsal-eos-dom-api/2.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-mdsal-eos-binding" version="2.2.4-Carbon" description="OpenDaylight :: MD-SAL :: EOS :: Binding">
+    <feature version="2.2.4-Carbon" dependency="true">odl-mdsal-eos-dom</feature>
+    <feature version="2.2.4-Carbon" dependency="true">odl-mdsal-binding-dom-adapter</feature>
+    <bundle>mvn:org.opendaylight.mdsal/mdsal-eos-binding-api/2.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal/mdsal-eos-binding-adapter/2.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-mdsal-singleton-common" version="2.2.4-Carbon" description="OpenDaylight :: MD-SAL :: Singleton :: Common">
+    <feature version="2.2.4-Carbon" dependency="true">odl-mdsal-eos-common</feature>
+    <bundle>mvn:org.opendaylight.mdsal/mdsal-singleton-common-api/2.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-mdsal-singleton-dom" version="2.2.4-Carbon" description="OpenDaylight :: MD-SAL :: Singleton :: DOM">
+    <feature version="2.2.4-Carbon" dependency="true">odl-mdsal-singleton-common</feature>
+    <feature version="2.2.4-Carbon" dependency="true">odl-mdsal-eos-dom</feature>
+    <feature version="2.2.4-Carbon" dependency="true">odl-mdsal-common</feature>
+    <bundle>mvn:org.opendaylight.mdsal/mdsal-singleton-dom-impl/2.2.4-Carbon</bundle>
+  </feature>
+</features>

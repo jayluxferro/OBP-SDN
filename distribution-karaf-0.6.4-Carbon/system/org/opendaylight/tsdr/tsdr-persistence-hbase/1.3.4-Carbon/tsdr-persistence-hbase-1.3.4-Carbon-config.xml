@@ -1,0 +1,9 @@
+poolsize=20
+zoo.keeper.client.port=2181
+zoo.keeper.quorum=localhost
+autoflush=false
+writebuffersize=512
+createTableRetryInterval=300
+metric-persistency=true
+log-persistency=true
+binary-persistency=true

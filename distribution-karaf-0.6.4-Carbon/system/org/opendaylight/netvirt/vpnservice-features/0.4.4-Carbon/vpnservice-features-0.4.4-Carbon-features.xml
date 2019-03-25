@@ -1,0 +1,107 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-netvirt-0.4.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.yangtools/features-yangtools/1.1.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-mdsal/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/0.10.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.openflowplugin/features-openflowplugin/0.4.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.openflowplugin/features-openflowplugin-extension/0.4.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-restconf/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.ovsdb/southbound-features/1.4.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.neutron/features-neutron/0.8.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.ovsdb/hwvtepsouthbound-features/1.4.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.genius/genius-features/0.2.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.infrautils/infrautils-features/1.1.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.dlux/features-dlux/0.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.federation/federation-features/0.2.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.sfc/features-sfc/0.5.4-Carbon/xml/features</repository>
+  <feature name="odl-netvirt-api" version="0.4.4-Carbon" description="OpenDaylight :: NetVirt :: api">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <feature version="0.4.4-Carbon">odl-openflowplugin-nsf-model</feature>
+    <feature version="0.4.4-Carbon">odl-openflowplugin-nxm-extensions</feature>
+    <feature version="1.4.4-Carbon">odl-ovsdb-southbound-api</feature>
+    <feature version="1.4.4-Carbon">odl-ovsdb-hwvtepsouthbound-api</feature>
+    <feature version="0.2.4-Carbon">odl-genius-api</feature>
+    <feature version="1.1.4-Carbon">odl-infrautils-counters</feature>
+    <bundle>mvn:org.opendaylight.controller/liblldp/0.12.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.neutron/model/0.8.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/model-bgp/2013.07.15.10.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/vpnmanager-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/fibmanager-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/neutronvpn-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/dhcpservice-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/natservice-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/aclservice-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/ipv6service-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/elanmanager-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/statistics-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/cloud-servicechain-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/qosservice-api/0.4.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-netvirt-impl" version="0.4.4-Carbon" description="OpenDaylight :: NetVirt :: impl">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="1.4.4-Carbon">odl-ovsdb-southbound-impl</feature>
+    <feature version="1.4.4-Carbon">odl-ovsdb-hwvtepsouthbound</feature>
+    <feature version="0.4.4-Carbon">odl-netvirt-api</feature>
+    <feature version="0.4.4-Carbon">odl-openflowplugin-southbound</feature>
+    <feature version="0.4.4-Carbon">odl-openflowplugin-flow-services</feature>
+    <feature version="0.2.4-Carbon">odl-genius</feature>
+    <feature version="1.1.4-Carbon">odl-infrautils-inject</feature>
+    <bundle>mvn:commons-net/commons-net/3.6</bundle>
+    <bundle>wrap:mvn:com.googlecode.java-ipv6/java-ipv6/0.16</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/bgpmanager-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/bgpmanager-impl/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/vpnmanager-impl/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/vpnmanager-shell/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/fibmanager-impl/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/fibmanager-shell/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/neutronvpn-impl/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/neutronvpn-shell/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/dhcpservice-impl/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/cloud-servicechain-impl/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/elanmanager-impl/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/natservice-impl/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/aclservice-impl/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/qosservice-impl/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/ipv6service-impl/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/ipv6service-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/ipv6service-shell/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/statemanager-impl/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/statistics-impl/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.ovsdb/utils.mdsal-utils/1.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.ovsdb/utils.southbound-utils/1.4.4-Carbon</bundle>
+    <bundle>wrap:mvn:org.apache.thrift/libthrift/0.9.1$overwrite=merge&amp;Bundle-Version=0.9.1&amp;Export-Package=*;-noimport:=true;version=&quot;0.9.1&quot;</bundle>
+    <configfile finalname="etc/opendaylight/datastore/initial/config/netvirt-aclservice-config.xml">mvn:org.opendaylight.netvirt/aclservice-impl/0.4.4-Carbon/xml/config</configfile>
+    <configfile finalname="etc/opendaylight/datastore/initial/config/netvirt-dhcpservice-config.xml">mvn:org.opendaylight.netvirt/dhcpservice-impl/0.4.4-Carbon/xml/config</configfile>
+    <configfile finalname="etc/opendaylight/datastore/initial/config/netvirt-elanmanager-config.xml">mvn:org.opendaylight.netvirt/elanmanager-impl/0.4.4-Carbon/xml/config</configfile>
+    <configfile finalname="etc/opendaylight/datastore/initial/config/netvirt-natservice-config.xml">mvn:org.opendaylight.netvirt/natservice-impl/0.4.4-Carbon/xml/config</configfile>
+    <configfile finalname="etc/opendaylight/datastore/initial/config/netvirt-neutronvpn-config.xml">mvn:org.opendaylight.netvirt/neutronvpn-impl/0.4.4-Carbon/xml/config</configfile>
+    <configfile finalname="etc/opendaylight/datastore/initial/config/netvirt-qosservice-config.xml">mvn:org.opendaylight.netvirt/qosservice-impl/0.4.4-Carbon/xml/config</configfile>
+    <configfile finalname="etc/org.opendaylight.netvirt.qosservice.cfg">mvn:org.opendaylight.netvirt/qosservice-impl/0.4.4-Carbon/cfg/config</configfile>
+    <configfile finalname="etc/opendaylight/datastore/initial/config/netvirt-statistics-config.xml">mvn:org.opendaylight.netvirt/statistics-impl/0.4.4-Carbon/xml/config</configfile>
+    <configfile finalname="etc/opendaylight/datastore/initial/config/netvirt-vpnmanager-config.xml">mvn:org.opendaylight.netvirt/vpnmanager-impl/0.4.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-netvirt-openstack" version="0.4.4-Carbon" description="OpenDaylight :: NetVirt :: OpenStack">
+    <feature version="0.8.4-Carbon">odl-neutron-service</feature>
+    <feature version="0.4.4-Carbon">odl-netvirt-impl</feature>
+    <feature version="1.5.4-Carbon">odl-restconf</feature>
+  </feature>
+  <feature name="odl-netvirt-federation" version="0.4.4-Carbon" description="OpenDaylight :: NetVirt :: Federation">
+    <feature version="0.4.4-Carbon">odl-netvirt-openstack</feature>
+    <feature version="0.2.4-Carbon">federation-with-rabbit</feature>
+    <feature version="1.1.4-Carbon">odl-infrautils-inject</feature>
+    <bundle>mvn:org.opendaylight.netvirt/federation-plugin-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/federation-plugin-impl/0.4.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-netvirt-ui" description="OpenDaylight :: NetVirt :: DLUX Integration Plugin" version="0.4.4-Carbon">
+    <feature version="0.5.4-Carbon">odl-dlux-core</feature>
+    <bundle>mvn:org.opendaylight.netvirt/ovsdb-ui-bundle/0.4.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-netvirt-sfc" version="0.4.4-Carbon" description="OpenDaylight :: NetVirt :: SFC">
+    <feature version="0.5.4-Carbon">odl-sfc-openflow-renderer</feature>
+    <feature version="0.5.4-Carbon">odl-sfc-genius</feature>
+    <feature version="0.4.4-Carbon">odl-netvirt-openstack</feature>
+    <bundle>mvn:org.opendaylight.netvirt/sfc.classifier-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/sfc.classifier-impl/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netvirt/sfc.translator/0.4.4-Carbon</bundle>
+  </feature>
+</features>

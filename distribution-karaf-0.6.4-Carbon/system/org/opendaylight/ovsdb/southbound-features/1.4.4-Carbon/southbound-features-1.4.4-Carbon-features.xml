@@ -1,0 +1,43 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-ovsdb-southbound-1.4.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.yangtools/features-yangtools/1.1.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-mdsal/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-restconf/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/0.10.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.ovsdb/library-features/1.4.4-Carbon/xml/features</repository>
+  <feature name="odl-ovsdb-southbound-api" version="1.4.4-Carbon" description="OpenDaylight :: southbound :: api ">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <bundle>mvn:org.opendaylight.ovsdb/southbound-api/1.4.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-ovsdb-southbound-impl" version="1.4.4-Carbon" description="OpenDaylight :: southbound :: impl ">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="1.4.4-Carbon">odl-ovsdb-southbound-api</feature>
+    <bundle>mvn:org.opendaylight.ovsdb/southbound-impl/1.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.ovsdb/library/1.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.ovsdb/utils.yang-utils/1.4.4-Carbon</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/2.3.2</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-core/2.3.2</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/2.3.2</bundle>
+    <bundle>mvn:com.google.code.gson/gson/2.7</bundle>
+    <bundle>mvn:io.netty/netty-buffer/4.1.8.Final</bundle>
+    <bundle>mvn:io.netty/netty-codec/4.1.8.Final</bundle>
+    <bundle>mvn:io.netty/netty-codec-http/4.1.8.Final</bundle>
+    <bundle>mvn:io.netty/netty-common/4.1.8.Final</bundle>
+    <bundle>mvn:io.netty/netty-handler/4.1.8.Final</bundle>
+    <bundle>mvn:io.netty/netty-transport/4.1.8.Final</bundle>
+    <feature version="1.4.4-Carbon">odl-ovsdb-library</feature>
+  </feature>
+  <feature name="odl-ovsdb-southbound-impl-rest" version="1.4.4-Carbon" description="OpenDaylight :: southbound :: impl :: REST ">
+    <feature version="1.4.4-Carbon">odl-ovsdb-southbound-impl</feature>
+    <feature version="1.5.4-Carbon">odl-restconf</feature>
+  </feature>
+  <feature name="odl-ovsdb-southbound-impl-ui" version="1.4.4-Carbon" description="OpenDaylight :: southbound :: impl :: UI">
+    <feature version="1.4.4-Carbon">odl-ovsdb-southbound-impl-rest</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-apidocs</feature>
+  </feature>
+  <feature name="odl-ovsdb-southbound-test" version="1.4.4-Carbon" description="OpenDaylight :: southbound :: test">
+    <feature version="1.4.4-Carbon">odl-ovsdb-southbound-impl</feature>
+    <bundle>mvn:org.opendaylight.ovsdb/utils.mdsal-utils/1.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.ovsdb/utils.southbound-utils/1.4.4-Carbon</bundle>
+    <configfile finalname="etc/org.opendaylight.ovsdb.southbound.cfg">mvn:org.opendaylight.ovsdb/southbound-impl/1.4.4-Carbon/cfg/config</configfile>
+  </feature>
+</features>

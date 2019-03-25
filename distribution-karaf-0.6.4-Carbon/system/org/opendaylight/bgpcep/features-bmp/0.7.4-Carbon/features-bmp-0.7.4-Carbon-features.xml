@@ -1,0 +1,28 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-bgpcep-0.7.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.controller/features-config/0.6.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-mdsal/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.yangtools/features-yangtools/1.1.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.bgpcep/features-bgp/0.7.4-Carbon/xml/features</repository>
+  <feature name="odl-bgpcep-bmp" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-dependencies</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="0.6.4-Carbon">odl-config-netty</feature>
+    <feature version="0.6.4-Carbon">odl-config-netty-config-api</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-parser</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-rib-api</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-rib-impl</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-linkstate</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-flowspec</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-labeled-unicast</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-l3vpn</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-evpn</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-openconfig</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-bmp-api/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-bmp-spi/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-bmp-parser-impl/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-bmp-impl/0.7.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/31-bgp.xml">mvn:org.opendaylight.bgpcep/bgp-controller-config/0.7.4-Carbon/xml/config</configfile>
+    <configfile finalname="etc/opendaylight/karaf/32-bmp.xml">mvn:org.opendaylight.bgpcep/bgp-controller-config/0.7.4-Carbon/xml/bmp-config</configfile>
+    <configfile finalname="etc/opendaylight/karaf/42-bmp-example.xml">mvn:org.opendaylight.bgpcep/bgp-controller-config/0.7.4-Carbon/xml/bmp-config-example</configfile>
+  </feature>
+</features>

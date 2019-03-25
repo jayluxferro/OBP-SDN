@@ -1,0 +1,14 @@
+{
+    "row": {
+        "Port": {
+            "qos": [
+                "set", [
+                    [
+                        "uuid",
+                        "bd9cc1b4-2606-4cc0-98aa-cbb2cdd22b2c"
+                    ]
+                ]
+            ]
+        }
+    }
+}

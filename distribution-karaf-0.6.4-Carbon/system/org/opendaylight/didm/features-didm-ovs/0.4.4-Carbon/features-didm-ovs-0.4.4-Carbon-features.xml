@@ -1,0 +1,13 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-didm-ovs-0.4.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.didm/features-common/0.4.4-Carbon/xml/features</repository>
+  <feature name="odl-didm-ovs-all" version="0.4.4-Carbon" description="OpenDaylight :: DIDM Mininet reference driver">
+    <feature version="0.4.4-Carbon">odl-didm-ovs-impl</feature>
+  </feature>
+  <feature name="odl-didm-ovs-impl" version="0.4.4-Carbon" description="OpenDaylight :: DIDM :: ovs :: Implementation ">
+    <feature version="0.4.4-Carbon">odl-didm-identification</feature>
+    <feature version="0.4.4-Carbon">odl-didm-drivers</feature>
+    <feature version="0.4.4-Carbon">odl-didm-util</feature>
+    <bundle>mvn:org.opendaylight.didm/didm-ovs/0.4.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/didm-ovs.xml">mvn:org.opendaylight.didm/didm-ovs/0.4.4-Carbon/xml/config</configfile>
+  </feature>
+</features>

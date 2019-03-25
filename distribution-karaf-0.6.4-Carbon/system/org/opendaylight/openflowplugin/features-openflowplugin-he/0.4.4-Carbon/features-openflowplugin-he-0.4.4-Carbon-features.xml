@@ -1,0 +1,73 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="openflowplugin-he-0.4.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.controller/features-mdsal/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-restconf/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.openflowjava/features-openflowjava/0.9.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.dluxapps/features-dluxapps/0.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.yangtools/features-yangtools/1.1.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/0.10.4-Carbon/xml/features</repository>
+  <feature name="odl-openflowplugin-southbound-he" description="OpenDaylight :: Openflow Plugin :: SouthBound" version="0.4.4-Carbon">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="0.9.4-Carbon">odl-openflowjava-protocol</feature>
+    <feature version="0.4.4-Carbon">odl-openflowplugin-nsf-model-he</feature>
+    <bundle>mvn:org.opendaylight.openflowplugin/openflowplugin-common/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.openflowplugin/openflowplugin/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.openflowplugin/openflowplugin-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.openflowplugin/openflowplugin-extension-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/liblldp/0.12.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.openflowplugin.applications/inventory-manager/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.openflowplugin.applications/statistics-manager/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.openflowplugin/openflowplugin-blueprint-config-he/0.4.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/42-openflowplugin-He.xml">mvn:org.opendaylight.openflowplugin/openflowplugin-controller-config/0.4.4-Carbon/xml/config-He</configfile>
+    <configfile finalname="etc/opendaylight/karaf/43-msg-spy.xml">mvn:org.opendaylight.openflowplugin/openflowplugin-controller-config/0.4.4-Carbon/xml/configmsgspy</configfile>
+  </feature>
+  <feature name="odl-openflowplugin-flow-services-he" description="OpenDaylight :: Openflow Plugin :: Flow Services" version="0.4.4-Carbon">
+    <feature version="0.4.4-Carbon">odl-openflowplugin-southbound-he</feature>
+    <feature version="0.4.4-Carbon">odl-openflowplugin-app-config-pusher-he</feature>
+    <feature version="0.4.4-Carbon">odl-openflowplugin-app-lldp-speaker-he</feature>
+    <feature version="0.4.4-Carbon">odl-openflowplugin-nsf-services-he</feature>
+  </feature>
+  <feature name="odl-openflowplugin-nsf-services-he" version="0.4.4-Carbon" description="OpenDaylight :: OpenflowPlugin :: NSF :: Services">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="0.4.4-Carbon">odl-openflowplugin-nsf-model-he</feature>
+    <bundle>mvn:org.opendaylight.openflowplugin/openflowplugin-common/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.openflowplugin.applications/topology-manager/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.openflowplugin.applications/topology-lldp-discovery/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.openflowplugin.applications/forwardingrules-manager/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/liblldp/0.12.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-openflowplugin-nsf-model-he" version="0.4.4-Carbon" description="OpenDaylight :: OpenflowPlugin :: NSF :: Model">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <bundle>mvn:org.opendaylight.controller.model/model-inventory/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller.model/model-topology/1.5.4-Carbon</bundle>
+    <feature version="0.9.4-Carbon">odl-openflowjava-protocol</feature>
+    <bundle>mvn:org.opendaylight.openflowplugin.model/model-flow-base/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.openflowplugin.model/model-flow-statistics/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.openflowplugin.model/model-flow-service/0.4.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-openflowplugin-flow-services-rest-he" description="OpenDaylight :: Openflow Plugin :: Flow Services :: REST" version="0.4.4-Carbon">
+    <feature version="0.4.4-Carbon">odl-openflowplugin-flow-services-he</feature>
+    <feature version="1.5.4-Carbon">odl-restconf</feature>
+  </feature>
+  <feature name="odl-openflowplugin-flow-services-ui-he" description="OpenDaylight :: Openflow Plugin :: Flow Services :: UI" version="0.4.4-Carbon">
+    <feature version="0.4.4-Carbon">odl-openflowplugin-flow-services-rest-he</feature>
+    <feature version="0.5.4-Carbon">odl-dluxapps-topology</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-apidocs</feature>
+  </feature>
+  <feature name="odl-openflowplugin-app-table-miss-enforcer-he" description="OpenDaylight :: Openflow Plugin :: Application - table-miss-enforcer" version="0.4.4-Carbon">
+    <feature version="0.4.4-Carbon">odl-openflowplugin-southbound-he</feature>
+    <bundle>mvn:org.opendaylight.openflowplugin.applications/table-miss-enforcer/0.4.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-openflowplugin-app-config-pusher-he" description="OpenDaylight :: Openflow Plugin :: app - default config-pusher" version="0.4.4-Carbon">
+    <feature version="0.4.4-Carbon">odl-openflowplugin-southbound-he</feature>
+    <bundle>mvn:org.opendaylight.openflowplugin.applications/of-switch-config-pusher/0.4.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-openflowplugin-app-lldp-speaker-he" description="OpenDaylight :: Openflow Plugin :: app lldp-speaker" version="0.4.4-Carbon">
+    <feature version="0.4.4-Carbon">odl-openflowplugin-southbound-he</feature>
+    <bundle>mvn:org.opendaylight.openflowplugin.applications/topology-lldp-discovery/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.openflowplugin.applications/lldp-speaker/0.4.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-openflowplugin-app-bulk-o-matic-he" description="OpenDaylight :: Openflow Plugin :: app bulk flow operations support" version="0.4.4-Carbon">
+    <feature version="0.4.4-Carbon">odl-openflowplugin-southbound-he</feature>
+    <bundle>mvn:org.opendaylight.openflowplugin.applications/bulk-o-matic/0.4.4-Carbon</bundle>
+  </feature>
+</features>

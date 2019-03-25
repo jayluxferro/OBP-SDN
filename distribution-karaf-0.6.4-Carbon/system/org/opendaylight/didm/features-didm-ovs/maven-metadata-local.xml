@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.opendaylight.didm</groupId>
+  <artifactId>features-didm-ovs</artifactId>
+  <versioning>
+    <release>0.4.4-Carbon</release>
+    <versions>
+      <version>0.4.4-Carbon</version>
+    </versions>
+    <lastUpdated>20180421085011</lastUpdated>
+  </versioning>
+</metadata>

@@ -1,0 +1,84 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-faas-1.2.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.mdsal/features-mdsal/2.2.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.openflowplugin/features-openflowplugin/0.4.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.openflowplugin/features-openflowplugin-extension/0.4.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.ovsdb/southbound-features/1.4.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-mdsal/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/0.10.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-restconf/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.sfc/features-sfc/0.5.4-Carbon/xml/features</repository>
+  <feature name="odl-faas-base" version="1.2.4-Carbon" description="OpenDaylight :: faas :: base">
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.snmp4j/2.1.0_1</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/2.3.2</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-core/2.3.2</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/2.3.2</bundle>
+    <bundle>wrap:mvn:net.sourceforge.collections/collections-generic/4.01</bundle>
+    <bundle>wrap:mvn:colt/colt/1.2.0</bundle>
+    <bundle>wrap:mvn:concurrent/concurrent/1.3.4</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jung-graph-impl/2.0.1_2</bundle>
+    <bundle>wrap:mvn:net.sf.jung/jung-algorithms/2.0.1</bundle>
+    <bundle>mvn:org.opendaylight.faas/base/1.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-faas-all" version="1.2.4-Carbon" description="OpenDaylight :: faas :: Starts All Faas features">
+    <feature version="1.2.4-Carbon">odl-faas-base</feature>
+    <feature version="1.2.4-Carbon">odl-faas-vxlan-fabric</feature>
+    <feature version="1.2.4-Carbon">odl-faas-vlan-fabric</feature>
+    <feature version="1.2.4-Carbon">odl-faas-vxlan-ovs-adapter</feature>
+    <feature version="1.2.4-Carbon">odl-faas-fabricmgr</feature>
+    <feature version="1.2.4-Carbon">odl-faas-uln-mapper</feature>
+  </feature>
+  <feature name="odl-faas-fabric" version="1.2.4-Carbon" description="OpenDaylight :: faas :: fabric base">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <bundle>mvn:org.opendaylight.faas/fabric-model/1.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.faas/fabric/1.2.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/fabric-factory.xml">mvn:org.opendaylight.faas/fabric/1.2.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-faas-vlan-fabric" version="1.2.4-Carbon" description="OpenDaylight :: faas :: vlan fabric">
+    <feature version="1.2.4-Carbon">odl-faas-fabric</feature>
+    <bundle>mvn:org.opendaylight.faas/vlan-fabric-model/1.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.faas/vlan-fabric/1.2.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/vlan-fabric.xml">mvn:org.opendaylight.faas/vlan-fabric/1.2.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-faas-vxlan-fabric" version="1.2.4-Carbon" description="OpenDaylight :: faas :: vxlan fabric">
+    <feature version="2.2.4-Carbon">odl-mdsal-binding-runtime</feature>
+    <feature version="1.2.4-Carbon">odl-faas-fabric</feature>
+    <bundle>mvn:org.opendaylight.faas/vxlan-fabric-model/1.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.faas/vxlan-fabric/1.2.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/vxlan-fabric.xml">mvn:org.opendaylight.faas/vxlan-fabric/1.2.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-faas-vxlan-ovs-adapter" version="1.2.4-Carbon" description="OpenDaylight :: faas :: vxlan fabric ovs adapter">
+    <feature version="0.4.4-Carbon">odl-openflowplugin-flow-services</feature>
+    <feature version="0.4.4-Carbon">odl-openflowplugin-nxm-extensions</feature>
+    <feature version="1.4.4-Carbon">odl-ovsdb-southbound-impl</feature>
+    <feature version="1.2.4-Carbon">odl-faas-base</feature>
+    <feature version="1.2.4-Carbon">odl-faas-vxlan-fabric</feature>
+    <bundle>mvn:commons-net/commons-net/3.6</bundle>
+    <bundle>mvn:org.opendaylight.faas/vxlan-fabric-ovs-adapter/1.2.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/vxlan-fabric-ovs-adapter.xml">mvn:org.opendaylight.faas/vxlan-fabric-ovs-adapter/1.2.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-faas-fabricmgr" version="1.2.4-Carbon" description="OpenDaylight :: faas :: vxlan fabric">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="2.2.4-Carbon">odl-mdsal-binding-runtime</feature>
+    <feature version="1.2.4-Carbon">odl-faas-base</feature>
+    <feature version="1.2.4-Carbon">odl-faas-vxlan-fabric</feature>
+    <bundle>mvn:org.opendaylight.faas/fabric-model/1.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller.model/model-inventory/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.faas/uln-mapper-model/1.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.faas/uln-cache/1.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.faas/fabric-mgr-model/1.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.faas/fabric-mgr-impl/1.2.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/fabric-mgr.xml">mvn:org.opendaylight.faas/fabric-mgr-impl/1.2.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-faas-uln-mapper" version="1.2.4-Carbon" description="OpenDaylight :: faas :: vxlan fabric">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="2.2.4-Carbon">odl-mdsal-binding-runtime</feature>
+    <feature version="0.5.4-Carbon">odl-sfc-provider</feature>
+    <feature version="1.2.4-Carbon">odl-faas-fabricmgr</feature>
+    <bundle>mvn:org.opendaylight.controller.model/model-inventory/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.faas/uln-mapper-impl/1.2.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/uln-mapper.xml">mvn:org.opendaylight.faas/uln-mapper-impl/1.2.4-Carbon/xml/config</configfile>
+  </feature>
+</features>

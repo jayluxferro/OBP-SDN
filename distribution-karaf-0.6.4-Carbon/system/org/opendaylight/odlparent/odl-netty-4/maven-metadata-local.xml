@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.opendaylight.odlparent</groupId>
+  <artifactId>odl-netty-4</artifactId>
+  <versioning>
+    <release>1.8.4-Carbon</release>
+    <versions>
+      <version>1.8.4-Carbon</version>
+    </versions>
+    <lastUpdated>20180421085011</lastUpdated>
+  </versioning>
+</metadata>

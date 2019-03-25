@@ -1,0 +1,120 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-mdsal-1.5.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.odlparent/features-odlparent/1.8.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.yangtools/features-yangtools/1.1.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.mdsal/features-mdsal/2.2.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/0.10.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-config/0.6.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-config-persister/0.6.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-config-netty/0.6.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.odlparent/features-akka/1.8.4-Carbon/xml/features</repository>
+  <feature name="odl-mdsal-all" version="1.5.4-Carbon" description="OpenDaylight :: MDSAL :: All">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker-local</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-xsql</feature>
+    <feature version="1.5.4-Carbon">odl-toaster</feature>
+  </feature>
+  <feature name="odl-mdsal-common" version="1.5.4-Carbon" description="OpenDaylight :: Config :: All">
+    <feature version="1.1.4-Carbon">odl-yangtools-yang-data</feature>
+    <feature version="0.6.4-Carbon">odl-config-api</feature>
+    <feature version="2.2.4-Carbon">odl-mdsal-binding-runtime</feature>
+    <bundle>wrap:mvn:net.java.dev.stax-utils/stax-utils/20070216</bundle>
+    <bundle>mvn:org.opendaylight.controller/sal-common-api/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/sal-common-impl/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/sal-common-util/1.5.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-mdsal-broker-local" version="1.5.4-Carbon" description="OpenDaylight :: MDSAL :: Broker">
+    <feature version="1.1.4-Carbon">odl-yangtools-common</feature>
+    <feature version="2.2.4-Carbon">odl-mdsal-binding-dom-adapter</feature>
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-common</feature>
+    <feature version="0.6.4-Carbon">odl-config-startup</feature>
+    <feature version="0.6.4-Carbon">odl-config-netty</feature>
+    <feature version="1.8.4-Carbon">odl-lmax-3</feature>
+    <feature version="2.2.4-Carbon">odl-mdsal-dom</feature>
+    <feature version="2.2.4-Carbon">odl-mdsal-eos-dom</feature>
+    <feature version="2.2.4-Carbon">odl-mdsal-eos-binding</feature>
+    <feature version="2.2.4-Carbon">odl-mdsal-singleton-dom</feature>
+    <bundle>mvn:org.opendaylight.controller/sal-core-api/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/sal-core-spi/1.5.4-Carbon</bundle>
+    <bundle start-level="70">mvn:org.opendaylight.controller/sal-schema-service/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/sal-broker-impl/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/sal-binding-api/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/sal-binding-broker-impl/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/sal-binding-util/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/sal-connector-api/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/sal-dom-config/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/sal-binding-config/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/sal-inmemory-datastore/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/sal-dom-broker-config/1.5.4-Carbon</bundle>
+    <bundle start-level="40">mvn:org.opendaylight.controller/blueprint/0.6.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/01-md-sal.xml">mvn:org.opendaylight.controller/md-sal-config/1.5.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-toaster" version="1.5.4-Carbon" description="OpenDaylight :: Toaster">
+    <feature version="1.1.4-Carbon">odl-yangtools-common</feature>
+    <feature version="2.2.4-Carbon">odl-mdsal-binding-runtime</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <bundle>mvn:org.opendaylight.controller.samples/sample-toaster/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller.samples/sample-toaster-consumer/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller.samples/sample-toaster-provider/1.5.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-mdsal-xsql" version="1.5.4-Carbon">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <bundle>mvn:org.opendaylight.controller/sal-dom-xsql/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/sal-karaf-xsql/1.5.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/04-xsql.xml">mvn:org.opendaylight.controller/sal-dom-xsql-config/1.5.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-mdsal-clustering-commons" version="1.5.4-Carbon">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker-local</feature>
+    <feature version="1.8.4-Carbon">odl-akka-system-2.4</feature>
+    <feature version="1.8.4-Carbon">odl-akka-persistence-2.4</feature>
+    <feature version="1.8.4-Carbon">odl-akka-clustering-2.4</feature>
+    <bundle>mvn:org.opendaylight.controller/sal-clustering-commons/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/sal-akka-raft/1.5.4-Carbon</bundle>
+    <bundle>mvn:io.dropwizard.metrics/metrics-core/3.1.2</bundle>
+  </feature>
+  <feature name="odl-mdsal-distributed-datastore" version="1.5.4-Carbon">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker-local</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-clustering-commons</feature>
+    <bundle>mvn:org.opendaylight.controller/cds-access-api/1.1.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/cds-access-client/1.1.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/cds-dom-api/1.1.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/sal-distributed-datastore/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/sal-cluster-admin-api/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/sal-cluster-admin-impl/1.5.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-mdsal-remoterpc-connector" version="1.5.4-Carbon">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker-local</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-clustering-commons</feature>
+    <feature version="1.8.4-Carbon">odl-akka-leveldb-0.7</feature>
+    <bundle>mvn:org.opendaylight.controller/sal-remoterpc-connector/1.5.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-mdsal-broker" version="1.5.4-Carbon">
+    <feature version="1.5.4-Carbon">odl-mdsal-remoterpc-connector</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-distributed-datastore</feature>
+    <configfile finalname="etc/opendaylight/karaf/05-clustering.xml" override="true">mvn:org.opendaylight.controller/sal-clustering-config/1.5.4-Carbon/xml/config</configfile>
+    <configfile finalname="etc/opendaylight/karaf/06-clustered-entity-ownership.xml">mvn:org.opendaylight.controller/sal-clustering-config/1.5.4-Carbon/xml/entityownershipconfig</configfile>
+    <configfile finalname="configuration/initial/akka.conf">mvn:org.opendaylight.controller/sal-clustering-config/1.5.4-Carbon/xml/akkaconf</configfile>
+    <configfile finalname="configuration/factory/akka.conf" override="true">mvn:org.opendaylight.controller/sal-clustering-config/1.5.4-Carbon/xml/factoryakkaconf</configfile>
+    <configfile finalname="configuration/initial/module-shards.conf">mvn:org.opendaylight.controller/sal-clustering-config/1.5.4-Carbon/xml/moduleshardconf</configfile>
+    <configfile finalname="configuration/initial/modules.conf">mvn:org.opendaylight.controller/sal-clustering-config/1.5.4-Carbon/xml/moduleconf</configfile>
+    <configfile finalname="etc/org.opendaylight.controller.cluster.datastore.cfg">mvn:org.opendaylight.controller/sal-clustering-config/1.5.4-Carbon/cfg/datastore</configfile>
+  </feature>
+  <feature name="odl-mdsal-clustering" version="1.5.4-Carbon">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+  </feature>
+  <feature name="odl-clustering-test-app" version="1.5.4-Carbon">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <bundle>mvn:org.opendaylight.controller.samples/clustering-it-model/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller.samples/clustering-it-provider/1.5.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-message-bus-collector" version="1.5.4-Carbon">
+    <bundle>mvn:org.opendaylight.controller.model/model-inventory/1.5.4-Carbon</bundle>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <bundle>mvn:org.opendaylight.controller/messagebus-api/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/messagebus-spi/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/messagebus-util/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/messagebus-impl/1.5.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/05-message-bus.xml">mvn:org.opendaylight.controller/messagebus-config/1.5.4-Carbon/xml/config</configfile>
+  </feature>
+</features>

@@ -1,0 +1,17 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-bgpcep-0.7.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/0.10.4-Carbon/xml/features</repository>
+  <feature name="odl-bgpcep-rsvp" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-rsvp-dependencies</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/rsvp-api/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/rsvp-spi/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/rsvp-impl/0.7.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bgpcep-rsvp-dependencies" version="0.7.4-Carbon">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/concepts/0.7.4-Carbon</bundle>
+    <bundle>mvn:io.netty/netty-common/4.1.8.Final</bundle>
+    <bundle>mvn:io.netty/netty-buffer/4.1.8.Final</bundle>
+    <bundle>mvn:org.opendaylight.controller/config-api/0.6.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/util/0.7.4-Carbon</bundle>
+  </feature>
+</features>

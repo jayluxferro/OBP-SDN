@@ -1,0 +1,9 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-of-config-1.2.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.of-config/southbound-features/1.2.4-Carbon/xml/features</repository>
+  <feature name="odl-of-config-all" version="1.2.4-Carbon" description="OpenDaylight :: of-config :: ALL">
+    <feature version="1.2.4-Carbon">odl-of-config-southbound-rest</feature>
+  </feature>
+  <feature name="odl-of-config-rest" version="1.2.4-Carbon" description="OpenDaylight :: of-config :: rest">
+    <feature version="1.2.4-Carbon">odl-of-config-southbound-rest</feature>
+  </feature>
+</features>

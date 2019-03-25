@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.opendaylight.mdsal.model</groupId>
+  <artifactId>iana-if-type-2014-05-08</artifactId>
+  <versioning>
+    <release>2014.05.08.10.4-Carbon</release>
+    <versions>
+      <version>2014.05.08.10.4-Carbon</version>
+    </versions>
+    <lastUpdated>20180421085011</lastUpdated>
+  </versioning>
+</metadata>

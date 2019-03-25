@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- vi: set et smarttab sw=4 tabstop=4: -->
+<!--
+Copyright (c) 2015 Foxconn Corporation and others.  All rights reserved.
+
+This program and the accompanying materials are made available under the
+terms of the Eclipse Public License v1.0 which accompanies this distribution,
+and is available at http://www.eclipse.org/legal/epl-v10.html
+-->
+<snapshot>
+    <required-capabilities>
+        <!-- ocpjava -->
+        <capability>
+            urn:opendaylight:params:xml:ns:yang:ocp:radiohead:connection:provider:impl?module=ocp-radiohead-connection-provider-impl&amp;revision=2015-08-11
+        </capability>
+        <capability>
+            urn:opendaylight:params:xml:ns:yang:ocp:radiohead:connection:provider?module=ocp-radiohead-connection-provider&amp;revision=2015-08-11
+        </capability>
+        <!-- ocpplugin -->
+        <capability>urn:opendaylight:params:xml:ns:yang:config:ocp:plugin:impl?module=ocp-plugin-provider-impl&amp;revision=2015-08-11</capability>
+        <capability>urn:opendaylight:params:xml:ns:yang:ocp:api?module=ocp-provider&amp;revision=2015-08-11</capability>
+        <!-- binding-broker-impl - provided -->
+    </required-capabilities>
+
+    <configuration>
+
+        <data xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+            <modules xmlns="urn:opendaylight:params:xml:ns:yang:controller:config">
+                <!-- default OCP-radiohead-connection-provider (port 1033) -->
+                <module>
+                    <type xmlns:prefix="urn:opendaylight:params:xml:ns:yang:ocp:radiohead:connection:provider:impl">
+                        prefix:ocp-radiohead-connection-provider-impl
+                    </type>
+                    <name>ocp-radiohead-connection-provider-default-impl</name>
+                    <port>1033</port>
+                    <!--      Possible transport-protocol options: TCP, TLS, UDP -->
+                    <transport-protocol>TCP</transport-protocol>
+                    <radioHead-idle-timeout>25000</radioHead-idle-timeout>
+                </module>
+                <module>
+                    <type xmlns:prefix="urn:opendaylight:params:xml:ns:yang:config:ocp:plugin:impl">
+                        prefix:ocp-plugin-provider-impl
+                    </type>
+                    <name>ocp-plugin-provider-impl</name>
+                    <ocp-radiohead-connection-provider>
+                        <type xmlns:ocpRadiohead="urn:opendaylight:params:xml:ns:yang:ocp:radiohead:connection:provider">ocpRadiohead:ocp-radiohead-connection-provider</type>
+                        <name>ocp-radiohead-connection-provider-default</name>
+                    </ocp-radiohead-connection-provider>
+                    <data-broker>
+                        <type xmlns:binding="urn:opendaylight:params:xml:ns:yang:controller:md:sal:binding">binding:binding-async-data-broker</type>
+                        <name>pingpong-binding-data-broker</name>
+                    </data-broker>
+                    <rpc-registry>
+                        <type xmlns:binding="urn:opendaylight:params:xml:ns:yang:controller:md:sal:binding">binding:binding-rpc-registry</type>
+                        <name>binding-rpc-broker</name>
+                    </rpc-registry>
+                    <notification-adapter>
+                        <type xmlns:binding="urn:opendaylight:params:xml:ns:yang:controller:md:sal:binding:impl">binding:binding-new-notification-service</type>
+                        <name>binding-notification-adapter</name>
+                    </notification-adapter>
+                    <notification-publish-adapter>
+                        <type xmlns:binding="urn:opendaylight:params:xml:ns:yang:controller:md:sal:binding:impl">binding:binding-new-notification-publish-service</type>
+                        <name>binding-notification-publish-adapter</name>
+                    </notification-publish-adapter>
+                    <ocp-version>4.1.1</ocp-version>
+                    <rpc-requests-quota>20000</rpc-requests-quota>
+                    <global-notification-quota>64000</global-notification-quota>
+                </module>
+                <module>
+                    <type xmlns:prefix="urn:opendaylight:params:xml:ns:yang:ocp:applications:ocp-service">prefix:ocp-service</type>
+                    <name>ocp-service-default</name>
+                    <rpc-registry>
+                        <type xmlns:binding="urn:opendaylight:params:xml:ns:yang:controller:md:sal:binding">binding:binding-rpc-registry</type> 
+                        <name>binding-rpc-broker</name>
+                    </rpc-registry>
+                    <notification-service>
+                        <type xmlns:binding="urn:opendaylight:params:xml:ns:yang:controller:md:sal:binding">binding:binding-notification-service</type>
+                        <name>binding-notification-broker</name>
+                    </notification-service>
+                    <data-broker>
+                        <type xmlns:binding="urn:opendaylight:params:xml:ns:yang:controller:md:sal:binding">binding:binding-async-data-broker</type>
+                        <name>binding-data-broker</name>
+                    </data-broker>
+                </module>
+            </modules>
+
+            <services xmlns="urn:opendaylight:params:xml:ns:yang:controller:config">
+                <service>
+                    <type xmlns:prefix="urn:opendaylight:params:xml:ns:yang:ocp:radiohead:connection:provider">prefix:ocp-radiohead-connection-provider</type>
+                    <instance>
+                        <name>ocp-radiohead-connection-provider-default</name>
+                        <provider>/modules/module[type='ocp-radiohead-connection-provider-impl'][name='ocp-radiohead-connection-provider-default-impl']</provider>
+                    </instance>
+                </service>
+                <service>
+                    <type xmlns:prefix="urn:opendaylight:params:xml:ns:yang:ocp:api">
+                        prefix:ocp-provider
+                    </type>
+                    <instance>
+                        <name>ocp-provider</name>
+                        <provider>
+                            /modules/module[type='ocp-plugin-provider-impl'][name='ocp-plugin-provider-impl']
+                        </provider>
+                    </instance>
+                </service>
+            </services>
+        </data>
+
+    </configuration>
+</snapshot>

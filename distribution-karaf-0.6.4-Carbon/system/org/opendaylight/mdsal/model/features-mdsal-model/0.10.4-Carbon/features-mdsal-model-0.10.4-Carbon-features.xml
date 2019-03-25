@@ -1,0 +1,24 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.3.0" name="odl-mdsal-models-0.10.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.3.0 http://karaf.apache.org/xmlns/features/v1.3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.mdsal/features-mdsal/2.2.4-Carbon/xml/features</repository>
+  <feature name="odl-mdsal-models" version="0.10.4-Carbon" description="OpenDaylight :: MD-SAL :: Models">
+    <feature version="2.2.4-Carbon" dependency="true">odl-mdsal-binding-base</feature>
+    <bundle>mvn:org.opendaylight.mdsal.model/iana-afn-safi/2013.07.04.10.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal.model/iana-if-type-2014-05-08/2014.05.08.10.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal.model/ietf-inet-types/2010.09.24.10.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal.model/ietf-interfaces/2014.05.08.10.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal.model/ietf-yang-types/2010.09.24.10.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal.model/ietf-yang-types-20130715/2013.07.15.10.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal.model/ietf-restconf/2013.10.19.10.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal.model/opendaylight-l2-types/2013.08.27.10.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal.model/ietf-ted/2013.10.21.10.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal.model/ietf-topology/2013.10.21.10.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal.model/ietf-topology-isis/2013.10.21.10.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal.model/ietf-topology-ospf/2013.10.21.10.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal.model/ietf-topology-l3-unicast-igp/2013.10.21.10.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal.model/ietf-network-2015-06-08/1.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal.model/ietf-inet-types-2013-07-15/1.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal.model/ietf-type-util/1.1.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal.model/ietf-packet-fields/0.8.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.mdsal.model/ietf-access-control-list/0.8.4-Carbon</bundle>
+  </feature>
+</features>

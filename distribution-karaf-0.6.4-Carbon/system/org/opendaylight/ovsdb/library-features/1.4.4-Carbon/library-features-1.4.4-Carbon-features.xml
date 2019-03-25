@@ -1,0 +1,19 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-ovsdb-library-1.4.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.yangtools/features-yangtools/1.1.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-mdsal/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/0.10.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.aaa/features-aaa/0.5.4-Carbon/xml/features</repository>
+  <feature name="odl-ovsdb-library" version="1.4.4-Carbon" description="OpenDaylight :: library">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <feature version="0.5.4-Carbon">odl-aaa-cert</feature>
+    <bundle>mvn:org.opendaylight.ovsdb/library/1.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.ovsdb/utils.servicehelper/1.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.ovsdb/schema.openvswitch/1.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.ovsdb/schema.hardwarevtep/1.4.4-Carbon</bundle>
+    <bundle start="true">mvn:com.fasterxml.jackson.core/jackson-annotations/2.3.2</bundle>
+    <bundle start="true">mvn:com.fasterxml.jackson.core/jackson-core/2.3.2</bundle>
+    <bundle start="true">mvn:com.fasterxml.jackson.core/jackson-databind/2.3.2</bundle>
+    <configfile finalname="etc/org.opendaylight.ovsdb.library.cfg">mvn:org.opendaylight.ovsdb/library/1.4.4-Carbon/cfg/config</configfile>
+  </feature>
+</features>

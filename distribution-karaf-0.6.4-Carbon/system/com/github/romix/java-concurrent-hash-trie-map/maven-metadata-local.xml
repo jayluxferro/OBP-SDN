@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.github.romix</groupId>
+  <artifactId>java-concurrent-hash-trie-map</artifactId>
+  <versioning>
+    <release>0.2.23-ODL</release>
+    <versions>
+      <version>0.2.23-ODL</version>
+    </versions>
+    <lastUpdated>20180421085011</lastUpdated>
+  </versioning>
+</metadata>

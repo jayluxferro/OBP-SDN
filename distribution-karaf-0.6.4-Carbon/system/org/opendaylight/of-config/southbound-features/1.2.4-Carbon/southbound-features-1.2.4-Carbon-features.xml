@@ -1,0 +1,29 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-of-config-southbound-1.2.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.yangtools/features-yangtools/1.1.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-mdsal/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/0.10.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-restconf/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-netconf/1.2.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-netconf-connector/1.2.4-Carbon/xml/features</repository>
+  <feature name="odl-of-config-southbound-api" version="1.2.4-Carbon" description="OpenDaylight :: of-config:: southbound :: api">
+    <feature version="1.2.4-Carbon">odl-of-config-southbound-ofconfigmodels</feature>
+    <bundle>mvn:org.opendaylight.of-config/southbound-api/1.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-of-config-southbound-ofconfigmodels" version="1.2.4-Carbon" description="OpenDaylight :: of-config:: southbound :: ofconfigmodels">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <bundle>mvn:org.opendaylight.of-config/southbound-ofconfigmodels/1.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-of-config-southbound-all" version="1.2.4-Carbon" description="OpenDaylight :: of-config:: southbound">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="1.2.4-Carbon">odl-of-config-southbound-api</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-connector-all</feature>
+    <feature version="1.5.4-Carbon">odl-netconf-mdsal</feature>
+    <bundle>mvn:org.opendaylight.of-config/southbound-impl/1.2.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/31-ofconfig.xml">mvn:org.opendaylight.of-config/southbound-impl/1.2.4-Carbon/xml/config</configfile>
+    <configfile finalname="etc/opendaylight/karaf/32-ofconfig-nodes-config.xml">mvn:org.opendaylight.of-config/southbound-impl/1.2.4-Carbon/xml/ofconf-nodes</configfile>
+  </feature>
+  <feature name="odl-of-config-southbound-rest" version="1.2.4-Carbon" description="OpenDaylight :: of-config:: southbound :: REST">
+    <feature version="1.2.4-Carbon">odl-of-config-southbound-all</feature>
+    <feature version="1.5.4-Carbon">odl-restconf</feature>
+  </feature>
+</features>

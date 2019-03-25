@@ -1,0 +1,138 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-netconf-1.2.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.odlparent/features-odlparent/1.8.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-protocol-framework/0.9.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-config/0.6.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-config-persister/0.6.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-config-netty/0.6.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.aaa/features-aaa-shiro/0.5.4-Carbon/xml/features</repository>
+  <feature name="odl-netconf-all" version="1.2.4-Carbon" description="OpenDaylight :: Netconf :: All">
+    <feature version="1.2.4-Carbon">odl-netconf-api</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-mapping-api</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-util</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-impl</feature>
+    <feature version="1.2.4-Carbon">odl-config-netconf-connector</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-netty-util</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-client</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-monitoring</feature>
+  </feature>
+  <feature name="odl-netconf-api" version="1.2.4-Carbon" description="OpenDaylight :: Netconf :: API">
+    <feature version="0.9.4-Carbon">odl-protocol-framework</feature>
+    <feature version="1.1.4-Carbon">odl-yangtools-yang-data</feature>
+    <bundle>mvn:org.opendaylight.controller/config-util/0.6.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netconf/netconf-api/1.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netconf/netconf-auth/1.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netconf/ietf-netconf-monitoring/1.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netconf/ietf-netconf/1.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netconf/ietf-netconf-notifications/1.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netconf/ietf-netconf-monitoring-extension/1.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netconf/ietf-netconf-yang-library/1.2.4-Carbon</bundle>
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+  </feature>
+  <feature name="odl-netconf-mapping-api" version="1.2.4-Carbon" description="OpenDaylight :: Netconf :: Mapping API">
+    <feature version="1.2.4-Carbon">odl-netconf-api</feature>
+    <bundle>mvn:org.opendaylight.netconf/netconf-mapping-api/1.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-netconf-util" version="1.2.4-Carbon">
+    <feature version="1.2.4-Carbon">odl-netconf-mapping-api</feature>
+    <feature version="1.1.4-Carbon">odl-yangtools-yang-data</feature>
+    <bundle>mvn:org.opendaylight.netconf/netconf-util/1.2.4-Carbon</bundle>
+    <configfile finalname="etc/netconf.cfg">mvn:org.opendaylight.netconf/netconf-util/1.2.4-Carbon/cfg/config</configfile>
+  </feature>
+  <feature name="odl-netconf-impl" version="1.2.4-Carbon" description="OpenDaylight :: Netconf :: Impl">
+    <bundle>mvn:org.opendaylight.controller/yang-jmx-generator/0.6.4-Carbon</bundle>
+    <feature version="1.2.4-Carbon">odl-netconf-api</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-mapping-api</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-util</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-netty-util</feature>
+    <feature version="0.6.4-Carbon">odl-config-netty</feature>
+    <feature version="1.2.4-Carbon">odl-config-netconf-connector</feature>
+    <bundle>mvn:org.opendaylight.controller/config-manager-facade-xml/0.6.4-Carbon</bundle>
+    <feature version="1.2.4-Carbon">odl-netconf-monitoring</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-notifications-impl</feature>
+    <bundle>mvn:org.opendaylight.netconf/netconf-impl/1.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-config-netconf-connector" version="1.2.4-Carbon" description="OpenDaylight :: Netconf :: Connector">
+    <bundle>mvn:org.opendaylight.controller/yang-jmx-generator/0.6.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/config-manager-facade-xml/0.6.4-Carbon</bundle>
+    <feature version="0.6.4-Carbon">odl-config-manager</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-netty-util</feature>
+    <bundle>mvn:org.opendaylight.netconf/netconf-impl/1.2.4-Carbon</bundle>
+    <feature version="1.2.4-Carbon">odl-netconf-notifications-api</feature>
+    <feature version="0.6.4-Carbon">odl-config-netty</feature>
+    <bundle>mvn:org.opendaylight.netconf/netconf-notifications-impl/1.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netconf/config-netconf-connector/1.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-netconf-netty-util" version="1.2.4-Carbon" description="OpenDaylight :: Netconf :: Netty Util">
+    <feature version="1.2.4-Carbon">odl-netconf-api</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-mapping-api</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-util</feature>
+    <feature version="[4.0.30,5.0.0)">odl-netty</feature>
+    <feature version="0.5.4-Carbon">odl-aaa-encryption-service</feature>
+    <bundle>mvn:org.opendaylight.netconf/netconf-netty-util/1.2.4-Carbon</bundle>
+    <bundle>mvn:org.bouncycastle/bcpkix-jdk15on/1.56</bundle>
+    <bundle>mvn:org.bouncycastle/bcprov-jdk15on/1.56</bundle>
+    <bundle>mvn:org.apache.sshd/sshd-core/0.14.0</bundle>
+    <bundle>wrap:mvn:openexi/nagasena/0000.0002.0062.0</bundle>
+  </feature>
+  <feature name="odl-netconf-client" version="1.2.4-Carbon" description="OpenDaylight :: Netconf :: Client">
+    <feature version="0.6.4-Carbon">odl-config-all</feature>
+    <feature version="0.6.4-Carbon">odl-config-netty</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-netty-util</feature>
+    <bundle>mvn:org.opendaylight.netconf/netconf-client/1.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netconf/netconf-config/1.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-netconf-monitoring" version="1.2.4-Carbon" description="OpenDaylight :: Netconf :: Monitoring">
+    <feature version="1.2.4-Carbon">odl-netconf-util</feature>
+    <bundle>mvn:org.opendaylight.netconf/netconf-monitoring/1.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-netconf-notifications-api" version="1.2.4-Carbon" description="OpenDaylight :: Netconf :: Notification :: Api">
+    <feature version="0.6.4-Carbon">odl-config-manager-facade-xml</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-api</feature>
+    <bundle>mvn:org.opendaylight.netconf/netconf-notifications-api/1.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-netconf-notifications-impl" version="1.2.4-Carbon" description="OpenDaylight :: Netconf :: Monitoring :: Impl">
+    <feature version="1.2.4-Carbon">odl-netconf-notifications-api</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-util</feature>
+    <bundle>mvn:org.opendaylight.netconf/netconf-notifications-impl/1.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-netconf-ssh" version="1.2.4-Carbon" description="OpenDaylight :: Netconf Connector :: SSH">
+    <feature version="1.2.4-Carbon">odl-netconf-util</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-tcp</feature>
+    <feature version="1.2.4-Carbon">odl-aaa-netconf-plugin</feature>
+    <bundle>mvn:org.opendaylight.netconf/netconf-ssh/1.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-netconf-tcp" version="1.2.4-Carbon" description="OpenDaylight :: Netconf Connector :: TCP">
+    <feature version="1.2.4-Carbon">odl-netconf-util</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-impl</feature>
+    <feature version="0.6.4-Carbon">odl-config-netty</feature>
+    <bundle>mvn:org.opendaylight.netconf/netconf-tcp/1.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-netconf-mdsal" version="1.5.4-Carbon" description="OpenDaylight :: Netconf :: Mdsal">
+    <feature version="0.6.4-Carbon">odl-config-all</feature>
+    <feature version="0.6.4-Carbon">odl-config-netty</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-all</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-tcp</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-ssh</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-client</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <bundle>mvn:org.opendaylight.netconf/mdsal-netconf-ssh/1.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netconf/mdsal-netconf-tcp/1.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netconf/mdsal-netconf-notification/1.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netconf/mdsal-netconf-connector/1.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netconf/mdsal-netconf-monitoring/1.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netconf/mdsal-netconf-yang-library/1.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netconf/mdsal-netconf-impl/1.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-aaa-netconf-plugin" description="OpenDaylight :: AAA :: ODL NETCONF Plugin" version="1.2.4-Carbon">
+    <feature version="0.6.4-Carbon">odl-config-api</feature>
+    <bundle>mvn:org.opendaylight.netconf/netconf-auth/1.2.4-Carbon</bundle>
+    <feature version="0.5.4-Carbon">odl-aaa-shiro</feature>
+    <bundle>mvn:org.opendaylight.netconf/aaa-authn-odl-plugin/1.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-aaa-netconf-plugin-no-cluster" description="OpenDaylight :: AAA :: ODL NETCONF Plugin - NO CLUSTER" version="1.2.4-Carbon">
+    <feature version="0.6.4-Carbon">odl-config-api</feature>
+    <bundle>mvn:org.opendaylight.netconf/netconf-auth/1.2.4-Carbon</bundle>
+    <feature version="0.5.4-Carbon">odl-aaa-shiro</feature>
+    <bundle>mvn:org.opendaylight.netconf/aaa-authn-odl-plugin/1.2.4-Carbon</bundle>
+  </feature>
+</features>

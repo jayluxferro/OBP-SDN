@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat Apr 21 08:50:11 UTC 2018
+apache-karaf-cellar-3.0.3-node.cfg>=
+apache-karaf-cellar-3.0.3-features.xml>=
+apache-karaf-cellar-3.0.3-groups.cfg>=
+apache-karaf-cellar-3.0.3-hazelcast.xml>=

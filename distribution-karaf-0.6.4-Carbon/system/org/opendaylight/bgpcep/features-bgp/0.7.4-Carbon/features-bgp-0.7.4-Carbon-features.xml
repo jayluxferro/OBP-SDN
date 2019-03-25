@@ -1,0 +1,154 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-bgpcep-0.7.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.controller/features-config/0.6.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-mdsal/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.yangtools/features-yangtools/1.1.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/0.10.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.bgpcep/features-rsvp/0.7.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.odlparent/features-odlparent/1.8.4-Carbon/xml/features</repository>
+  <feature name="odl-bgpcep-bgp" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-parser</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-rib-api</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-openconfig</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-rib-impl</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-openconfig-state</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-inet</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-linkstate</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-flowspec</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-labeled-unicast</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-l3vpn</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-evpn</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-path-selection-mode</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-topology</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-cli</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-config-files</feature>
+    <configfile finalname="etc/opendaylight/karaf/31-bgp.xml">mvn:org.opendaylight.bgpcep/bgp-controller-config/0.7.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-bgpcep-config-files" version="0.7.4-Carbon">
+    <configfile finalname="etc/opendaylight/bgp/protocols-config.xml">mvn:org.opendaylight.bgpcep/bgp-controller-config/0.7.4-Carbon/xml/bgp-initial-config</configfile>
+    <configfile finalname="etc/opendaylight/bgp/network-topology-config.xml">mvn:org.opendaylight.bgpcep/bgp-controller-config/0.7.4-Carbon/xml/network-topology-initial-config</configfile>
+  </feature>
+  <feature name="odl-bgpcep-bgp-openconfig" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-parser</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-rib-api</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-openconfig-api/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-openconfig-spi/0.7.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bgpcep-bgp-dependencies" version="0.7.4-Carbon">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <feature version="1.1.4-Carbon">odl-yangtools-yang-data</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/concepts/0.7.4-Carbon</bundle>
+    <feature version="1.8.4-Carbon">odl-netty-4</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/util/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-concepts/0.7.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bgpcep-bgp-inet" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-parser</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-rib-api</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-openconfig</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-inet/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-bmp-api/0.7.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bgpcep-bgp-parser" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-dependencies</feature>
+    <feature version="0.6.4-Carbon">odl-config-api</feature>
+    <feature version="1.1.4-Carbon">odl-yangtools-yang-data</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-parser-api/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-parser-spi/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-parser-impl/0.7.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bgpcep-bgp-rib-api" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-dependencies</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-parser-api/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-parser-spi/0.7.4-Carbon</bundle>
+    <feature version="0.6.4-Carbon">odl-config-netty-config-api</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-rib-api/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-rib-spi/0.7.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bgpcep-bgp-linkstate" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-parser</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-rib-api</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-rsvp</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-openconfig</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-bmp-api/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-linkstate/0.7.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bgpcep-bgp-flowspec" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-parser</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-rib-api</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-inet</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-openconfig</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-bmp-api/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-flowspec/0.7.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bgpcep-bgp-labeled-unicast" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-parser</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-rib-api</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-inet</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-openconfig</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-bmp-api/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-labeled-unicast/0.7.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bgpcep-bgp-l3vpn" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-parser</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-rib-api</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-labeled-unicast</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-openconfig</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-bmp-api/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-l3vpn/0.7.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bgpcep-bgp-evpn" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-parser</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-rib-api</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-openconfig</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-bmp-api/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-evpn/0.7.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bgpcep-bgp-path-selection-mode" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-dependencies</feature>
+    <feature version="0.6.4-Carbon">odl-config-api</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-parser-api/0.7.4-Carbon</bundle>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-rib-api</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-path-selection-mode/0.7.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bgpcep-bgp-rib-impl" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-dependencies</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-rib-api</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-inet</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-path-selection-mode</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-config-loader</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-openconfig-api/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-openconfig-spi/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-rib-impl/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-peer-acceptor/0.7.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bgpcep-bgp-topology" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-inet</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-linkstate</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/topology-api/0.7.4-Carbon</bundle>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-config-loader</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-topology-provider/0.7.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bgpcep-bgp-benchmark" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-inet</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-benchmark-app/0.7.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bgpcep-bgp-cli" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-rib-impl</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-cli/0.7.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bgpcep-bgp-config-loader" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-config-files</feature>
+    <feature version="2.2.4-Carbon">odl-mdsal-binding-runtime</feature>
+    <feature version="2.2.4-Carbon">odl-mdsal-dom-api</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-config-loader-spi/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-config-loader-impl/0.7.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bgpcep-bgp-openconfig-state" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-bgp-rib-impl</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/bgp-openconfig-state/0.7.4-Carbon</bundle>
+  </feature>
+</features>

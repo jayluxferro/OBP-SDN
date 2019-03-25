@@ -1,0 +1,37 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-ovsdb-hwvtepsouthbound-1.4.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.yangtools/features-yangtools/1.1.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-mdsal/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-restconf/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/0.10.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.dluxapps/features-dluxapps/0.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.ovsdb/library-features/1.4.4-Carbon/xml/features</repository>
+  <feature name="odl-ovsdb-hwvtepsouthbound-api" version="1.4.4-Carbon" description="OpenDaylight :: hwvtepsouthbound :: api">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <bundle>mvn:org.opendaylight.ovsdb/hwvtepsouthbound-api/1.4.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-ovsdb-hwvtepsouthbound" version="1.4.4-Carbon" description="OpenDaylight :: hwvtepsouthbound">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="1.4.4-Carbon">odl-ovsdb-hwvtepsouthbound-api</feature>
+    <bundle>mvn:org.opendaylight.ovsdb/utils.mdsal-utils/1.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.ovsdb/hwvtepsouthbound-impl/1.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.ovsdb/library/1.4.4-Carbon</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/2.3.2</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-core/2.3.2</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/2.3.2</bundle>
+    <feature version="1.4.4-Carbon">odl-ovsdb-library</feature>
+  </feature>
+  <feature name="odl-ovsdb-hwvtepsouthbound-rest" version="1.4.4-Carbon" description="OpenDaylight :: hwvtepsouthbound :: REST">
+    <feature version="1.4.4-Carbon">odl-ovsdb-hwvtepsouthbound</feature>
+    <feature version="1.5.4-Carbon">odl-restconf</feature>
+  </feature>
+  <feature name="odl-ovsdb-hwvtepsouthbound-ui" version="1.4.4-Carbon" description="OpenDaylight :: hwvtepsouthbound :: UI">
+    <feature version="1.4.4-Carbon">odl-ovsdb-hwvtepsouthbound-rest</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-apidocs</feature>
+    <feature version="0.5.4-Carbon">odl-dluxapps-yangman</feature>
+  </feature>
+  <feature name="odl-ovsdb-hwvtepsouthbound-test" version="1.4.4-Carbon" description="OpenDaylight :: hwvtepsouthbound :: test">
+    <feature version="1.4.4-Carbon">odl-ovsdb-hwvtepsouthbound</feature>
+    <bundle>mvn:org.opendaylight.ovsdb/utils.mdsal-utils/1.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.ovsdb/utils.hwvtepsouthbound-utils/1.4.4-Carbon</bundle>
+  </feature>
+</features>

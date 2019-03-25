@@ -1,0 +1,8 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat Apr 21 08:50:08 UTC 2018
+cli-renderer-1.2.4-Carbon.jar>=
+cli-renderer-1.2.4-Carbon-host-resource.json>=
+cli-renderer-1.2.4-Carbon-external-resource.json>=
+cli-renderer-1.2.4-Carbon-node-resource.json>=
+cli-renderer-1.2.4-Carbon-link-resource.json>=
+cli-renderer-1.2.4-Carbon-config.xml>=

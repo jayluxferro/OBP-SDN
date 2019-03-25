@@ -1,0 +1,7 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat Apr 21 08:50:10 UTC 2018
+tsdr-persistence-elasticsearch-1.3.4-Carbon-metric_config.json>=
+tsdr-persistence-elasticsearch-1.3.4-Carbon-log_config.json>=
+tsdr-persistence-elasticsearch-1.3.4-Carbon-binary_config.json>=
+tsdr-persistence-elasticsearch-1.3.4-Carbon.jar>=
+tsdr-persistence-elasticsearch-1.3.4-Carbon-config.properties>=

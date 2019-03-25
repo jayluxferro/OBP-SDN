@@ -1,0 +1,149 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-bier-0.1.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.yangtools/features-yangtools/1.1.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-mdsal/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/0.10.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-restconf/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.dluxapps/features-dluxapps/0.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-netconf/1.2.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-netconf-connector/1.2.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.openflowplugin/features-openflowplugin/0.4.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.openflowjava/features-openflowjava/0.9.4-Carbon/xml/features</repository>
+  <feature name="odl-bier-all" version="0.1.4-Carbon" description="OpenDaylight :: Bier :: All">
+    <feature version="0.1.4-Carbon">odl-bier-models</feature>
+    <feature version="0.1.4-Carbon">odl-bier-topomanager-api</feature>
+    <feature version="0.1.4-Carbon">odl-bier-topomanager</feature>
+    <feature version="0.1.4-Carbon">odl-bier-topomanager-rest</feature>
+    <feature version="0.1.4-Carbon">odl-bier-topomanager-ui</feature>
+    <feature version="0.1.4-Carbon">odl-bier-topomanager-cli</feature>
+    <feature version="0.1.4-Carbon">odl-bier-channel-api</feature>
+    <feature version="0.1.4-Carbon">odl-bier-channel</feature>
+    <feature version="0.1.4-Carbon">odl-bier-channel-rest</feature>
+    <feature version="0.1.4-Carbon">odl-bier-channel-ui</feature>
+    <feature version="0.1.4-Carbon">odl-bier-channel-cli</feature>
+    <feature version="0.1.4-Carbon">odl-bier-adapter</feature>
+    <feature version="0.1.4-Carbon">odl-bier-std-driver</feature>
+    <feature version="0.1.4-Carbon">odl-bier-service-api</feature>
+    <feature version="0.1.4-Carbon">odl-bier-service</feature>
+    <feature version="0.1.4-Carbon">odl-bier-service-rest</feature>
+    <feature version="0.1.4-Carbon">odl-bier-service-ui</feature>
+    <feature version="0.1.4-Carbon">odl-bier-service-cli</feature>
+    <feature version="0.1.4-Carbon">odl-bier-test</feature>
+  </feature>
+  <feature name="odl-bier-models" version="0.1.4-Carbon" description="OpenDaylight :: bier :: models">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <bundle>mvn:org.opendaylight.bier/ietf-bier-2016-07-23/0.1.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bier/ietf-multicast-information-2016-10-28/0.1.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bier/bier-common-model/0.1.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bier/bier-topology-model/0.1.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bier/bier-channel-model/0.1.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bier-topomanager-api" version="0.1.4-Carbon" description="OpenDaylight :: bier :: topomanager :: api">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <feature version="0.1.4-Carbon">odl-bier-models</feature>
+    <bundle>mvn:org.opendaylight.bier/topomanager-api/0.1.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bier-topomanager" version="0.1.4-Carbon" description="OpenDaylight :: bier :: topomanager">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="0.4.4-Carbon">odl-openflowplugin-southbound</feature>
+    <feature version="0.4.4-Carbon">odl-openflowplugin-flow-services</feature>
+    <feature version="0.1.4-Carbon">odl-bier-topomanager-api</feature>
+    <bundle>mvn:org.opendaylight.bier/topomanager-impl/0.1.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bier-topomanager-rest" version="0.1.4-Carbon" description="OpenDaylight :: bier :: topomanager :: REST">
+    <feature version="0.1.4-Carbon">odl-bier-topomanager</feature>
+    <feature version="1.5.4-Carbon">odl-restconf</feature>
+  </feature>
+  <feature name="odl-bier-topomanager-ui" version="0.1.4-Carbon" description="OpenDaylight :: bier :: topomanager :: UI">
+    <feature version="0.1.4-Carbon">odl-bier-topomanager-rest</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-apidocs</feature>
+    <feature version="0.5.4-Carbon">odl-dluxapps-yangman</feature>
+  </feature>
+  <feature name="odl-bier-topomanager-cli" version="0.1.4-Carbon" description="OpenDaylight :: bier :: topomanager :: CLI">
+    <feature version="0.1.4-Carbon">odl-bier-topomanager</feature>
+    <bundle>mvn:org.opendaylight.bier/topomanager-cli/0.1.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bier-channel-api" version="0.1.4-Carbon" description="OpenDaylight :: bier :: channel :: api">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <feature version="0.1.4-Carbon">odl-bier-models</feature>
+    <bundle>mvn:org.opendaylight.bier/channel-api/0.1.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bier-channel" version="0.1.4-Carbon" description="OpenDaylight :: bier :: channel">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="0.1.4-Carbon">odl-bier-channel-api</feature>
+    <bundle>mvn:org.opendaylight.bier/channel-impl/0.1.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bier-channel-rest" version="0.1.4-Carbon" description="OpenDaylight :: bier :: channel :: REST">
+    <feature version="0.1.4-Carbon">odl-bier-channel</feature>
+    <feature version="1.5.4-Carbon">odl-restconf</feature>
+  </feature>
+  <feature name="odl-bier-channel-ui" version="0.1.4-Carbon" description="OpenDaylight :: bier :: channel :: UI">
+    <feature version="0.1.4-Carbon">odl-bier-channel-rest</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-apidocs</feature>
+    <feature version="0.5.4-Carbon">odl-dluxapps-yangman</feature>
+  </feature>
+  <feature name="odl-bier-channel-cli" version="0.1.4-Carbon" description="OpenDaylight :: bier :: channel :: CLI">
+    <feature version="0.1.4-Carbon">odl-bier-channel</feature>
+    <bundle>mvn:org.opendaylight.bier/channel-cli/0.1.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bier-service-api" version="0.1.4-Carbon" description="OpenDaylight :: bier :: service :: api">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <bundle>mvn:org.opendaylight.bier/service-api/0.1.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bier-service" version="0.1.4-Carbon" description="OpenDaylight :: bier :: service">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="0.1.4-Carbon">odl-bier-models</feature>
+    <feature version="0.1.4-Carbon">odl-bier-service-api</feature>
+    <feature version="0.1.4-Carbon">odl-bier-adapter</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-netty-util</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-connector</feature>
+    <feature version="0.1.4-Carbon">odl-bier-std-driver</feature>
+    <bundle>mvn:org.opendaylight.bier/service-impl/0.1.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bier-service-rest" version="0.1.4-Carbon" description="OpenDaylight :: bier :: service :: REST">
+    <feature version="0.1.4-Carbon">odl-bier-service</feature>
+    <feature version="1.5.4-Carbon">odl-restconf</feature>
+  </feature>
+  <feature name="odl-bier-service-ui" version="0.1.4-Carbon" description="OpenDaylight :: bier :: service :: UI">
+    <feature version="0.1.4-Carbon">odl-bier-service-rest</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-apidocs</feature>
+    <feature version="0.5.4-Carbon">odl-dluxapps-yangman</feature>
+  </feature>
+  <feature name="odl-bier-service-cli" version="0.1.4-Carbon" description="OpenDaylight :: bier :: service :: CLI">
+    <feature version="0.1.4-Carbon">odl-bier-service</feature>
+    <bundle>mvn:org.opendaylight.bier/service-cli/0.1.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bier-adapter" version="0.1.4-Carbon" description="OpenDaylight :: bier :: adapter">
+    <feature version="0.1.4-Carbon">odl-bier-models</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-connector-all</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-topology</feature>
+    <bundle>mvn:org.opendaylight.bier/bier-adapter/0.1.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bier-driver-common" version="0.1.4-Carbon" description="OpenDaylight :: bier :: driver::common">
+    <feature version="0.1.4-Carbon">odl-bier-adapter</feature>
+    <bundle>mvn:org.opendaylight.bier/bier-driver-common-reporter-api/0.1.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bier/bier-driver-common-reporter-impl/0.1.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bier/bier-driver-common-util/0.1.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bier-std-driver" version="0.1.4-Carbon" description="OpenDaylight :: bier :: std :: driver">
+    <feature version="0.1.4-Carbon">odl-bier-models</feature>
+    <feature version="0.1.4-Carbon">odl-bier-driver-common</feature>
+    <bundle>mvn:org.opendaylight.bier/bier-std-driver/0.1.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bier-test-driver-impl" version="0.1.4-Carbon" description="OpenDaylight :: test :: driver :: impl">
+    <feature version="0.1.4-Carbon">odl-bier-driver-common</feature>
+    <feature version="0.1.4-Carbon">odl-bier-std-driver</feature>
+    <feature version="0.1.4-Carbon">odl-bier-test-driver-api</feature>
+    <bundle>mvn:org.opendaylight.bier/test-driver-impl/0.1.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bier-test-driver-api" version="0.1.4-Carbon" description="OpenDaylight :: test :: driver :: api">
+    <feature version="0.1.4-Carbon">odl-bier-models</feature>
+    <bundle>mvn:org.opendaylight.bier/test-driver-api/0.1.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bier-test-driver" version="0.1.4-Carbon" description="OpenDaylight :: bier :: test :: driver">
+    <feature version="0.1.4-Carbon">odl-bier-test-driver-impl</feature>
+    <feature version="0.1.4-Carbon">odl-bier-test-driver-api</feature>
+  </feature>
+  <feature name="odl-bier-test" version="0.1.4-Carbon" description="OpenDaylight :: bier :: test">
+    <feature version="0.1.4-Carbon">odl-bier-test-driver</feature>
+  </feature>
+</features>

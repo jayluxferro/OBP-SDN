@@ -1,0 +1,141 @@
+module openflow-provider-config {
+    yang-version 1;
+    namespace "urn:opendaylight:params:xml:ns:yang:openflow:provider:config";
+    prefix "openflow-provider-config";
+
+    description
+        "Configuration for an Openflow provider.";
+
+    revision "2016-05-10" {
+        description
+            "Initial revision";
+    }
+
+    typedef non-zero-uint32-type {
+        type uint32 {
+            range "1..max";
+        }
+    }
+
+    typedef non-zero-uint16-type {
+        type uint16 {
+            range "1..max";
+        }
+    }
+
+    container openflow-provider-config {
+        leaf rpc-requests-quota {
+            description "Quota for maximum number of RPC requests";
+            type non-zero-uint16-type;
+            default 20000;
+        }
+
+        leaf switch-features-mandatory {
+            description "This parameter indicates whether it is mandatory for
+                switch to support OF1.3 features : table, flow, meter,group. If this
+                is set to true and switch doesn't support these features its
+                connection will be denied.";
+            type boolean;
+            default false;
+        }
+
+        leaf global-notification-quota {
+            description "Global notification quota";
+            type uint32;
+            default 64000;
+        }
+
+        leaf is-statistics-polling-on {
+            description "If enabled, periodic statistics gathering will be
+                turned on";
+            type boolean;
+            default "true";
+        }
+
+        leaf is-statistics-rpc-enabled {
+            status deprecated;
+            description "Expose backward compatible statistics rpcs providing
+                result in form of async notification. This is deprecated, use direct
+                statistics instead.";
+            type boolean;
+            default "false";
+        }
+
+        leaf barrier-interval-timeout-limit {
+            description "Barrier timeout";
+            type non-zero-uint32-type;
+            default 500;
+        }
+
+        leaf barrier-count-limit {
+            description "Barrier limit";
+            type non-zero-uint16-type;
+            default 25600;
+        }
+
+        leaf echo-reply-timeout {
+            description "How long we should wait for echo reply (value is in
+                milliseconds";
+            type non-zero-uint32-type;
+            default 2000;
+        }
+
+        leaf thread-pool-min-threads {
+            description "Mininum (starting) number of threads in thread pool";
+            type uint16;
+            default 1;
+        }
+
+        leaf thread-pool-max-threads {
+            description "Maximum number of threads in thread pool";
+            type non-zero-uint16-type;
+            default 32000;
+        }
+
+        leaf thread-pool-timeout {
+            description "After how much time (in seconds) of inactivity will be
+                threads in pool terminated";
+            type uint32;
+            default 60;
+        }
+
+        leaf enable-flow-removed-notification {
+            description "Turning on flow removed notification";
+            type boolean;
+            default "true";
+        }
+
+        leaf skip-table-features {
+            description "Ability to skip pulling and storing of large table
+                features. These features are still available via rpc but if set to
+                true then maintenance in DS will be omitted";
+            type boolean;
+            default "true";
+        }
+
+        leaf basic-timer-delay {
+            description "Initial delay used in polling the statistics, value is
+                in milliseconds";
+            type non-zero-uint32-type;
+            default 3000;
+        }
+
+        leaf maximum-timer-delay {
+            description "Maximum timer delay is the wait time to collect next
+                statistics used in polling the statistics, value is in
+                milliseconds";
+            type non-zero-uint32-type;
+            default 900000;
+        }
+
+        leaf use-single-layer-serialization {
+            description "When true, Yang models are serialized and deserialized
+                directly to and from format supported by device, so serialization
+                and deserialization is faster. Otherwise, models are first
+                serialized to Openflow specification models and then to format
+                supported by device, and reversed when deserializing.";
+            type boolean;
+            default "true";
+        }
+    }
+}

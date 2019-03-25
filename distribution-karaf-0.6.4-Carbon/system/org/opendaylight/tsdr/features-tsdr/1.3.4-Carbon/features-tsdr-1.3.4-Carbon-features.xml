@@ -1,0 +1,129 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-tsdr-1.3.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.controller/features-mdsal/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-restconf/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.l2switch/features-l2switch/0.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.snmp/features-snmp/1.3.4-Carbon/xml/features</repository>
+  <feature name="odl-tsdr-hsqldb-all" version="1.3.4-Carbon" description="OpenDaylight :: TSDR :: With hsqldb Persistence and openflow data collectors">
+    <feature version="1.3.4-Carbon">odl-tsdr-core</feature>
+    <feature version="1.3.4-Carbon">odl-tsdr-hsqldb</feature>
+    <feature version="1.3.4-Carbon">odl-tsdr-openflow-statistics-collector</feature>
+  </feature>
+  <feature name="odl-tsdr-openflow-statistics-collector" version="1.3.4-Carbon" description="OpenDaylight :: TSDR :: Openflow Statistics Collector">
+    <feature version="1.3.4-Carbon">odl-tsdr-core</feature>
+    <feature version="0.5.4-Carbon">odl-l2switch-switch</feature>
+    <bundle>mvn:org.opendaylight.tsdr/tsdr-openflow-statistics-collector/1.3.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/151-tsdr-openflow-statistics-collector-config.xml">mvn:org.opendaylight.tsdr/tsdr-openflow-statistics-collector/1.3.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-tsdr-netflow-statistics-collector" version="1.3.4-Carbon" description="OpenDaylight :: TSDR :: Netflow Statistics Collector">
+    <feature version="1.3.4-Carbon">odl-tsdr-core</feature>
+    <feature version="0.5.4-Carbon">odl-l2switch-switch</feature>
+    <bundle>mvn:org.opendaylight.tsdr/tsdr-netflow-statistics-collector/1.3.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/156-tsdr-netflow-statistics-collector-config.xml">mvn:org.opendaylight.tsdr/tsdr-netflow-statistics-collector/1.3.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-tsdr-controller-metrics-collector" version="1.3.4-Carbon" description="OpenDaylight :: TSDR :: Controller Metrics Collector">
+    <feature version="1.3.4-Carbon">odl-tsdr-core</feature>
+    <bundle>mvn:org.opendaylight.tsdr/tsdr-controller-metrics-collector/1.3.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/154-tsdr-controller-metrics-collector-config.xml">mvn:org.opendaylight.tsdr/tsdr-controller-metrics-collector/1.3.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-tsdr-snmp-data-collector" version="1.3.4-Carbon" description="OpenDaylight :: TSDR :: SNMP Data Collector">
+    <feature version="1.3.4-Carbon">odl-tsdr-core</feature>
+    <feature version="1.3.4-Carbon">odl-snmp-plugin</feature>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.snmp4j/2.3.4_1</bundle>
+    <bundle>mvn:org.opendaylight.tsdr/tsdr-snmp-data-collector/1.3.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/155-tsdr-snmp-data-collector-config.xml">mvn:org.opendaylight.tsdr/tsdr-snmp-data-collector/1.3.4-Carbon/xml/config</configfile>
+    <configfile finalname="/etc/tsdr.snmp.cfg">mvn:org.opendaylight.tsdr/tsdr-snmp-data-collector/1.3.4-Carbon/cfg/config1</configfile>
+  </feature>
+  <feature name="odl-tsdr-syslog-collector" version="1.3.4-Carbon" description="OpenDaylight :: TSDR :: Syslog Collector">
+    <feature version="1.3.4-Carbon">odl-tsdr-core</feature>
+    <bundle>mvn:org.opendaylight.tsdr/tsdr-syslog-collector/1.3.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/154-tsdr-syslog-collector-config.xml">mvn:org.opendaylight.tsdr/tsdr-syslog-collector/1.3.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-tsdr-restconf-collector" version="1.3.4-Carbon" description="OpenDaylight :: TSDR :: Restconf Collector">
+    <feature version="1.3.4-Carbon">odl-tsdr-core</feature>
+    <feature version="1.5.4-Carbon">odl-restconf-all</feature>
+    <feature version="0.5.4-Carbon">odl-aaa-authn</feature>
+    <bundle>mvn:org.opendaylight.tsdr/tsdr-restconf-collector/1.3.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/156-tsdr-restconf-collector-config.xml">mvn:org.opendaylight.tsdr/tsdr-restconf-collector/1.3.4-Carbon/xml/config</configfile>
+    <configfile finalname="etc/tsdr.restconf.collector.cfg">mvn:org.opendaylight.tsdr/tsdr-restconf-collector/1.3.4-Carbon/cfg/config1</configfile>
+  </feature>
+  <feature name="odl-tsdr-core" version="1.3.4-Carbon" description="OpenDaylight :: TSDR :: Core">
+    <feature version="1.1.4-Carbon">odl-yangtools-common</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="0.4.4-Carbon">odl-openflowplugin-nsf-model</feature>
+    <bundle>mvn:org.apache.felix/org.apache.felix.dependencymanager/4.3.0</bundle>
+    <bundle>mvn:com.google.code.gson/gson/2.5</bundle>
+    <bundle>mvn:org.opendaylight.tsdr/tsdr-persistence-spi/1.3.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.tsdr/tsdr-collector-spi/1.3.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/145-TSDR-collector-spi-config.xml">mvn:org.opendaylight.tsdr/tsdr-collector-spi/1.3.4-Carbon/xml/config</configfile>
+    <bundle>mvn:org.opendaylight.tsdr/tsdr-datastorage/1.3.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/150-TSDR-datastorage-config.xml">mvn:org.opendaylight.tsdr/tsdr-datastorage/1.3.4-Carbon/xml/config</configfile>
+    <bundle>mvn:org.opendaylight.tsdr/tsdr-datapurge/1.3.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/152-TSDR-datapurge-config.xml">mvn:org.opendaylight.tsdr/tsdr-datapurge/1.3.4-Carbon/xml/config</configfile>
+    <configfile finalname="etc/tsdr.data.purge.cfg">mvn:org.opendaylight.tsdr/tsdr-datapurge/1.3.4-Carbon/cfg/config1</configfile>
+    <bundle>mvn:org.opendaylight.tsdr/tsdr-collector-spi/1.3.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/145-TSDR-collector-spi-config.xml">mvn:org.opendaylight.tsdr/tsdr-collector-spi/1.3.4-Carbon/xml/config</configfile>
+    <feature version="1.5.4-Carbon">odl-restconf</feature>
+    <bundle>mvn:org.opendaylight.tsdr/tsdr-dataquery/1.3.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/155-TSDR-dataquery-config.xml">mvn:org.opendaylight.tsdr/tsdr-dataquery/1.3.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-hbaseclient" version="0.94.15" resolver="(obr)" start-level="50" description="OpenDaylight :: TSDR :: HBase Client">
+    <feature>war</feature>
+    <bundle dependency="true">mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.jaxws-api-2.2/1.9.0</bundle>
+    <bundle dependency="true">mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.saaj-api-1.3/1.9.0</bundle>
+    <bundle dependency="true">mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/1.1.1</bundle>
+    <bundle dependency="true">mvn:javax.mail/mail/1.4.5</bundle>
+    <bundle dependency="true">mvn:commons-codec/commons-codec/1.10</bundle>
+    <bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.commons-beanutils/1.8.3_1</bundle>
+    <bundle dependency="true">mvn:commons-collections/commons-collections/3.2.2</bundle>
+    <bundle dependency="true">mvn:commons-digester/commons-digester/2.1</bundle>
+    <bundle dependency="true">mvn:commons-jxpath/commons-jxpath/1.3</bundle>
+    <bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jdom/1.1_4</bundle>
+    <bundle dependency="true">mvn:commons-lang/commons-lang/2.6</bundle>
+    <bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.ant/1.7.0_6</bundle>
+    <bundle dependency="true">mvn:commons-configuration/commons-configuration/1.6</bundle>
+    <bundle dependency="true">mvn:commons-daemon/commons-daemon/1.0.5</bundle>
+    <bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.commons-httpclient/3.1_7</bundle>
+    <bundle dependency="true">mvn:org.apache.commons/commons-math/2.2</bundle>
+    <bundle dependency="true">mvn:commons-net/commons-net/3.6</bundle>
+    <bundle dependency="true">mvn:org.codehaus.jackson/jackson-core-asl/1.9.7</bundle>
+    <bundle dependency="true">mvn:org.codehaus.jackson/jackson-mapper-asl/1.9.7</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jetty/6.1.26_4</bundle>
+    <bundle dependency="true">mvn:org.apache.zookeeper/zookeeper/3.3.5</bundle>
+    <bundle>wrap:mvn:com.google.protobuf/protobuf-java/2.4.1</bundle>
+    <bundle>wrap:mvn:org.apache.hadoop/hadoop-core/1.2.0</bundle>
+    <bundle>wrap:mvn:org.apache.hbase/hbase/0.94.15</bundle>
+  </feature>
+  <feature name="odl-tsdr-hbase" version="1.3.4-Carbon" description="OpenDaylight :: TSDR :: HBase Persistence">
+    <feature version="&quot;0.94.15&quot;">odl-hbaseclient</feature>
+    <feature version="1.3.4-Carbon">odl-tsdr-core</feature>
+    <bundle>mvn:org.opendaylight.tsdr/tsdr-persistence-spi/1.3.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.tsdr/tsdr-persistence-hbase/1.3.4-Carbon</bundle>
+    <configfile finalname="etc/tsdr-persistence-hbase.properties">mvn:org.opendaylight.tsdr/tsdr-persistence-hbase/1.3.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-tsdr-cassandra" version="1.3.4-Carbon" description="OpenDaylight :: TSDR :: Cassandra Persistence">
+    <bundle>wrap:mvn:com.codahale.metrics/metrics-core/3.0.2</bundle>
+    <bundle>wrap:mvn:io.netty/netty/3.9.9.Final</bundle>
+    <bundle>wrap:mvn:com.google.guava/guava/16.0.1</bundle>
+    <bundle>wrap:mvn:com.datastax.cassandra/cassandra-driver-core/2.1.2</bundle>
+    <bundle>mvn:org.opendaylight.tsdr/tsdr-persistence-spi/1.3.4-Carbon</bundle>
+    <feature version="1.3.4-Carbon">odl-tsdr-core</feature>
+    <bundle>mvn:org.opendaylight.tsdr/tsdr-persistence-cassandra/1.3.4-Carbon</bundle>
+    <configfile finalname="etc/tsdr-persistence-cassandra.properties">mvn:org.opendaylight.tsdr/tsdr-persistence-cassandra/1.3.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-tsdr-hsqldb" version="1.3.4-Carbon" description="OpenDaylight :: TSDR :: HSQLDB Persistence">
+    <bundle>mvn:org.opendaylight.tsdr/tsdr-persistence-spi/1.3.4-Carbon</bundle>
+    <feature version="1.3.4-Carbon">odl-tsdr-core</feature>
+    <bundle>wrap:mvn:hsqldb/hsqldb/1.8.0.10</bundle>
+    <bundle>mvn:org.opendaylight.tsdr/tsdr-persistence-hsqldb/1.3.4-Carbon</bundle>
+    <configfile finalname="etc/tsdr-persistence-hsqldb.properties">mvn:org.opendaylight.tsdr/tsdr-persistence-hsqldb/1.3.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-tsdr-elasticsearch" version="1.3.4-Carbon" description="OpenDaylight :: TSDR :: Elasticsearch Persistence">
+    <bundle>mvn:org.opendaylight.tsdr/tsdr-persistence-spi/1.3.4-Carbon</bundle>
+    <feature version="1.3.4-Carbon">odl-tsdr-core</feature>
+    <bundle>mvn:org.opendaylight.tsdr/tsdr-persistence-elasticsearch/1.3.4-Carbon</bundle>
+    <configfile finalname="etc/tsdr-persistence-elasticsearch.properties">mvn:org.opendaylight.tsdr/tsdr-persistence-elasticsearch/1.3.4-Carbon/properties/config</configfile>
+    <configfile finalname="etc/tsdr-persistence-elasticsearch_metric_mapping.json">mvn:org.opendaylight.tsdr/tsdr-persistence-elasticsearch/1.3.4-Carbon/json/metric_config</configfile>
+    <configfile finalname="etc/tsdr-persistence-elasticsearch_log_mapping.json">mvn:org.opendaylight.tsdr/tsdr-persistence-elasticsearch/1.3.4-Carbon/json/log_config</configfile>
+    <configfile finalname="etc/tsdr-persistence-elasticsearch_binary_mapping.json">mvn:org.opendaylight.tsdr/tsdr-persistence-elasticsearch/1.3.4-Carbon/json/binary_config</configfile>
+  </feature>
+</features>

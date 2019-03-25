@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.1" name="odl-guava-21">
+    <feature name="odl-guava-21" version="1.8.4-Carbon" description="OpenDaylight :: Guava 21">
+        <details>OpenDaylight is leading the transformation to Open Software Defined Networking (SDN). For more information, please see https://www.opendaylight.org</details>
+        <bundle>mvn:com.google.guava/guava/21.0</bundle>
+    </feature>
+</features>

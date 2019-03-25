@@ -1,0 +1,72 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-neutron-0.8.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.aaa/features-aaa-shiro/0.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.yangtools/features-yangtools/1.1.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/0.10.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-mdsal/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.ovsdb/library-features/1.4.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.ovsdb/southbound-features/1.4.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-restconf/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-netconf-connector/1.2.4-Carbon/xml/features</repository>
+  <feature name="odl-neutron-service" version="0.8.4-Carbon" description="OpenDaylight :: Neutron :: API">
+    <feature version="0.8.4-Carbon">odl-neutron-spi</feature>
+    <feature version="0.8.4-Carbon">odl-neutron-northbound-api</feature>
+    <feature version="0.8.4-Carbon">odl-neutron-transcriber</feature>
+  </feature>
+  <feature name="odl-neutron-northbound-api" version="0.8.4-Carbon" description="OpenDaylight :: Neutron :: Northbound">
+    <feature version="0.5.4-Carbon">odl-aaa-shiro</feature>
+    <feature>war</feature>
+    <feature version="0.8.4-Carbon">odl-neutron-spi</feature>
+    <bundle>mvn:org.opendaylight.neutron/northbound-api/0.8.4-Carbon</bundle>
+    <bundle>mvn:com.sun.jersey/jersey-core/1.17</bundle>
+    <bundle>mvn:com.sun.jersey/jersey-server/1.17</bundle>
+    <bundle>mvn:com.sun.jersey/jersey-servlet/1.17</bundle>
+    <bundle>mvn:org.eclipse.persistence/org.eclipse.persistence.moxy/2.6.2</bundle>
+    <bundle>mvn:org.eclipse.persistence/org.eclipse.persistence.core/2.6.2</bundle>
+    <bundle>mvn:org.eclipse.persistence/org.eclipse.persistence.antlr/2.6.2</bundle>
+    <bundle>mvn:org.osgi/org.osgi.core/5.0.0</bundle>
+    <bundle>mvn:javax.validation/validation-api/1.1.0.Final</bundle>
+  </feature>
+  <feature name="odl-neutron-spi" version="0.8.4-Carbon" description="OpenDaylight :: Neutron :: API">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <bundle>mvn:org.opendaylight.neutron/neutron-spi/0.8.4-Carbon</bundle>
+    <bundle>mvn:commons-net/commons-net/3.6</bundle>
+    <bundle>mvn:org.osgi/org.osgi.core/5.0.0</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/2.3.2</bundle>
+  </feature>
+  <feature name="odl-neutron-transcriber" version="0.8.4-Carbon" description="OpenDaylight :: Neutron :: Implementation">
+    <feature version="0.8.4-Carbon">odl-neutron-northbound-api</feature>
+    <feature version="0.8.4-Carbon">odl-neutron-spi</feature>
+    <feature>war</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <bundle>mvn:org.opendaylight.neutron/transcriber/0.8.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.neutron/model/0.8.4-Carbon</bundle>
+    <bundle>mvn:org.osgi/org.osgi.core/5.0.0</bundle>
+  </feature>
+  <feature name="odl-neutron-logger" version="0.8.4-Carbon" description="OpenDaylight :: Neutron :: Logger">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <bundle>mvn:org.opendaylight.neutron/model/0.8.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.neutron/neutron-logger/0.8.4-Carbon</bundle>
+    <bundle>mvn:org.osgi/org.osgi.core/5.0.0</bundle>
+  </feature>
+  <feature name="odl-neutron-hostconfig-ovs" version="0.8.4-Carbon" description="OpenDaylight :: Neutron :: HostconfigOvs">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="1.4.4-Carbon">odl-ovsdb-southbound-api</feature>
+    <feature version="1.4.4-Carbon">odl-ovsdb-library</feature>
+    <feature version="0.5.4-Carbon">odl-aaa-cert</feature>
+    <bundle>mvn:org.opendaylight.neutron/model/0.8.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.ovsdb/utils.mdsal-utils/1.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.ovsdb/utils.southbound-utils/1.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.neutron/neutron-hostconfig-utils/0.8.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.neutron/neutron-hostconfig-ovs/0.8.4-Carbon</bundle>
+    <bundle>mvn:org.osgi/org.osgi.core/5.0.0</bundle>
+  </feature>
+  <feature name="odl-neutron-hostconfig-vpp" version="0.8.4-Carbon" description="OpenDaylight :: Neutron :: HostconfigVpp">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-clustered-topology</feature>
+    <bundle>mvn:org.opendaylight.neutron/model/0.8.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.neutron/neutron-hostconfig-utils/0.8.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.neutron/neutron-hostconfig-vpp/0.8.4-Carbon</bundle>
+    <bundle>mvn:org.osgi/org.osgi.core/5.0.0</bundle>
+    <configfile finalname="/etc/org.opendaylight.neutron.hostconfig.vpp.startup.cfg">mvn:org.opendaylight.neutron/neutron-hostconfig-vpp/0.8.4-Carbon/cfg/config</configfile>
+  </feature>
+</features>

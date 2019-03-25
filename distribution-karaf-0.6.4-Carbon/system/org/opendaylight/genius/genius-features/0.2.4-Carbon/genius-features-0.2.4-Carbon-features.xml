@@ -1,0 +1,75 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-genius-0.2.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.yangtools/features-yangtools/1.1.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-mdsal/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/0.10.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.openflowplugin/features-openflowplugin/0.4.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.openflowplugin/features-openflowplugin-extension/0.4.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-restconf/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.ovsdb/southbound-features/1.4.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.ovsdb/hwvtepsouthbound-features/1.4.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.dluxapps/features-dluxapps/0.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.infrautils/infrautils-features/1.1.4-Carbon/xml/features</repository>
+  <feature name="odl-genius-api" version="0.2.4-Carbon" description="OpenDaylight :: genius :: api">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <feature version="1.4.4-Carbon">odl-ovsdb-southbound-api</feature>
+    <feature version="1.4.4-Carbon">odl-ovsdb-hwvtepsouthbound-api</feature>
+    <feature version="0.4.4-Carbon">odl-openflowplugin-nsf-model</feature>
+    <feature version="0.4.4-Carbon">odl-openflowplugin-nxm-extensions</feature>
+    <feature version="1.1.4-Carbon">odl-infrautils-counters</feature>
+    <bundle>mvn:org.opendaylight.controller/liblldp/0.12.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.genius/lockmanager-api/0.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.genius/idmanager-api/0.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.genius/mdsalutil-api/0.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.genius/arputil-api/0.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.genius/alivenessmonitor-api/0.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.genius/interfacemanager-api/0.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.genius/itm-api/0.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.genius/resourcemanager-api/0.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-genius" version="0.2.4-Carbon" description="OpenDaylight :: genius">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="0.2.4-Carbon">odl-genius-api</feature>
+    <feature version="1.4.4-Carbon">odl-ovsdb-southbound-impl</feature>
+    <feature version="1.4.4-Carbon">odl-ovsdb-hwvtepsouthbound</feature>
+    <feature version="0.4.4-Carbon">odl-openflowplugin-southbound</feature>
+    <feature version="0.4.4-Carbon">odl-openflowplugin-flow-services</feature>
+    <feature version="1.1.4-Carbon">odl-infrautils-counters</feature>
+    <feature version="1.1.4-Carbon">odl-infrautils-inject</feature>
+    <bundle>mvn:commons-net/commons-net/3.6</bundle>
+    <bundle>mvn:org.opendaylight.genius/lockmanager-impl/0.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.genius/idmanager-impl/0.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.genius/idmanager-shell/0.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.genius/mdsalutil-impl/0.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.genius/arputil-impl/0.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.genius/alivenessmonitor-impl/0.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.genius/alivenessmonitor-impl-protocols/0.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.genius/interfacemanager-impl/0.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.genius/interfacemanager-shell/0.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.genius/itm-impl/0.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.genius/resourcemanager-impl/0.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.ovsdb/utils.southbound-utils/1.4.4-Carbon</bundle>
+    <bundle>wrap:mvn:javax.inject/javax.inject/1</bundle>
+    <configfile finalname="etc/opendaylight/datastore/initial/config/genius-itm-config.xml">mvn:org.opendaylight.genius/itm-impl/0.2.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-genius-rest" version="0.2.4-Carbon" description="OpenDaylight :: genius :: REST">
+    <feature version="0.2.4-Carbon">odl-genius</feature>
+    <feature version="1.5.4-Carbon">odl-restconf</feature>
+  </feature>
+  <feature name="odl-genius-ui" version="0.2.4-Carbon" description="OpenDaylight :: genius :: UI">
+    <feature version="0.2.4-Carbon">odl-genius-rest</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-apidocs</feature>
+    <feature version="0.5.4-Carbon">odl-dluxapps-yangman</feature>
+  </feature>
+  <feature name="odl-genius-fcaps-framework" version="0.2.4-Carbon" description="OpenDaylight :: genius :: fcapsframework">
+    <bundle>mvn:org.opendaylight.genius/fcaps-api/0.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.genius/alarmmanager/0.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.genius/countermanager/0.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-genius-fcaps-application" version="0.2.4-Carbon" description="OpenDaylight :: genius :: fcapsapp">
+    <feature version="0.4.4-Carbon">odl-openflowplugin-flow-services</feature>
+    <bundle>wrap:mvn:javax.inject/javax.inject/1</bundle>
+    <bundle>mvn:org.opendaylight.genius/fcapsapplication-jmxapi/0.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.genius/fcapsapplication-impl/0.2.4-Carbon</bundle>
+  </feature>
+</features>

@@ -1,0 +1,4 @@
+metric-persistency=true
+log-persistency=true
+binary-persistency=true
+

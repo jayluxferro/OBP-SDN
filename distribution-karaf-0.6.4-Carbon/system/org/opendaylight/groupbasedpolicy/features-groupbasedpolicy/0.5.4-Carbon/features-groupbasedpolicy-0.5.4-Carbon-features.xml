@@ -1,0 +1,144 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-groupbasedpolicy-0.5.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.mdsal/features-mdsal/2.2.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-mdsal/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/0.10.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-extras/1.8.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.openflowplugin/features-openflowplugin/0.4.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.openflowplugin/features-openflowplugin-extension/0.4.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.ovsdb/southbound-features/1.4.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.faas/features-faas/1.2.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.neutron/features-neutron/0.8.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.sfc/features-sfc/0.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.dlux/features-dlux/0.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.aaa/features-aaa-shiro/0.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.sxp/features/1.4.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-netconf-connector/1.2.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.honeycomb.vbd/vbd-features/1.1.4-Carbon/xml/features</repository>
+  <feature name="odl-groupbasedpolicy-base" version="0.5.4-Carbon" description="OpenDaylight :: groupbasedpolicy :: Base Copmonents">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="2.2.4-Carbon">odl-mdsal-binding-base</feature>
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <bundle>mvn:commons-net/commons-net/3.6</bundle>
+    <bundle>mvn:org.opendaylight.groupbasedpolicy/groupbasedpolicy/0.5.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/15-groupbasedpolicy-base.xml">mvn:org.opendaylight.groupbasedpolicy/groupbasedpolicy/0.5.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-groupbasedpolicy-ofoverlay" version="0.5.4-Carbon" description="OpenDaylight :: groupbasedpolicy :: OpenFlow Overlay Renderer">
+    <feature version="0.5.4-Carbon">odl-groupbasedpolicy-base</feature>
+    <feature version="0.4.4-Carbon">odl-openflowplugin-flow-services</feature>
+    <feature version="0.4.4-Carbon">odl-openflowplugin-nxm-extensions</feature>
+    <feature version="1.4.4-Carbon">odl-ovsdb-southbound-impl</feature>
+    <feature version="0.5.4-Carbon">odl-sfc-openflow-renderer</feature>
+    <feature version="0.5.4-Carbon">odl-sfc-ui</feature>
+    <bundle>mvn:commons-net/commons-net/3.6</bundle>
+    <bundle>mvn:org.opendaylight.groupbasedpolicy/ofoverlay-renderer/0.5.4-Carbon</bundle>
+    <bundle>mvn:com.sun.jersey/jersey-core/1.17</bundle>
+    <bundle>mvn:com.sun.jersey/jersey-client/1.17</bundle>
+    <bundle>mvn:com.google.code.gson/gson/2.7</bundle>
+    <configfile finalname="etc/opendaylight/karaf/15-groupbasedpolicy-ofoverlay.xml">mvn:org.opendaylight.groupbasedpolicy/ofoverlay-renderer/0.5.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-groupbasedpolicy-ovssfc" version="0.5.4-Carbon" description="OpenDaylight :: groupbasedpolicy :: OpenFlow Overlay SFC Renderer">
+    <feature version="0.5.4-Carbon">odl-groupbasedpolicy-base</feature>
+    <feature version="0.4.4-Carbon">odl-openflowplugin-flow-services</feature>
+    <feature version="0.4.4-Carbon">odl-openflowplugin-nxm-extensions</feature>
+    <feature version="1.4.4-Carbon">odl-ovsdb-southbound-impl</feature>
+    <feature version="0.5.4-Carbon">odl-sfc-openflow-renderer</feature>
+    <feature version="0.5.4-Carbon">odl-sfc-ui</feature>
+    <bundle>mvn:commons-net/commons-net/3.6</bundle>
+    <bundle>mvn:org.opendaylight.groupbasedpolicy/ovssfc-renderer/0.5.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/15-groupbasedpolicy-ovssfc.xml">mvn:org.opendaylight.groupbasedpolicy/ovssfc-renderer/0.5.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-groupbasedpolicy-faas" version="0.5.4-Carbon" description="OpenDaylight :: groupbasedpolicy :: Fabric As A Service Renderer">
+    <feature version="0.5.4-Carbon">odl-groupbasedpolicy-base</feature>
+    <feature version="1.2.4-Carbon">odl-faas-uln-mapper</feature>
+    <bundle>mvn:org.opendaylight.groupbasedpolicy/faas-renderer/0.5.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/15-groupbasedpolicy-faas.xml">mvn:org.opendaylight.groupbasedpolicy/faas-renderer/0.5.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-groupbasedpolicy-iovisor" version="0.5.4-Carbon" description="OpenDaylight :: groupbasedpolicy :: IOVisor Renderer">
+    <feature>war</feature>
+    <feature version="0.5.4-Carbon">odl-aaa-shiro</feature>
+    <feature version="0.5.4-Carbon">odl-groupbasedpolicy-base</feature>
+    <feature version="1.5.4-Carbon">odl-restconf</feature>
+    <bundle>mvn:org.opendaylight.groupbasedpolicy/iovisor-renderer/0.5.4-Carbon</bundle>
+    <bundle>mvn:com.sun.jersey/jersey-core/1.17</bundle>
+    <bundle>mvn:com.sun.jersey/jersey-client/1.17</bundle>
+    <bundle>mvn:com.google.code.gson/gson/2.7</bundle>
+    <configfile finalname="etc/opendaylight/karaf/15-groupbasedpolicy-iovisor.xml">mvn:org.opendaylight.groupbasedpolicy/iovisor-renderer/0.5.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-groupbasedpolicy-netconf" version="0.5.4-Carbon" description="OpenDaylight :: groupbasedpolicy :: NETCONF Renderer">
+    <feature version="0.5.4-Carbon">odl-groupbasedpolicy-base</feature>
+    <bundle>mvn:org.opendaylight.groupbasedpolicy/netconf-renderer/0.5.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/15-groupbasedpolicy-netconf.xml">mvn:org.opendaylight.groupbasedpolicy/netconf-renderer/0.5.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-groupbasedpolicy-neutronmapper" version="0.5.4-Carbon" description="OpenDaylight :: groupbasedpolicy :: Neutron Mapper mapps neutron APIs to GBP APIs ">
+    <feature version="0.8.4-Carbon">odl-neutron-service</feature>
+    <feature version="0.5.4-Carbon">odl-groupbasedpolicy-base</feature>
+    <bundle>mvn:org.opendaylight.groupbasedpolicy/l2-l3-domain-extension/0.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.groupbasedpolicy/neutron-mapper/0.5.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/15-l2-l3-domain-extension.xml">mvn:org.opendaylight.groupbasedpolicy/l2-l3-domain-extension/0.5.4-Carbon/xml/config</configfile>
+    <configfile finalname="/etc/org.opendaylight.groupbasedpolicy.neutron.mapper.startup.cfg">mvn:org.opendaylight.groupbasedpolicy/neutron-mapper/0.5.4-Carbon/cfg/config</configfile>
+  </feature>
+  <feature name="odl-groupbasedpolicy-neutron-and-ofoverlay" version="0.5.4-Carbon" description="OpenDaylight :: groupbasedpolicy :: Neutron Mapper mapps neutron APIs to GBP APIs ">
+    <feature version="0.5.4-Carbon">odl-groupbasedpolicy-ofoverlay</feature>
+    <feature version="0.5.4-Carbon">odl-groupbasedpolicy-neutronmapper</feature>
+    <bundle>mvn:org.opendaylight.groupbasedpolicy/neutron-ovsdb/0.5.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/15-neutron-ovsdb.xml">mvn:org.opendaylight.groupbasedpolicy/neutron-ovsdb/0.5.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-groupbasedpolicy-vpp" version="0.5.4-Carbon" description="OpenDaylight :: groupbasedpolicy :: VPP renderer ">
+    <feature version="0.5.4-Carbon">odl-groupbasedpolicy-base</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-clustered-topology</feature>
+    <feature version="1.1.4-Carbon">odl-vbd</feature>
+    <bundle>mvn:org.opendaylight.groupbasedpolicy/l2-l3-domain-extension/0.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.groupbasedpolicy/vpp-renderer/0.5.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/15-l2-l3-domain-extension.xml">mvn:org.opendaylight.groupbasedpolicy/l2-l3-domain-extension/0.5.4-Carbon/xml/config</configfile>
+    <configfile finalname="/etc/org.opendaylight.groupbasedpolicy.renderer.vpp.startup.cfg">mvn:org.opendaylight.groupbasedpolicy/vpp-renderer/0.5.4-Carbon/cfg/config</configfile>
+  </feature>
+  <feature name="odl-groupbasedpolicy-neutron-vpp-mapper" version="0.5.4-Carbon" description="OpenDaylight :: groupbasedpolicy :: Neutron Mapper mapps neutron APIs to GBP APIs ">
+    <feature version="0.5.4-Carbon">odl-groupbasedpolicy-neutronmapper</feature>
+    <feature version="0.5.4-Carbon">odl-groupbasedpolicy-vpp</feature>
+    <bundle>mvn:org.opendaylight.groupbasedpolicy/neutron-vpp-mapper/0.5.4-Carbon</bundle>
+    <configfile finalname="/etc/org.opendaylight.groupbasedpolicy.neutron.vpp.mapper.startup.cfg">mvn:org.opendaylight.groupbasedpolicy/neutron-vpp-mapper/0.5.4-Carbon/cfg/config</configfile>
+  </feature>
+  <feature name="odl-groupbasedpolicy-ui" version="0.5.4-Carbon" description="OpenDaylight :: groupbasedpolicy :: DLUX UI ">
+    <feature version="0.5.4-Carbon">odl-dlux-core</feature>
+    <bundle>mvn:org.opendaylight.groupbasedpolicy/groupbasedpolicy-ui-bundle/0.5.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-groupbasedpolicy-ip-sgt-distribution-service" version="0.5.4-Carbon" description="OpenDaylight :: groupbasedpolicy :: ip-sgt-distribution-service">
+    <feature version="0.5.4-Carbon">odl-groupbasedpolicy-base</feature>
+    <feature version="1.4.4-Carbon">odl-sxp-core</feature>
+    <feature version="1.4.4-Carbon">odl-sxp-controller</feature>
+    <bundle>mvn:org.opendaylight.groupbasedpolicy/ip-sgt-distribution-service/0.5.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/15-groupbasedpolicy-ip-sgt-distribution-service.xml">mvn:org.opendaylight.groupbasedpolicy/ip-sgt-distribution-service/0.5.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-groupbasedpolicy-ne-location-provider" version="0.5.4-Carbon" description="OpenDaylight :: groupbasedpolicy :: NE location provider">
+    <feature version="0.5.4-Carbon">odl-groupbasedpolicy-base</feature>
+    <bundle>mvn:org.opendaylight.groupbasedpolicy/l2-l3-domain-extension/0.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.groupbasedpolicy/ne-location-provider/0.5.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/15-l2-l3-domain-extension.xml">mvn:org.opendaylight.groupbasedpolicy/l2-l3-domain-extension/0.5.4-Carbon/xml/config</configfile>
+    <configfile finalname="etc/opendaylight/karaf/15-ne-location-provider.xml">mvn:org.opendaylight.groupbasedpolicy/ne-location-provider/0.5.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-groupbasedpolicy-ios-xe" version="0.5.4-Carbon" description="OpenDaylight :: groupbasedpolicy :: ios-xe renderer">
+    <feature version="0.5.4-Carbon">odl-groupbasedpolicy-base</feature>
+    <feature version="0.5.4-Carbon">odl-groupbasedpolicy-sxp-ep-provider</feature>
+    <feature version="0.5.4-Carbon">odl-groupbasedpolicy-ip-sgt-distribution-service</feature>
+    <feature version="0.5.4-Carbon">odl-sfc-provider</feature>
+    <feature version="1.4.4-Carbon">odl-sxp-core</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-clustered-topology</feature>
+    <bundle>mvn:org.opendaylight.groupbasedpolicy/l2-l3-domain-extension/0.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.groupbasedpolicy/ios-xe-renderer/0.5.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/15-groupbasedpolicy-ios-xe-renderer.xml">mvn:org.opendaylight.groupbasedpolicy/ios-xe-renderer/0.5.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-groupbasedpolicy-sxp-ep-provider" version="0.5.4-Carbon" description="OpenDaylight :: groupbasedpolicy :: sxp ep provider">
+    <feature version="1.4.4-Carbon">odl-sxp-core</feature>
+    <feature version="0.5.4-Carbon">odl-groupbasedpolicy-base</feature>
+    <bundle>mvn:org.opendaylight.groupbasedpolicy/l2-l3-domain-extension/0.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.groupbasedpolicy/sxp-ep-provider/0.5.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/15-groupbasedpolicy-sxp-ep-provider.xml">mvn:org.opendaylight.groupbasedpolicy/sxp-ep-provider/0.5.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-groupbasedpolicy-sxp-ise-adapter" version="0.5.4-Carbon" description="OpenDaylight :: groupbasedpolicy :: sxp ise adapter">
+    <feature version="0.5.4-Carbon">odl-groupbasedpolicy-sxp-ep-provider</feature>
+    <bundle>mvn:com.sun.jersey/jersey-client/1.17</bundle>
+    <bundle>mvn:com.sun.jersey/jersey-core/1.17</bundle>
+    <bundle>mvn:org.opendaylight.groupbasedpolicy/sxp-ise-adapter/0.5.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/16-groupbasedpolicy-sxp-ise-adapter.xml">mvn:org.opendaylight.groupbasedpolicy/sxp-ise-adapter/0.5.4-Carbon/xml/config</configfile>
+  </feature>
+</features>

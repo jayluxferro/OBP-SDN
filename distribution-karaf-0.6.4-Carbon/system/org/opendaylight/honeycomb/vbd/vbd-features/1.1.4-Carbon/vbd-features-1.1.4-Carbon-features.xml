@@ -1,0 +1,29 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-vbd-1.1.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.yangtools/features-yangtools/1.1.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.mdsal/features-mdsal/2.2.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-restconf/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/0.10.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-netconf-connector/1.2.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.dlux/features-dlux/0.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.dluxapps/features-dluxapps/0.5.4-Carbon/xml/features</repository>
+  <feature name="odl-vbd" version="1.1.4-Carbon" description="OpenDaylight :: vbd">
+    <feature version="2.2.4-Carbon">odl-mdsal-binding</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-clustered-topology</feature>
+    <bundle>mvn:org.opendaylight.honeycomb.vbd/vbd-shared-models/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.honeycomb.vbd/vbd-api/1.1.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.honeycomb.vbd/vbd-impl/1.1.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/vbd.xml">mvn:org.opendaylight.honeycomb.vbd/vbd-impl/1.1.4-Carbon/xml/config</configfile>
+    <configfile finalname="/etc/org.opendaylight.vbd.impl.startup.cfg">mvn:org.opendaylight.honeycomb.vbd/vbd-impl/1.1.4-Carbon/cfg/config</configfile>
+  </feature>
+  <feature name="odl-vbd-rest" version="1.1.4-Carbon" description="OpenDaylight :: vbd :: REST">
+    <feature version="1.1.4-Carbon">odl-vbd</feature>
+    <feature version="1.5.4-Carbon">odl-restconf</feature>
+  </feature>
+  <feature name="odl-vbd-ui" version="1.1.4-Carbon" description="OpenDaylight :: vbd :: UI">
+    <feature version="1.1.4-Carbon">odl-vbd-rest</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-apidocs</feature>
+    <feature version="0.5.4-Carbon">odl-dlux-core</feature>
+    <feature version="0.5.4-Carbon">odl-dluxapps-yangman</feature>
+    <bundle>mvn:org.opendaylight.honeycomb.vbd/vbd-ui-bundle/1.1.4-Carbon</bundle>
+  </feature>
+</features>

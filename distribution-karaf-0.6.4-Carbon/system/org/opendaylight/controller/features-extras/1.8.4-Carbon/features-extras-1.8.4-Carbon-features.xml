@@ -1,0 +1,10 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-extras-1.8.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <feature name="odl-extras-all" version="1.8.4-Carbon" description="OpenDaylight :: Extras :: All">
+    <feature version="1.8.4-Carbon">odl-jolokia</feature>
+  </feature>
+  <feature name="odl-jolokia" version="1.8.4-Carbon" description="Jolokia JMX/HTTP bridge">
+    <configfile finalname="/etc/org.jolokia.osgi.cfg">mvn:org.opendaylight.controller/odl-jolokia-osgi/0.5.4-Carbon/cfg/configuration</configfile>
+    <feature>http</feature>
+    <bundle>mvn:org.jolokia/jolokia-osgi/1.3.3</bundle>
+  </feature>
+</features>

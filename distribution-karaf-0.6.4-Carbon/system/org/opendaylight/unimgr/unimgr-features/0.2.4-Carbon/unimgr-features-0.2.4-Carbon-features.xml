@@ -1,0 +1,84 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-unimgr-0.2.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.yangtools/features-yangtools/1.1.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-mdsal/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-restconf/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.ovsdb/southbound-features/1.4.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.dlux/features-dlux/0.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.dluxapps/features-dluxapps/0.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-netconf/1.2.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-netconf-connector/1.2.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.genius/genius-features/0.2.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netvirt/vpnservice-features/0.4.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.l2switch/features-l2switch/0.5.4-Carbon/xml/features</repository>
+  <feature name="odl-unimgr-api" version="0.2.4-Carbon" description="OpenDaylight :: UniMgr :: api">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <feature version="1.4.4-Carbon">odl-ovsdb-southbound-api</feature>
+    <bundle>mvn:org.opendaylight.unimgr/unimgr-api/0.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-unimgr-presto-api" version="0.2.4-Carbon" description="OpenDaylight :: UniMgr :: NRP Presto API">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <bundle>mvn:org.opendaylight.unimgr/unimgr-presto-api/0.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-unimgr" version="0.2.4-Carbon" description="OpenDaylight :: UniMgr">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="1.4.4-Carbon">odl-ovsdb-southbound-impl</feature>
+    <feature version="0.2.4-Carbon">odl-unimgr-api</feature>
+    <feature version="0.2.4-Carbon">odl-unimgr-presto-api</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-connector</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-connector-ssh</feature>
+    <bundle>mvn:org.opendaylight.unimgr/unimgr-impl/0.2.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/unimgr.xml">mvn:org.opendaylight.unimgr/unimgr-impl/0.2.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-unimgr-netvirt" version="0.2.4-Carbon" description="OpenDaylight :: UniMgr :: NetVirt">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="0.2.4-Carbon">odl-unimgr</feature>
+    <feature version="0.2.4-Carbon">odl-genius-api</feature>
+    <feature version="0.4.4-Carbon">odl-netvirt-impl</feature>
+    <feature version="1.5.4-Carbon">odl-restconf</feature>
+    <bundle>mvn:org.opendaylight.unimgr/unimgr-netvirt/0.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.unimgr/unimgr-legato-api/0.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-unimgr-dlux" version="0.2.4-Carbon" description="OpenDaylight :: UniMgr :: dlux">
+    <feature version="0.2.4-Carbon">odl-unimgr-netvirt</feature>
+    <feature version="0.5.4-Carbon">odl-dlux-core</feature>
+    <bundle>mvn:org.opendaylight.unimgr/cpeui-bundle/0.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-unimgr-console" version="0.2.4-Carbon" description="OpenDaylight :: UniMgr :: CLI">
+    <feature version="0.2.4-Carbon">odl-unimgr</feature>
+    <bundle>mvn:org.opendaylight.unimgr/unimgr-cli/0.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-unimgr-rest" version="0.2.4-Carbon" description="OpenDaylight :: UniMgr :: REST">
+    <feature version="0.2.4-Carbon">odl-unimgr</feature>
+    <feature version="1.5.4-Carbon">odl-restconf</feature>
+  </feature>
+  <feature name="odl-unimgr-ui" version="0.2.4-Carbon" description="OpenDaylight :: UniMgr :: UI">
+    <feature version="0.2.4-Carbon">odl-unimgr-rest</feature>
+    <feature version="0.2.4-Carbon">odl-unimgr-console</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-apidocs</feature>
+    <feature version="0.5.4-Carbon">odl-dluxapps-applications</feature>
+  </feature>
+  <feature name="odl-unimgr-cisco-xe-driver" version="0.2.4-Carbon" description="OpenDaylight :: UniMgr :: Cisco XE Driver">
+    <feature version="0.2.4-Carbon">odl-unimgr</feature>
+    <bundle>mvn:org.opendaylight.unimgr/unimgr-cisco-xe-driver/0.2.4-Carbon</bundle>
+    <bundle>mvn:com.eclipsesource.jaxrs/jersey-all/2.22.2</bundle>
+  </feature>
+  <feature name="odl-unimgr-cisco-xr-driver" version="0.2.4-Carbon" description="OpenDaylight :: UniMgr :: Cisco XR Driver">
+    <feature version="0.2.4-Carbon">odl-unimgr</feature>
+    <bundle>mvn:org.opendaylight.unimgr/cisco-xrmodels/0.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.unimgr/unimgr-cisco-xr-driver/0.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-unimgr-ovs-driver" version="0.2.4-Carbon" description="OpenDaylight :: UniMgr :: OVSDB Driver">
+    <feature version="0.2.4-Carbon">odl-unimgr</feature>
+    <feature version="0.5.4-Carbon">odl-l2switch-all</feature>
+    <feature version="1.5.4-Carbon">odl-restconf</feature>
+    <feature version="1.4.4-Carbon">odl-ovsdb-library</feature>
+    <feature version="1.4.4-Carbon">odl-ovsdb-southbound-api</feature>
+    <feature version="1.4.4-Carbon">odl-ovsdb-southbound-impl</feature>
+    <feature version="1.4.4-Carbon">odl-ovsdb-southbound-impl-rest</feature>
+    <feature version="0.9.4-Carbon">odl-openflowjava-protocol</feature>
+    <feature version="0.4.4-Carbon">odl-openflowplugin-flow-services-rest</feature>
+    <feature version="0.4.4-Carbon">odl-openflowplugin-flow-services</feature>
+    <feature version="0.4.4-Carbon">odl-openflowplugin-southbound</feature>
+    <bundle>mvn:org.opendaylight.unimgr/ovs-driver/0.2.4-Carbon</bundle>
+  </feature>
+</features>

@@ -1,0 +1,30 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-infrautils-1.1.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <feature name="odl-infrautils-all-with-samples" version="1.1.4-Carbon" description="OpenDaylight :: Infrautils :: All with Samples">
+    <feature version="1.1.4-Carbon">odl-infrautils-all</feature>
+    <feature version="1.1.4-Carbon">odl-infrautils-counters-sample</feature>
+  </feature>
+  <feature name="odl-infrautils-all" version="1.1.4-Carbon" description="OpenDaylight :: Infrautils :: All">
+    <feature version="1.1.4-Carbon">odl-infrautils-jobcoordinator</feature>
+    <feature version="1.1.4-Carbon">odl-infrautils-inject</feature>
+  </feature>
+  <feature name="odl-infrautils-counters" version="1.1.4-Carbon" description="OpenDaylight :: Infrautils :: Counters">
+    <bundle>mvn:org.opendaylight.infrautils/counters-api/1.1.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.infrautils/counters-impl/1.1.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.infrautils/infrautils-util/1.1.4-Carbon</bundle>
+    <bundle>wrap:mvn:org.apache.commons/commons-lang3/3.5</bundle>
+    <configfile finalname="etc/org.opendaylight.counters.cfg">mvn:org.opendaylight.infrautils/counters-impl/1.1.4-Carbon/cfg/countersconf</configfile>
+  </feature>
+  <feature name="odl-infrautils-counters-sample" version="1.1.4-Carbon" description="OpenDaylight :: Infrautils :: Counters Sample">
+    <feature version="1.1.4-Carbon">odl-infrautils-counters</feature>
+    <bundle>mvn:org.opendaylight.infrautils/samples-counters-impl/1.1.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-infrautils-jobcoordinator" version="1.1.4-Carbon" description="OpenDaylight :: Infrautils :: DataStoreUtils">
+    <feature version="1.1.4-Carbon">odl-infrautils-counters</feature>
+    <bundle>mvn:org.opendaylight.infrautils/jobcoordinator-api/1.1.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.infrautils/jobcoordinator-impl/1.1.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-infrautils-inject" version="1.1.4-Carbon" description="OpenDaylight :: Infrautils :: @Inject">
+    <bundle>mvn:org.opendaylight.infrautils/inject/1.1.4-Carbon</bundle>
+    <bundle>wrap:mvn:javax.inject/javax.inject/1</bundle>
+  </feature>
+</features>

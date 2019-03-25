@@ -1,0 +1,16 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.3.0" name="odl-dlux-0.5.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.3.0 http://karaf.apache.org/xmlns/features/v1.3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.netconf/features-restconf/1.5.4-Carbon/xml/features</repository>
+  <feature name="odl-dlux-core" version="0.5.4-Carbon" description="Opendaylight dlux minimal feature">
+    <feature>http</feature>
+    <feature version="1.5.4-Carbon">odl-restconf</feature>
+    <bundle>mvn:org.opendaylight.dlux/loader/0.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.dlux/loader.implementation/0.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.dlux/dlux.core/0.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.dlux/dlux.common.login/0.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.dlux/dlux.common.authentication/0.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.dlux/dlux.common.navigation/0.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.dlux/dlux.common.topbar/0.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.dlux/dlux.common.general/0.5.4-Carbon</bundle>
+    <bundle start-level="90">mvn:org.opendaylight.dlux/dlux.common.layout/0.5.4-Carbon</bundle>
+  </feature>
+</features>

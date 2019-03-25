@@ -1,0 +1,9 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat Apr 21 08:50:07 UTC 2018
+sal-clustering-config-1.5.4-Carbon-moduleconf.xml>=
+sal-clustering-config-1.5.4-Carbon-factoryakkaconf.xml>=
+sal-clustering-config-1.5.4-Carbon-moduleshardconf.xml>=
+sal-clustering-config-1.5.4-Carbon-config.xml>=
+sal-clustering-config-1.5.4-Carbon-entityownershipconfig.xml>=
+sal-clustering-config-1.5.4-Carbon-akkaconf.xml>=
+sal-clustering-config-1.5.4-Carbon-datastore.cfg>=

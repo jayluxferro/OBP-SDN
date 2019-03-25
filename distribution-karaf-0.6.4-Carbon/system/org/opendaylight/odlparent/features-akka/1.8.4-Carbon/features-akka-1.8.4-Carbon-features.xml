@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.1" name="odl-controller-1.8.4-Carbon">
+    <feature name="odl-akka-scala" version="2.11" description="Scala Runtime for OpenDaylight">
+        <feature version="1.8.4-Carbon">odl-akka-scala-2.11</feature>
+    </feature>
+    <feature name="odl-akka-system" version="2.4.20" description="Akka Actor Framework System Bundles">
+        <feature version="1.8.4-Carbon">odl-akka-system-2.4</feature>
+    </feature>
+    <feature name="odl-akka-clustering" version="2.4.20" description="Akka Clustering">
+        <feature version="1.8.4-Carbon">odl-akka-clustering-2.4</feature>
+    </feature>
+    <feature name="odl-akka-leveldb" version="0.7" description="LevelDB">
+        <feature version="1.8.4-Carbon">odl-akka-leveldb-0.7</feature>
+    </feature>
+    <feature name="odl-akka-persistence" version="2.4.20" description="Akka Persistence">
+        <feature version="1.8.4-Carbon">odl-akka-persistence-2.4</feature>
+    </feature>
+    <feature name="odl-akka-all" version="1.8.4-Carbon" description="OpenDaylight :: Akka :: All">
+        <details>OpenDaylight is leading the transformation to Open Software Defined Networking (SDN). For more information, please see https://www.opendaylight.org</details>
+        <feature version="1.8.4-Carbon">odl-akka-scala-2.11</feature>
+        <feature version="1.8.4-Carbon">odl-akka-system-2.4</feature>
+        <feature version="1.8.4-Carbon">odl-akka-clustering-2.4</feature>
+        <feature version="1.8.4-Carbon">odl-akka-leveldb-0.7</feature>
+        <feature version="1.8.4-Carbon">odl-akka-persistence-2.4</feature>
+    </feature>
+    <feature name="odl-akka-scala-2.11" version="1.8.4-Carbon" description="Scala Runtime for OpenDaylight">
+        <details>OpenDaylight is leading the transformation to Open Software Defined Networking (SDN). For more information, please see https://www.opendaylight.org</details>
+        <bundle>mvn:org.scala-lang/scala-library/2.11.12</bundle>
+        <bundle>mvn:org.scala-lang/scala-reflect/2.11.12</bundle>
+        <bundle>mvn:org.scala-lang.modules/scala-java8-compat_2.11/0.8.0</bundle>
+    </feature>
+    <feature name="odl-akka-system-2.4" version="1.8.4-Carbon" description="Akka Actor Framework System Bundles">
+        <details>OpenDaylight is leading the transformation to Open Software Defined Networking (SDN). For more information, please see https://www.opendaylight.org</details>
+        <feature version="1.8.4-Carbon">odl-akka-scala-2.11</feature>
+        <bundle>mvn:com.typesafe/config/1.3.0</bundle>
+        <bundle>mvn:com.typesafe.akka/akka-actor_2.11/2.4.20</bundle>
+        <bundle>mvn:com.typesafe.akka/akka-slf4j_2.11/2.4.20</bundle>
+        <bundle>mvn:com.typesafe.akka/akka-osgi_2.11/2.4.20</bundle>
+    </feature>
+    <feature name="odl-akka-clustering-2.4" version="1.8.4-Carbon" description="Akka Clustering">
+        <details>OpenDaylight is leading the transformation to Open Software Defined Networking (SDN). For more information, please see https://www.opendaylight.org</details>
+        <feature version="1.8.4-Carbon">odl-akka-system-2.4</feature>
+        <bundle>wrap:mvn:org.uncommons.maths/uncommons-maths/1.2.2a</bundle>
+        <bundle>mvn:com.typesafe.akka/akka-protobuf_2.11/2.4.20</bundle>
+        <bundle>mvn:org.scala-lang/scala-library/2.11.12</bundle>
+        <bundle>mvn:io.netty/netty/3.10.6.Final</bundle>
+        <bundle>mvn:com.typesafe.akka/akka-remote_2.11/2.4.20</bundle>
+        <bundle>mvn:com.typesafe.akka/akka-stream_2.11/2.4.20</bundle>
+        <bundle>mvn:org.reactivestreams/reactive-streams/1.0.0</bundle>
+        <bundle>mvn:com.typesafe/ssl-config-core_2.11/0.2.1</bundle>
+        <bundle>mvn:org.scala-lang.modules/scala-parser-combinators_2.11/1.0.4</bundle>
+        <bundle>mvn:io.aeron/aeron-driver/1.2.5</bundle>
+        <bundle>mvn:io.aeron/aeron-client/1.2.5</bundle>
+        <bundle>mvn:org.agrona/agrona/0.9.5</bundle>
+        <bundle>mvn:com.typesafe.akka/akka-cluster_2.11/2.4.20</bundle>
+    </feature>
+    <feature name="odl-akka-leveldb-0.7" version="1.8.4-Carbon" description="LevelDB">
+        <details>OpenDaylight is leading the transformation to Open Software Defined Networking (SDN). For more information, please see https://www.opendaylight.org</details>
+        <bundle>wrap:mvn:org.iq80.leveldb/leveldb/0.7</bundle>
+        <bundle>wrap:mvn:org.iq80.leveldb/leveldb-api/0.7</bundle>
+        <bundle>mvn:com.google.guava/guava/18.0</bundle>
+        <bundle>mvn:org.fusesource.leveldbjni/leveldbjni-all/1.8-odl</bundle>
+    </feature>
+    <feature name="odl-akka-persistence-2.4" version="1.8.4-Carbon" description="Akka Persistence">
+        <details>OpenDaylight is leading the transformation to Open Software Defined Networking (SDN). For more information, please see https://www.opendaylight.org</details>
+        <feature version="1.8.4-Carbon">odl-akka-leveldb-0.7</feature>
+        <feature version="1.8.4-Carbon">odl-akka-system-2.4</feature>
+        <bundle>mvn:com.typesafe.akka/akka-protobuf_2.11/2.4.20</bundle>
+        <bundle>mvn:org.scala-lang/scala-library/2.11.12</bundle>
+        <bundle>mvn:com.typesafe.akka/akka-persistence_2.11/2.4.20</bundle>
+    </feature>
+    <feature name="features-akka" version="1.8.4-Carbon" description="ODL :: odlparent :: features-akka">
+        <details>OpenDaylight is leading the transformation to Open Software Defined Networking (SDN). For more information, please see https://www.opendaylight.org</details>
+        <feature version="1.8.4-Carbon">odl-akka-all</feature>
+        <feature version="1.8.4-Carbon">odl-akka-scala-2.11</feature>
+        <feature version="1.8.4-Carbon">odl-akka-system-2.4</feature>
+        <feature version="1.8.4-Carbon">odl-akka-clustering-2.4</feature>
+        <feature version="1.8.4-Carbon">odl-akka-leveldb-0.7</feature>
+        <feature version="1.8.4-Carbon">odl-akka-persistence-2.4</feature>
+    </feature>
+</features>

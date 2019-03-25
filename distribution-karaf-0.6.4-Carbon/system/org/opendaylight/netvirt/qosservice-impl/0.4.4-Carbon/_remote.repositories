@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat Apr 21 08:50:08 UTC 2018
+qosservice-impl-0.4.4-Carbon-config.xml>=
+qosservice-impl-0.4.4-Carbon-config.cfg>=
+qosservice-impl-0.4.4-Carbon.jar>=

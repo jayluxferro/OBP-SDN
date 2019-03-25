@@ -1,0 +1,44 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-controller-1.5.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.odlparent/features-odlparent/1.8.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.mdsal/features-mdsal/2.2.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.yangtools/features-yangtools/1.1.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.aaa/features-aaa-shiro/0.5.4-Carbon/xml/features</repository>
+  <feature name="odl-restconf-all" version="1.5.4-Carbon" description="OpenDaylight :: Restconf :: All">
+    <feature version="1.5.4-Carbon">odl-restconf</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-apidocs</feature>
+  </feature>
+  <feature name="odl-restconf" version="1.5.4-Carbon" description="OpenDaylight :: Restconf">
+    <bundle>mvn:org.opendaylight.aaa/aaa-shiro-act/0.5.4-Carbon</bundle>
+    <feature version="1.5.4-Carbon">odl-restconf-noauth</feature>
+  </feature>
+  <feature name="odl-restconf-noauth" version="1.5.4-Carbon" description="OpenDaylight :: Restconf">
+    <feature version="0.5.4-Carbon">odl-aaa-shiro</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="[4.0.30,5.0.0)">odl-netty</feature>
+    <feature>war</feature>
+    <bundle>mvn:org.opendaylight.netconf/ietf-restconf/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netconf/ietf-yang-library/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netconf/ietf-restconf-monitoring/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netconf/sal-rest-connector/1.5.4-Carbon</bundle>
+    <bundle>mvn:com.google.code.gson/gson/2.7</bundle>
+    <bundle>mvn:org.opendaylight.yangtools/yang-data-codec-gson/1.1.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.yangtools/yang-model-export/1.1.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/10-rest-connector.xml">mvn:org.opendaylight.netconf/sal-rest-connector-config/1.5.4-Carbon/xml/config</configfile>
+    <configfile finalname="etc/opendaylight/karaf/10-restconf-service.xml">mvn:org.opendaylight.netconf/sal-rest-connector-config/1.5.4-Carbon/xml/configrestconfservice</configfile>
+  </feature>
+  <feature name="odl-mdsal-apidocs" version="1.5.4-Carbon" description="OpenDaylight :: MDSAL :: APIDOCS">
+    <feature version="1.5.4-Carbon">odl-restconf</feature>
+    <bundle>mvn:org.opendaylight.netconf/sal-rest-docgen/1.5.4-Carbon</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/2.3.2</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-core/2.3.2</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/2.3.2</bundle>
+    <bundle>mvn:com.fasterxml.jackson.datatype/jackson-datatype-json-org/2.3.2</bundle>
+    <bundle>mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.3.2</bundle>
+    <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.3.2</bundle>
+    <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.3.2</bundle>
+    <bundle>mvn:com.sun.jersey/jersey-core/1.17</bundle>
+    <bundle>mvn:com.sun.jersey/jersey-server/1.17</bundle>
+    <bundle>mvn:com.sun.jersey/jersey-servlet/1.17</bundle>
+    <bundle>wrap:mvn:org.json/json/20131018</bundle>
+  </feature>
+</features>

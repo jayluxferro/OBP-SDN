@@ -1,0 +1,8 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-integration-distribution-0.6.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.controller/features-config-persister/0.6.4-Carbon/xml/features</repository>
+  <feature name="odl-distribution-version" version="0.6.4-Carbon">
+    <feature>odl-config-startup</feature>
+    <bundle>mvn:org.opendaylight.integration/version/0.6.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/odl-version.xml">mvn:org.opendaylight.integration/version/0.6.4-Carbon/xml/config</configfile>
+  </feature>
+</features>

@@ -1,0 +1,21 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-packetcable-1.5.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.yangtools/features-yangtools/1.1.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-mdsal/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-restconf/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/0.10.4-Carbon/xml/features</repository>
+  <feature name="odl-packetcable-policy-server-all" version="1.5.4-Carbon" description="OpenDaylight :: packetcable :: policy :: All">
+    <feature version="1.5.4-Carbon">odl-packetcable-policy-server</feature>
+  </feature>
+  <feature name="odl-packetcable-policy-model" version="1.5.4-Carbon" description="OpenDaylight :: packetcable :: policy :: Model">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <bundle>mvn:org.opendaylight.packetcable/packetcable-policy-model/1.5.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-packetcable-policy-server" version="1.5.4-Carbon" description="OpenDaylight :: packetcable :: policy :: Provider">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-apidocs</feature>
+    <feature version="1.5.4-Carbon">odl-packetcable-policy-model</feature>
+    <bundle>mvn:org.opendaylight.packetcable/packetcable-policy-server/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.packetcable/packetcable-driver/1.5.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/80-packetcable.xml">mvn:org.opendaylight.packetcable/packetcable-policy-server/1.5.4-Carbon/xml/config</configfile>
+  </feature>
+</features>

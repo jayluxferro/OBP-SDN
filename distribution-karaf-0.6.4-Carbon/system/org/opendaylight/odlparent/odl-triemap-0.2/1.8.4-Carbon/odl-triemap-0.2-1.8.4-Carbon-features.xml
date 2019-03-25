@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.1" name="odl-triemap-0.2">
+    <feature name="odl-triemap-0.2" version="1.8.4-Carbon" description="OpenDaylight :: Concurrent Trie HashMap">
+        <details>OpenDaylight is leading the transformation to Open Software Defined Networking (SDN). For more information, please see https://www.opendaylight.org</details>
+        <bundle>mvn:com.github.romix/java-concurrent-hash-trie-map/0.2.23-ODL</bundle>
+    </feature>
+</features>

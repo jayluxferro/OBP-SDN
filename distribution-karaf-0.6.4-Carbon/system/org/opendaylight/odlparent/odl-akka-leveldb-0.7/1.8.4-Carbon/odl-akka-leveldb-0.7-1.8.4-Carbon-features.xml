@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.1" name="odl-akka-leveldb-0.7">
+    <feature name="odl-akka-leveldb-0.7" version="1.8.4-Carbon" description="LevelDB">
+        <details>OpenDaylight is leading the transformation to Open Software Defined Networking (SDN). For more information, please see https://www.opendaylight.org</details>
+        <bundle>wrap:mvn:org.iq80.leveldb/leveldb/0.7</bundle>
+        <bundle>wrap:mvn:org.iq80.leveldb/leveldb-api/0.7</bundle>
+        <bundle>mvn:com.google.guava/guava/18.0</bundle>
+        <bundle>mvn:org.fusesource.leveldbjni/leveldbjni-all/1.8-odl</bundle>
+    </feature>
+</features>

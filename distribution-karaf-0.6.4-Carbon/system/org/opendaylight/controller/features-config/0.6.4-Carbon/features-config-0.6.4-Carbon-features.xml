@@ -1,0 +1,32 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-config-0.6.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.mdsal/features-mdsal/2.2.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.odlparent/features-odlparent/1.8.4-Carbon/xml/features</repository>
+  <feature name="odl-config-all" version="0.6.4-Carbon" description="OpenDaylight :: Config :: All">
+    <feature version="0.6.4-Carbon">odl-config-api</feature>
+    <feature version="0.6.4-Carbon">odl-config-netty-config-api</feature>
+    <feature version="0.6.4-Carbon">odl-config-core</feature>
+    <feature version="0.6.4-Carbon">odl-config-manager</feature>
+  </feature>
+  <feature name="odl-config-api" version="0.6.4-Carbon" description="OpenDaylight :: Config :: API">
+    <feature version="2.2.4-Carbon">odl-mdsal-binding-base</feature>
+    <bundle>mvn:org.opendaylight.controller/config-api/0.6.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-config-netty-config-api" version="0.6.4-Carbon" description="OpenDaylight :: Config :: Netty Config API">
+    <feature version="0.6.4-Carbon">odl-config-api</feature>
+    <feature version="1.8.4-Carbon">odl-netty-4</feature>
+    <bundle>mvn:org.opendaylight.controller/netty-config-api/0.6.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-config-core" version="0.6.4-Carbon" description="OpenDaylight :: Config :: Core">
+    <feature version="1.1.4-Carbon">odl-yangtools-common</feature>
+    <feature version="2.2.4-Carbon">odl-mdsal-binding-runtime</feature>
+    <feature version="0.6.4-Carbon">odl-config-api</feature>
+    <bundle>mvn:org.opendaylight.controller/config-util/0.6.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/yang-jmx-generator/0.6.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/shutdown-api/0.6.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller/shutdown-impl/0.6.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-config-manager" version="0.6.4-Carbon" description="OpenDaylight :: Config :: Manager">
+    <feature version="0.6.4-Carbon">odl-config-core</feature>
+    <bundle start-level="35">mvn:org.opendaylight.controller/config-manager/0.6.4-Carbon</bundle>
+  </feature>
+</features>

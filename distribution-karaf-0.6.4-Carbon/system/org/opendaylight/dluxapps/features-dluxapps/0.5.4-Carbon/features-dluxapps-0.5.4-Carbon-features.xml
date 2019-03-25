@@ -1,0 +1,40 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.3.0" name="odl-dlux-0.5.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.3.0 http://karaf.apache.org/xmlns/features/v1.3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.dlux/features-dlux/0.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-restconf/1.5.4-Carbon/xml/features</repository>
+  <feature name="odl-dluxapps-applications" version="0.5.4-Carbon" description="Opendaylight DluxApps all applications">
+    <feature>odl-dluxapps-nodes</feature>
+    <feature>odl-dluxapps-topology</feature>
+    <feature>odl-dluxapps-yangui</feature>
+    <feature>odl-dluxapps-yangvisualizer</feature>
+    <feature>odl-dluxapps-yangman</feature>
+  </feature>
+  <feature name="odl-dluxapps-nodes" version="0.5.4-Carbon" description="Enable nodes in Opendaylight dlux">
+    <feature version="0.5.4-Carbon">odl-dlux-core</feature>
+    <bundle>mvn:org.opendaylight.dluxapps/nodes-bundle/0.5.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-dluxapps-topology" version="0.5.4-Carbon" description="Enable nodes in Opendaylight dlux">
+    <feature version="0.5.4-Carbon">odl-dlux-core</feature>
+    <bundle>mvn:org.opendaylight.dluxapps/topology-bundle/0.5.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-dluxapps-yangui" version="0.5.4-Carbon" description="Enable Yang UI in Opendaylight dlux">
+    <feature version="0.5.4-Carbon">odl-dlux-core</feature>
+    <bundle>mvn:org.opendaylight.dluxapps/yangui-bundle/0.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.dluxapps/yangutils-bundle/0.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.dluxapps/sigmatopology-bundle/0.5.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-dluxapps-yangman" version="0.5.4-Carbon" description="Enable Yangman in Opendaylight dlux">
+    <feature version="0.5.4-Carbon">odl-dlux-core</feature>
+    <bundle>mvn:org.opendaylight.dluxapps/yangman-bundle/0.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.dluxapps/yangutils-bundle/0.5.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-dluxapps-yangvisualizer" version="0.5.4-Carbon" description="Enable Yang visualizer in Opendaylight dlux">
+    <feature>odl-dlux-core</feature>
+    <bundle>mvn:org.opendaylight.dluxapps/yangvisualizer-bundle/0.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.dluxapps/yangutils-bundle/0.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.dluxapps/sigmatopology-bundle/0.5.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-dluxapps-yangutils" version="0.5.4-Carbon" description="Loads Yangutils library in Opendaylight dlux">
+    <feature version="0.5.4-Carbon">odl-dlux-core</feature>
+    <bundle>mvn:org.opendaylight.dluxapps/yangutils-bundle/0.5.4-Carbon</bundle>
+  </feature>
+</features>

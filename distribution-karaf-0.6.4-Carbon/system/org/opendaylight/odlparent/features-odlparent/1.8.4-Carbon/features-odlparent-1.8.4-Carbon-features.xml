@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.1" name="odlparent-1.8.4-Carbon">
+    <feature name="odl-netty" version="4.1.7.Final" description="OpenDaylight :: Netty">
+        <feature version="1.8.4-Carbon">odl-netty-4</feature>
+    </feature>
+    <feature name="odl-guava" version="18.0" description="OpenDaylight :: Guava">
+        <feature version="1.8.4-Carbon">odl-guava-18</feature>
+    </feature>
+    <feature name="odl-guava" version="19.0" description="OpenDaylight :: Guava">
+        <bundle>mvn:com.google.guava/guava/19.0</bundle>
+    </feature>
+    <feature name="odl-lmax" version="3.3.6" description="OpenDaylight :: LMAX Disruptor">
+        <feature version="1.8.4-Carbon">odl-lmax-3</feature>
+    </feature>
+    <feature name="odl-triemap" version="0.2.23" description="OpenDaylight :: Concurrent Trie HashMap">
+        <feature version="1.8.4-Carbon">odl-triemap-0.2</feature>
+    </feature>
+    <feature name="odl-netty-4" version="1.8.4-Carbon" description="OpenDaylight :: Netty">
+        <details>OpenDaylight is leading the transformation to Open Software Defined Networking (SDN). For more information, please see https://www.opendaylight.org</details>
+        <bundle>mvn:io.netty/netty-buffer/4.1.8.Final</bundle>
+        <bundle>mvn:io.netty/netty-common/4.1.8.Final</bundle>
+        <bundle>mvn:io.netty/netty-transport/4.1.8.Final</bundle>
+        <bundle>mvn:io.netty/netty-resolver/4.1.8.Final</bundle>
+        <bundle>mvn:io.netty/netty-codec/4.1.8.Final</bundle>
+        <bundle>mvn:io.netty/netty-codec-http/4.1.8.Final</bundle>
+        <bundle>mvn:io.netty/netty-handler/4.1.8.Final</bundle>
+        <bundle>mvn:io.netty/netty-transport-native-epoll/4.1.8.Final/jar/linux-x86_64</bundle>
+    </feature>
+    <feature name="odl-guava-18" version="1.8.4-Carbon" description="OpenDaylight :: Guava 18">
+        <details>OpenDaylight is leading the transformation to Open Software Defined Networking (SDN). For more information, please see https://www.opendaylight.org</details>
+        <bundle>mvn:com.google.guava/guava/18.0</bundle>
+    </feature>
+    <feature name="odl-guava-21" version="1.8.4-Carbon" description="OpenDaylight :: Guava 21">
+        <details>OpenDaylight is leading the transformation to Open Software Defined Networking (SDN). For more information, please see https://www.opendaylight.org</details>
+        <bundle>mvn:com.google.guava/guava/21.0</bundle>
+    </feature>
+    <feature name="odl-lmax-3" version="1.8.4-Carbon" description="OpenDaylight :: LMAX Disruptor">
+        <details>OpenDaylight is leading the transformation to Open Software Defined Networking (SDN). For more information, please see https://www.opendaylight.org</details>
+        <bundle>mvn:com.lmax/disruptor/3.3.6</bundle>
+    </feature>
+    <feature name="odl-triemap-0.2" version="1.8.4-Carbon" description="OpenDaylight :: Concurrent Trie HashMap">
+        <details>OpenDaylight is leading the transformation to Open Software Defined Networking (SDN). For more information, please see https://www.opendaylight.org</details>
+        <bundle>mvn:com.github.romix/java-concurrent-hash-trie-map/0.2.23-ODL</bundle>
+    </feature>
+    <feature name="features-odlparent" version="1.8.4-Carbon" description="ODL :: odlparent :: features-odlparent">
+        <details>OpenDaylight is leading the transformation to Open Software Defined Networking (SDN). For more information, please see https://www.opendaylight.org</details>
+        <feature version="1.8.4-Carbon">odl-netty-4</feature>
+        <feature version="1.8.4-Carbon">odl-guava-18</feature>
+        <feature version="1.8.4-Carbon">odl-guava-21</feature>
+        <feature version="1.8.4-Carbon">odl-lmax-3</feature>
+        <feature version="1.8.4-Carbon">odl-triemap-0.2</feature>
+    </feature>
+</features>

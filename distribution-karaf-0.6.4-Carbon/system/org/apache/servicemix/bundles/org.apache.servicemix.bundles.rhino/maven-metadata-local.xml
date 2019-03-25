@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.apache.servicemix.bundles</groupId>
+  <artifactId>org.apache.servicemix.bundles.rhino</artifactId>
+  <versioning>
+    <release>1.7R2_3</release>
+    <versions>
+      <version>1.7R2_3</version>
+    </versions>
+    <lastUpdated>20180421085011</lastUpdated>
+  </versioning>
+</metadata>

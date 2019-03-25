@@ -1,0 +1,9 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat Apr 21 08:50:10 UTC 2018
+usc-channel-impl-1.3.4-Carbon-clientkey.pem>=
+usc-channel-impl-1.3.4-Carbon-config.xml>=
+usc-channel-impl-1.3.4-Carbon.jar>=
+usc-channel-impl-1.3.4-Carbon-usc.properties>=
+usc-channel-impl-1.3.4-Carbon-client.pem>=
+usc-channel-impl-1.3.4-Carbon-rootCA.pem>=
+usc-channel-impl-1.3.4-Carbon-akka.conf>=

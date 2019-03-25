@@ -1,0 +1,88 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-bgpcep-0.7.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.controller/features-config/0.6.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-mdsal/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.yangtools/features-yangtools/1.1.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/0.10.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.odlparent/features-odlparent/1.8.4-Carbon/xml/features</repository>
+  <feature name="odl-bgpcep-pcep" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-pcep-api</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-pcep-impl</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-pcep-stateful07</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-pcep-segment-routing</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-pcep-auto-bandwidth</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-pcep-topology</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-pcep-topology-provider</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-pcep-tunnel-provider</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-programming-api</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-programming-impl</feature>
+  </feature>
+  <feature name="odl-bgpcep-pcep-dependencies" version="0.7.4-Carbon">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/concepts/0.7.4-Carbon</bundle>
+    <feature version="1.8.4-Carbon">odl-netty-4</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/util/0.7.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bgpcep-pcep-api" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-pcep-dependencies</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/rsvp-api/0.7.4-Carbon</bundle>
+    <feature version="0.6.4-Carbon">odl-config-netty-config-api</feature>
+    <feature version="0.6.4-Carbon">odl-config-netty</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/pcep-api/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/pcep-spi/0.7.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/32-pcep.xml">mvn:org.opendaylight.bgpcep/pcep-controller-config/0.7.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-bgpcep-pcep-impl" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-pcep-dependencies</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-pcep-api</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/pcep-base-parser/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/pcep-impl/0.7.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bgpcep-programming-api" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-pcep-dependencies</feature>
+    <feature version="0.6.4-Carbon">odl-config-api</feature>
+    <bundle>mvn:org.opendaylight.mdsal/mdsal-singleton-common-api/2.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/topology-api/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/topology-tunnel-api/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/programming-api/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/programming-spi/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/programming-topology-api/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/programming-tunnel-api/0.7.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bgpcep-programming-impl" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-programming-api</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/programming-impl/0.7.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/30-programming.xml">mvn:org.opendaylight.bgpcep/programming-controller-config/0.7.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-bgpcep-pcep-topology" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-pcep-api</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-programming-api</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/pcep-tunnel-api/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/pcep-topology-api/0.7.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.bgpcep/pcep-topology-spi/0.7.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bgpcep-pcep-stateful07" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-pcep-impl</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-pcep-topology</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/pcep-ietf-stateful07/0.7.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bgpcep-pcep-topology-provider" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-programming-impl</feature>
+    <feature version="0.7.4-Carbon">odl-bgpcep-pcep-stateful07</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/pcep-topology-provider/0.7.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/39-pcep-provider.xml">mvn:org.opendaylight.bgpcep/pcep-controller-config/0.7.4-Carbon/xml/config-provider</configfile>
+  </feature>
+  <feature name="odl-bgpcep-pcep-tunnel-provider" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-pcep-topology-provider</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/pcep-tunnel-provider/0.7.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bgpcep-pcep-segment-routing" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-pcep-stateful07</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/pcep-segment-routing/0.7.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-bgpcep-pcep-auto-bandwidth" version="0.7.4-Carbon">
+    <feature version="0.7.4-Carbon">odl-bgpcep-pcep-stateful07</feature>
+    <bundle>mvn:org.opendaylight.bgpcep/pcep-auto-bandwidth-extension/0.7.4-Carbon</bundle>
+  </feature>
+</features>

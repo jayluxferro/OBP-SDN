@@ -1,0 +1,22 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-onem2moic-0.3.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.yangtools/features-yangtools/1.1.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-mdsal/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/0.10.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-restconf/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.dluxapps/features-dluxapps/0.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.iotdm/onem2m-features/0.3.4-Carbon/xml/features</repository>
+  <feature name="odl-onem2moic-api" version="0.3.4-Carbon" description="OpenDaylight :: onem2moic :: api">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <bundle>mvn:org.opendaylight.iotdm/onem2moic-api/0.3.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-onem2moic" version="0.3.4-Carbon" description="OpenDaylight :: onem2moic">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="0.3.4-Carbon">odl-onem2moic-api</feature>
+    <feature version="0.3.4-Carbon">odl-onem2m-core</feature>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-core/2.3.2</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/2.3.2</bundle>
+    <bundle>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-cbor/2.3.2</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/2.3.2</bundle>
+    <bundle>mvn:org.opendaylight.iotdm/onem2moic-impl/0.3.4-Carbon</bundle>
+  </feature>
+</features>

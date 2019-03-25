@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.1" name="odl-akka-all">
+    <repository>mvn:org.opendaylight.odlparent/odl-akka-scala-2.11/1.8.4-Carbon/xml/features</repository>
+    <repository>mvn:org.opendaylight.odlparent/odl-akka-system-2.4/1.8.4-Carbon/xml/features</repository>
+    <repository>mvn:org.opendaylight.odlparent/odl-akka-clustering-2.4/1.8.4-Carbon/xml/features</repository>
+    <repository>mvn:org.opendaylight.odlparent/odl-akka-leveldb-0.7/1.8.4-Carbon/xml/features</repository>
+    <repository>mvn:org.opendaylight.odlparent/odl-akka-persistence-2.4/1.8.4-Carbon/xml/features</repository>
+    <feature name="odl-akka-all" version="1.8.4-Carbon" description="OpenDaylight :: Akka :: All">
+        <details>OpenDaylight is leading the transformation to Open Software Defined Networking (SDN). For more information, please see https://www.opendaylight.org</details>
+        <feature version="1.8.4-Carbon">odl-akka-scala-2.11</feature>
+        <feature version="1.8.4-Carbon">odl-akka-system-2.4</feature>
+        <feature version="1.8.4-Carbon">odl-akka-clustering-2.4</feature>
+        <feature version="1.8.4-Carbon">odl-akka-leveldb-0.7</feature>
+        <feature version="1.8.4-Carbon">odl-akka-persistence-2.4</feature>
+    </feature>
+</features>

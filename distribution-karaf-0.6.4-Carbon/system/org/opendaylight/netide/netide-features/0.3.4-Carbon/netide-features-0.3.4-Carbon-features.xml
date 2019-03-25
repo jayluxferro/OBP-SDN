@@ -1,0 +1,27 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-netide-0.3.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/0.10.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-mdsal/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-restconf/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.openflowjava/features-openflowjava/0.9.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.openflowplugin/features-openflowplugin/0.4.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.openflowplugin/features-openflowplugin/0.4.4-Carbon/xml/features</repository>
+  <feature name="odl-netide-api" version="0.3.4-Carbon" description="OpenDaylight :: netide :: api">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <bundle>mvn:org.opendaylight.netide/netide-api/0.3.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-netide-impl" version="0.3.4-Carbon" description="OpenDaylight :: netide :: impl">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="0.3.4-Carbon">odl-netide-api</feature>
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <feature version="0.9.4-Carbon">odl-openflowjava-protocol</feature>
+    <feature version="0.4.4-Carbon">odl-openflowplugin-flow-services</feature>
+    <bundle>mvn:org.opendaylight.netide/shim/0.3.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netide/netide-impl/0.3.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/43-netide.xml">mvn:org.opendaylight.netide/shim-config/0.3.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-netide-rest" version="0.3.4-Carbon" description="OpenDaylight :: Netide :: REST">
+    <feature version="1.5.4-Carbon">odl-restconf</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-apidocs</feature>
+    <feature version="0.3.4-Carbon">odl-netide-impl</feature>
+  </feature>
+</features>

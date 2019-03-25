@@ -1,0 +1,35 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-sxp-1.4.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/0.10.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-mdsal/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-config/0.6.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-restconf/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.odlparent/features-odlparent/1.8.4-Carbon/xml/features</repository>
+  <repository>mvn:com.github.aenniw/jrobot-features/3.4.1/xml/features</repository>
+  <feature name="odl-sxp-api" version="1.4.4-Carbon" description="OpenDaylight :: Sxp :: Api">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <feature version="1.1.4-Carbon">odl-yangtools-common</feature>
+    <bundle>mvn:org.opendaylight.sxp/sxp-api/1.4.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-sxp-core" version="1.4.4-Carbon" description="OpenDaylight :: Sxp :: Core">
+    <feature version="1.4.4-Carbon">odl-sxp-api</feature>
+    <feature version="[4.0.37,5.0.0)">odl-netty</feature>
+    <bundle>mvn:org.opendaylight.sxp/sxp-core/1.4.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-sxp-robot" version="1.4.4-Carbon" description="OpenDaylight :: Robot :: CSIT">
+    <feature version="1.4.4-Carbon">odl-sxp-core</feature>
+    <feature version="3.4.1">jrobot-remote-server</feature>
+    <bundle>mvn:org.opendaylight.sxp/sxp-robot/1.4.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-sxp-controller" version="1.4.4-Carbon" description="OpenDaylight :: Sxp :: Controller">
+    <feature version="1.4.4-Carbon">odl-sxp-core</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature>odl-restconf</feature>
+    <feature>http</feature>
+    <configfile finalname="etc/opendaylight/karaf/22-sxp-controller-one-node.xml">mvn:org.opendaylight.sxp/sxp-config/1.4.4-Carbon/xml/22-sxp-controller-one-node.xml</configfile>
+    <bundle>mvn:org.opendaylight.sxp/sxp-controller/1.4.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-sxp-route" version="1.4.4-Carbon" description="OpenDaylight :: Sxp :: Cluster routing">
+    <feature version="1.4.4-Carbon">odl-sxp-controller</feature>
+    <bundle>mvn:org.opendaylight.sxp/sxp-cluster-route/1.4.4-Carbon</bundle>
+  </feature>
+</features>

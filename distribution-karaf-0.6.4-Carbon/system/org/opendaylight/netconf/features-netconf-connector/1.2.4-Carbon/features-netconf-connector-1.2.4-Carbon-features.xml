@@ -1,0 +1,54 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-controller-1.2.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/0.10.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-mdsal/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.yangtools/features-yangtools/1.1.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-netconf/1.2.4-Carbon/xml/features</repository>
+  <feature name="odl-netconf-connector-all" version="1.2.4-Carbon" description="OpenDaylight :: Netconf Connector :: All">
+    <feature version="1.2.4-Carbon">odl-netconf-connector</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-connector-ssh</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-callhome-ssh</feature>
+  </feature>
+  <feature name="odl-message-bus" version="1.2.4-Carbon">
+    <feature version="1.2.4-Carbon">odl-netconf-connector-all</feature>
+    <feature version="1.5.4-Carbon">odl-message-bus-collector</feature>
+    <bundle>mvn:org.opendaylight.netconf/messagebus-netconf/1.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-netconf-connector" version="1.2.4-Carbon" description="OpenDaylight :: Netconf Connector :: Netconf Connector">
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-notifications-api</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-client</feature>
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <bundle>mvn:com.google.code.gson/gson/2.7</bundle>
+    <bundle>mvn:org.opendaylight.netconf/sal-netconf-connector/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.controller.model/model-inventory/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netconf/netconf-topology/1.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netconf/sal-netconf-connector/1.5.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netconf/netconf-config/1.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-netconf-connector-ssh" version="1.2.4-Carbon" description="OpenDaylight :: Netconf Connector :: Netconf Connector + Netconf SSH Server + loopback connection configuration">
+    <feature version="1.2.4-Carbon">odl-netconf-topology</feature>
+    <bundle>mvn:org.opendaylight.netconf/netconf-connector-config/1.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-netconf-callhome-ssh" version="1.2.4-Carbon" description="OpenDaylight :: Netconf Connector :: Netconf Call Home Connector + Netconf SSH Server + loopback connection configuration">
+    <feature version="1.2.4-Carbon">odl-netconf-topology</feature>
+    <bundle>mvn:org.opendaylight.netconf/callhome-protocol/1.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netconf/callhome-provider/1.2.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.netconf/callhome-model/1.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-netconf-topology" version="1.2.4-Carbon" description="OpenDaylight :: Netconf Topology :: Netconf Connector + Netconf SSH Server + Netconf configuration via config topology datastore">
+    <feature version="1.2.4-Carbon">odl-netconf-ssh</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-connector</feature>
+    <bundle>mvn:org.opendaylight.netconf/netconf-topology-config/1.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-netconf-clustered-topology" version="1.2.4-Carbon" description="OpenDaylight :: Clustered Netconf Topology :: Netconf Connector + Netconf SSH Server">
+    <feature version="1.2.4-Carbon">odl-netconf-ssh</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-connector</feature>
+    <bundle>mvn:org.opendaylight.netconf/netconf-topology-singleton/1.2.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-netconf-console" version="1.2.4-Carbon" description="OpenDaylight :: Netconf Console + Karaf CLI for netconf CRUD operations">
+    <feature version="1.5.4-Carbon">odl-netconf-mdsal</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-connector-all</feature>
+    <feature version="1.2.4-Carbon">odl-netconf-topology</feature>
+    <bundle>mvn:org.opendaylight.netconf/netconf-console/1.2.4-Carbon</bundle>
+  </feature>
+</features>

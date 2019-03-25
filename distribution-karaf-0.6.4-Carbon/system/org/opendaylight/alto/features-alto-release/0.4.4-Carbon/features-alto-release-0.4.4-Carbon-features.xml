@@ -1,0 +1,138 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="odl-alto-release-0.4.4-Carbon" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <repository>mvn:org.opendaylight.controller/features-mdsal/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.mdsal.model/features-mdsal-model/0.10.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.netconf/features-restconf/1.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.l2switch/features-l2switch/0.5.4-Carbon/xml/features</repository>
+  <repository>mvn:org.opendaylight.openflowplugin/features-openflowplugin/0.4.4-Carbon/xml/features</repository>
+  <feature name="odl-alto-release" version="0.4.4-Carbon" description="OpenDaylight :: alto :: Release">
+    <feature version="0.4.4-Carbon">odl-alto-core</feature>
+    <feature version="0.4.4-Carbon">odl-alto-basic</feature>
+    <feature version="0.4.4-Carbon">odl-alto-extension</feature>
+  </feature>
+  <feature name="odl-alto-core" version="0.4.4-Carbon" description="OpenDaylight :: alto :: Core">
+    <feature version="0.4.4-Carbon">odl-alto-standard-northbound-route</feature>
+    <feature version="0.4.4-Carbon">odl-alto-standard-resource-translator</feature>
+  </feature>
+  <feature name="odl-alto-basic" version="0.4.4-Carbon" description="OpenDaylight :: alto :: Basic">
+    <feature version="0.4.4-Carbon">odl-alto-simpleecs</feature>
+    <feature version="0.4.4-Carbon">odl-alto-auto-maps</feature>
+  </feature>
+  <feature name="odl-alto-extension" version="0.4.4-Carbon" description="OpenDaylight :: alto :: Extension">
+    <feature version="0.4.4-Carbon">odl-alto-northbound</feature>
+    <feature version="0.4.4-Carbon">odl-alto-nonstandard-types</feature>
+    <feature version="0.4.4-Carbon">odl-alto-nonstandard-service-models</feature>
+    <feature version="0.4.4-Carbon">odl-alto-nonstandard-northbound-route</feature>
+    <feature version="0.4.4-Carbon">odl-alto-spce</feature>
+  </feature>
+  <feature name="odl-alto-spce" version="0.4.4-Carbon" description="OpenDaylight :: alto :: SPCE">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="0.4.4-Carbon">odl-openflowplugin-flow-services</feature>
+    <feature version="0.4.4-Carbon">odl-openflowplugin-southbound</feature>
+    <feature version="0.5.4-Carbon">odl-l2switch-loopremover</feature>
+    <feature version="0.5.4-Carbon">odl-l2switch-hosttracker</feature>
+    <feature version="0.5.4-Carbon">odl-l2switch-arphandler</feature>
+    <bundle>mvn:org.opendaylight.alto.spce.network/network-tracker-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.alto.spce.network/network-tracker-impl/0.4.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/network-tracker.xml">mvn:org.opendaylight.alto.spce.network/network-tracker-impl/0.4.4-Carbon/xml/config</configfile>
+    <bundle>mvn:org.opendaylight.alto.ext/alto-spce-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.alto.ext/alto-spce-impl/0.4.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/alto-spce.xml">mvn:org.opendaylight.alto.ext/alto-spce-impl/0.4.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-alto-standard-types" version="0.4.4-Carbon" description="OpenDaylight :: alto :: Standard-types">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <bundle>mvn:org.opendaylight.alto.core/alto-basic-types/0.4.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-alto-resourcepool" version="0.4.4-Carbon" description="OpenDaylight :: alto :: Resourcepool">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="0.4.4-Carbon">odl-alto-standard-types</feature>
+    <bundle>mvn:org.opendaylight.alto.core/alto-resourcepool-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.alto.core/alto-resourcepool-impl/0.4.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-alto-northbound" version="0.4.4-Carbon" description="OpenDaylight :: alto :: Northbound">
+    <feature version="1.5.4-Carbon">odl-restconf</feature>
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <bundle>mvn:org.opendaylight.alto.core/alto-northbound-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.alto.core/alto-northbound-impl/0.4.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-alto-standard-service-models" version="0.4.4-Carbon" description="OpenDaylight :: alto :: Standard-service-model">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <feature version="0.4.4-Carbon">odl-alto-resourcepool</feature>
+    <bundle>mvn:org.opendaylight.alto.core/alto-service-model-base-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.alto.core/alto-service-model-ird-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.alto.core/alto-service-model-networkmap-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.alto.core/alto-service-model-endpointcost-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.alto.core/alto-service-model-costmap-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.alto.core/alto-service-model-endpointproperty-api/0.4.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-alto-standard-northbound-route" version="0.4.4-Carbon" description="OpenDaylight :: alto :: Standard-northbound-route">
+    <feature version="0.4.4-Carbon">odl-alto-standard-service-models</feature>
+    <feature version="0.4.4-Carbon">odl-alto-northbound</feature>
+    <bundle>mvn:org.opendaylight.alto.core/alto-northbound-route-networkmap-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.alto.core/alto-northbound-route-networkmap-impl/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.alto.core/alto-northbound-route-costmap-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.alto.core/alto-northbound-route-costmap-impl/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.alto.core/alto-northbound-route-endpointcost-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.alto.core/alto-northbound-route-endpointcost-impl/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.alto.core/alto-northbound-route-endpointproperty-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.alto.core/alto-northbound-route-endpointproperty-impl/0.4.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-alto-standard-resource-translator" version="0.4.4-Carbon" description="OpenDaylight :: alto :: Standard-resource-translator"/>
+  <feature name="odl-alto-simpleird" version="0.4.4-Carbon" description="OpenDaylight :: alto :: Simple-IRD">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="0.4.4-Carbon">odl-alto-northbound</feature>
+    <feature version="0.4.4-Carbon">odl-alto-standard-service-models</feature>
+    <bundle>mvn:org.opendaylight.alto.basic/alto-simple-ird-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.alto.basic/alto-simple-ird-impl/0.4.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-alto-manual-maps" version="0.4.4-Carbon" description="OpenDaylight :: alto :: Manual-maps">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="0.4.4-Carbon">odl-alto-simpleird</feature>
+    <bundle>mvn:org.opendaylight.alto.core/alto-northbound-route-networkmap-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.alto.core/alto-northbound-route-costmap-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.alto.core/alto-service-model-config-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.alto.basic/alto-manual-maps-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.alto.basic/alto-manual-maps-impl/0.4.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-alto-simpleecs" version="0.4.4-Carbon" description="OpenDaylight :: alto :: Simple-ECS">
+    <feature version="0.5.4-Carbon">odl-l2switch-hosttracker</feature>
+    <feature version="0.4.4-Carbon">odl-alto-core</feature>
+    <bundle>mvn:org.opendaylight.alto.basic/alto-simple-ecs-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.alto.basic/alto-simple-ecs-impl/0.4.4-Carbon</bundle>
+    <configfile finalname="etc/opendaylight/karaf/alto-simpleecs.xml">mvn:org.opendaylight.alto.basic/alto-simple-ecs-impl/0.4.4-Carbon/xml/config</configfile>
+  </feature>
+  <feature name="odl-alto-auto-maps" version="0.4.4-Carbon" description="OpenDaylight :: alto :: Auto-maps">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="0.5.4-Carbon">odl-l2switch-hosttracker</feature>
+    <feature version="0.4.4-Carbon">odl-alto-manual-maps</feature>
+    <bundle>mvn:org.opendaylight.alto.basic/alto-auto-maps-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.alto.basic/alto-auto-maps-impl/0.4.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-alto-nonstandard-types" version="0.4.4-Carbon" description="OpenDaylight :: alto :: Nonstandard-types"/>
+  <feature name="odl-alto-nonstandard-service-models" version="0.4.4-Carbon" description="OpenDaylight :: alto :: Nonstandard-service-models"/>
+  <feature name="odl-alto-nonstandard-northbound-route" version="0.4.4-Carbon" description="OpenDaylight :: alto :: Nonstandard-northbound-route"/>
+  <feature name="odl-alto-multicost" version="0.4.4-Carbon" description="OpenDaylight :: alto :: Mutlicost support">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <feature version="0.4.4-Carbon">odl-alto-northbound</feature>
+    <bundle>mvn:org.opendaylight.alto/multicost-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.alto/multicost-impl/0.4.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-alto-iupd" version="0.4.4-Carbon" description="OpenDaylight :: alto :: Incremental update">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <bundle>mvn:org.opendaylight.alto/incremental-update-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.alto/incremental-update-impl/0.4.4-Carbon</bundle>
+  </feature>
+  <feature name="odl-alto-rsabs" version="0.4.4-Carbon" description="OpenDaylight :: alto :: Routing state abstraction">
+    <feature version="0.10.4-Carbon">odl-mdsal-models</feature>
+    <feature version="1.5.4-Carbon">odl-mdsal-broker</feature>
+    <bundle>mvn:org.opendaylight.alto/rsade-api/0.4.4-Carbon</bundle>
+    <bundle>mvn:org.opendaylight.alto/rsade-impl/0.4.4-Carbon</bundle>
+  </feature>
+</features>
