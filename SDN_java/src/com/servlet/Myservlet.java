@@ -20,8 +20,8 @@ import com.sdn.app.Switch;
 public class Myservlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Host_location host_location;   
-	private static String Controller_IP = "192.168.56.1";
-	private static String Mininet_IP = "192.168.56.104";
+	private static String Controller_IP = "127.0.0.1";
+	private static String Mininet_IP = "192.168.56.101";
 	private ServletContext context;
 	/**
 	 * @see HttpServlet#HttpServlet()

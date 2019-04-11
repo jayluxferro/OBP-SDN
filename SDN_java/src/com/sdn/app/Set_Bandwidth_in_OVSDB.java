@@ -53,7 +53,7 @@ public class Set_Bandwidth_in_OVSDB {
 		try {
 			Client client = Client.create();
 			client.addFilter(new HTTPBasicAuthFilter("admin", "admin"));
-			WebResource webResource2 = client.resource("http://"+Controller_IP+":8080/controller/nb/v2/connectionmanager/node/HOST1/address/"+Mininet_IP+"/port/6640/");
+			WebResource webResource2 = client.resource("http://"+Controller_IP+":8181/controller/nb/v2/connectionmanager/node/HOST1/address/"+Mininet_IP+"/port/6640/");
 			ClientResponse response2 = webResource2.accept("application/json").put(ClientResponse.class);  
 			if (response2.getStatus() != 200) {
 				throw new RuntimeException("Error while connecting to ovsdb with error code : "+response2.getStatus());
@@ -68,7 +68,7 @@ public class Set_Bandwidth_in_OVSDB {
 	public HashMap<String, String> Get_port_details() throws RuntimeException{
 		HashMap<String, String> port_uuid_mapping = new HashMap<String, String>();
 		try {
-			String output2 = get_method("http://"+Controller_IP+":8080/ovsdb/nb/v2/node/OVS/HOST1/tables/port/rows");
+			String output2 = get_method("http://"+Controller_IP+":8181/ovsdb/nb/v2/node/OVS/HOST1/tables/port/rows");
 			JSONObject obj = (JSONObject) JSONValue.parse(output2);
 			JSONObject rows=(JSONObject) obj.get("rows");
 			Iterator<String> keys = rows.keySet().iterator();
@@ -88,7 +88,7 @@ public class Set_Bandwidth_in_OVSDB {
 	}
 
 	public String insert_queue() throws RuntimeException{
-		String URL = "http://"+Controller_IP+":8080/ovsdb/nb/v2/node/OVS/HOST1/tables/queue/rows";
+		String URL = "http://"+Controller_IP+":8181/ovsdb/nb/v2/node/OVS/HOST1/tables/queue/rows";
 		try {
 			JSONObject jsonobj = new Read_json().read_json("Queue.json");
 			JSONObject row = (JSONObject) jsonobj.get("row");
@@ -106,7 +106,7 @@ public class Set_Bandwidth_in_OVSDB {
 
 
 	public String insert_qos(String queue_uuid) throws RuntimeException {
-		String URL = "http://"+Controller_IP+":8080/ovsdb/nb/v2/node/OVS/HOST1/tables/qos/rows";
+		String URL = "http://"+Controller_IP+":8181/ovsdb/nb/v2/node/OVS/HOST1/tables/qos/rows";
 		try {	
 			JSONObject jsonobj = new Read_json().read_json("Qos.json");
 			JSONObject row = (JSONObject) jsonobj.get("row");
@@ -126,7 +126,7 @@ public class Set_Bandwidth_in_OVSDB {
 
 	public String update_port(String Qos_uuid,String port_uuid) throws RuntimeException{
 		try {
-			String URL = "http://"+Controller_IP+":8080/ovsdb/nb/v2/node/OVS/HOST1/tables/port/rows/"+port_uuid;
+			String URL = "http://"+Controller_IP+":8181/ovsdb/nb/v2/node/OVS/HOST1/tables/port/rows/"+port_uuid;
 			JSONObject jsonobj = new Read_json().read_json("Port.json");
 			JSONObject row = (JSONObject) jsonobj.get("row");
 			JSONObject port = (JSONObject) row.get("Port");

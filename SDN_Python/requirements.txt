@@ -1,3 +1,5 @@
+paramiko
+requests
 django
 gunicorn
 whitenoise==3.3.*

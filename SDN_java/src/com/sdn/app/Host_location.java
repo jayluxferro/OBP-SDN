@@ -32,7 +32,7 @@ public class Host_location {
 			Client client = Client.create();
 			client.addFilter(new HTTPBasicAuthFilter("admin", "admin"));
 			
-			WebResource webResource2 = client.resource("http://"+Controller_IP+":8080/restconf/operational/opendaylight-inventory:nodes/");
+			WebResource webResource2 = client.resource("http://"+Controller_IP+":8181/restconf/operational/opendaylight-inventory:nodes/");
 			
 			ClientResponse response2 = webResource2.accept("application/json").get(ClientResponse.class);  
 			
@@ -44,6 +44,7 @@ public class Host_location {
 			JSONObject obj_1 = (JSONObject) obj.get("nodes");
 			//JSONArray test = (JSONArray) obj.get("nodes.node");
 			JSONArray nodes = (JSONArray) obj_1.get("node");
+			System.out.println(nodes);
 			for(int i=0;i<nodes.length();i++) {
 				JSONObject js = (JSONObject)nodes.get(i);
 				JSONArray tmp = (JSONArray) js.get("node-connector");
@@ -53,13 +54,14 @@ public class Host_location {
 						JSONArray tmp_2 = (JSONArray) tmp_1.get("address-tracker:addresses");
 						for(int k=0;k<tmp_2.length();k++) {
 							JSONObject tmp_3 = (JSONObject) tmp_2.get(k);
-							host.put(tmp_3.getString("mac"), new Switch(tmp_1.getString("flow-node-inventory:hardware-address"), js.getString("id"), tmp_1.getString("flow-node-inventory:port-number"),tmp_1.getString("flow-node-inventory:name")));
+							host.put(tmp_3.getString("mac"), new Switch(tmp_1.getString("flow-node-inventory:hardware-address"), js.getString("id"), String.valueOf(tmp_1.getInt("flow-node-inventory:port-number")),tmp_1.getString("flow-node-inventory:name")));
 						}
 					}
 				}
 			}
 			System.out.println("Got "+host.size()+" host details"); 
 		} catch (Exception e) {
+			System.out.println(e.getMessage());
 			System.out.println("Failed to get Host and its immediate switch details");
 		}
 	}
