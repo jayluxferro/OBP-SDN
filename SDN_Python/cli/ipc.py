@@ -20,15 +20,21 @@ app = socketio.WSGIApp(sio, static_files={
 
 
 ## connection defaults ###
-
-sio.on('connect')
+@sio.on('connect')
 def connect(sid, environ):
     d.success('Client socket opened => ' + sid)
 
 
-sio.on('disconnect')
+@sio.on('disconnect')
 def disconnect(sid):
     d.error('Client socket closed => ' + sid)
+
+
+
+# Event Handlers
+@sio.on('nodes')
+def nodes(sid, data):
+    d.success('Data received: ' + str(data))
 
 try:
     eventlet.wsgi.server(eventlet.listen(('127.0.0.1', 5000)), app)
