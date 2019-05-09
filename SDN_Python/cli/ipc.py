@@ -30,11 +30,11 @@ def disconnect(sid):
     d.error('Client socket closed => ' + sid)
 
 
-
-# Event Handlers
+##### Event Handlers
 @sio.on('nodes')
 def nodes(sid, data):
     d.success('Data received: ' + str(data))
+    sio.emit('nodes', data)
 
 try:
     eventlet.wsgi.server(eventlet.listen(('127.0.0.1', 5000)), app)

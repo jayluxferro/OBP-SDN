@@ -33,12 +33,14 @@ except:
 
 ## getting all interfaces on openvswitches
 
-data = json.loads(helper.nodes())
-data = data['nodes']['node']
 
-switches = []
 def getNodes():
     try:
+        data = json.loads(helper.nodes())
+        data = data['nodes']['node']
+        
+        switches = []
+        
         for x in data:
   
             # checking through all nodes
@@ -50,11 +52,14 @@ def getNodes():
                     port = n['flow-node-inventory:port-number']
                     link = n['flow-node-inventory:current-speed']
                     interface = n['flow-node-inventory:name']
-                    tx = branch['packets']['transmitted']
-                    rx = branch['packets']['received']
-                    switchData.append({ 'port': port, 'interface': interface, 'rx': rx, 'tx': tx, 'link': link })
-
-            switches.append({ 'id': x['id'], 'data': switchData })
+                    tx = branch['bytes']['transmitted']
+                    rx = branch['bytes']['received']
+                    ip = x['flow-node-inventory:ip-address']
+                    if interface.find('eth') != -1:
+                        if x['id'] == "openflow:38023701621572" or x['id'] == "openflow:60174091252288":
+                            switchData.append({ 'port': port, 'interface': interface, 'rx': rx, 'tx': tx, 'link': link , 'ip': ip })
+            if len(switchData) > 0:
+                switches.append({ 'id': x['id'], 'data': switchData })
             
         # send data to be analyzed
         d.default('Sending captured nodes to IPC')
@@ -68,5 +73,5 @@ def getNodes():
 if __name__ == "__main__":
     while True:
         getNodes()
-        sleep(5)
+        sleep(10)
 
