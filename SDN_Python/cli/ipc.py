@@ -36,6 +36,17 @@ def nodes(sid, data):
     d.success('Data received: ' + str(data))
     sio.emit('nodes', data)
 
+@sio.on('5005')
+def op5(sid, data):
+    d.warning('Sending data to obs: 5005')
+    sio.emit('5005', data)
+
+@sio.on('5014')
+def op4(sid, data):
+    d.warning('Sending data to obs: 5014')
+    sio.emit('5014', data)
+
+
 try:
     eventlet.wsgi.server(eventlet.listen(('127.0.0.1', 5000)), app)
 except KeyboardInterrupt:

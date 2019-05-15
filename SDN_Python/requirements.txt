@@ -5,3 +5,5 @@ gunicorn
 whitenoise==3.3.*
 pillow
 dj-database-url
+PTable
+telnetlib

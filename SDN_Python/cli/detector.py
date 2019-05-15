@@ -55,9 +55,13 @@ def getNodes():
                     tx = branch['bytes']['transmitted']
                     rx = branch['bytes']['received']
                     ip = x['flow-node-inventory:ip-address']
-                    if interface.find('eth') != -1:
+                    if interface.find('eth3') != -1:
                         if x['id'] == "openflow:38023701621572" or x['id'] == "openflow:60174091252288":
-                            switchData.append({ 'port': port, 'interface': interface, 'rx': rx, 'tx': tx, 'link': link , 'ip': ip })
+                            if x['id'] == "openflow:38023701621572":
+                                console = 5014
+                            else:
+                                console = 5005
+                            switchData.append({ 'port': port, 'interface': interface, 'rx': rx, 'tx': tx, 'link': link , 'ip': ip , 'console': console })
             if len(switchData) > 0:
                 switches.append({ 'id': x['id'], 'data': switchData })
             

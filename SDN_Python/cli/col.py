@@ -4,6 +4,8 @@ Interfaces Detector
 """
 
 import sys
+from prettytable import PrettyTable
+
 
 # adding helper function
 sys.path.append('../SDN_Python')
@@ -27,16 +29,21 @@ def nodes(data):
     #d.warning('Data received: ' + str(data))
     info = data['data']
     
-    d.warning(str("#" * 100))
-    d.warning("| Switches               | Interface | Tx | Rx | Port Number | IP Address |")
-    d.warning("#" * 100)
-    for x in info:
-        if x['id'] == "openflow:60174091252288":
-            d.warning("| " + str(x['id']) + ' | ' + x['data'][1]['interface'] + '      | ' + str(x['data'][1]['tx']) + ' | ' + str(x['data'][1]['rx']) + ' | ' + str(x['data'][1]['port']) + '           | ' + x['data'][1]['ip'] + '|')
-        else:
-            d.warning("| " + str(x['id']) + ' | ' + x['data'][3]['interface'] + '      | ' + str(x['data'][3]['tx']) + ' | ' + str(x['data'][3]['rx']) + ' | ' + str(x['data'][3]['port']) + '           | ' + x['data'][3]['ip'] + ' |')
-    d.warning("#" * 100)
+    p = PrettyTable()
+    p.field_names = ["Switches", "Interface", "Tx", "Rx", "Port Number", "IP Address", "Console Port"]
     
+    for x in info:
+        p.add_row([str(x['id']), x['data'][0]['interface'], str(x['data'][0]['tx']), str(x['data'][0]['rx']), str(x['data'][0]['port']), str(x['data'][0]['ip']), str(x['data'][0]['console'])])
+        sio.emit(str(x['data'][0]['console']), { 'data': x['data'][0] })
+        """
+        if x['id'] == "openflow:60174091252288":
+            p.add_row([str(x['id']), x['data'][0]['interface'], str(x['data'][0]['tx']), str(x['data'][0]['rx']), str(x['data'][0]['port']), str(x['data'][0]['ip']), str(x['data'][0]['console'])])
+        else:
+            p.add_row([str(x['id']), x['data'][3]['interface'], str(x['data'][3]['tx']), str(x['data'][3]['rx']), str(x['data'][3]['port']), str(x['data'][3]['ip']), str(x['data'][3]['console'])])
+    
+        """
+    # display table
+    print(p)
 
 
 
