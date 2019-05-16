@@ -77,5 +77,5 @@ def getNodes():
 if __name__ == "__main__":
     while True:
         getNodes()
-        sleep(30)
+        sleep(1)
 

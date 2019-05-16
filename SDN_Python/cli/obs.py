@@ -15,7 +15,8 @@ import telnetlib
 
 # defaults
 sio = socketio.Client()
-
+b5 = 0
+b4 = 0
 
 
 try:
@@ -45,16 +46,22 @@ def op5(data):
     maxB = tx
     ip = '192.168.198.128'
 
+    global b5
+    
     # create queue
-    d.default('Creating queue: ' + str(ip) + ':' + str(console))
-    queue = helper.createQ(interface, minB, maxB)
-    tn = telnetlib.Telnet(ip, console)
-    tn.write((queue + "\n").encode('ascii'))
-    d.success('Queue created...: ' + str(console))
+    if b5 != maxB:
+        d.default('Creating queue: ' + str(ip) + ':' + str(console))
+        queue = helper.createQ(interface, minB, maxB)
+        tn = telnetlib.Telnet(ip, console)
+        tn.write("ovs-vsctl -- --all destroy QoS -- --all destroy Queue\n".encode('ascii'))
+        tn.write((queue + "\n").encode('ascii'))
+        d.success('Queue created...: ' + str(console))
 
-    # push to odl
-    helper.uploadFlow(src, dst)
-
+        # push to odl
+        helper.uploadFlow(src, dst)
+        b5 = maxB
+    else:
+        d.default('Not setting bandwidth: no changes detected')
 
 @sio.on('5014')
 def op4(data):
@@ -73,15 +80,22 @@ def op4(data):
 
     ip = '192.168.198.128'
     
-    d.default('Creating queue: ' + str(ip) + ':' + str(console))
-    # create queue
-    queue = helper.createQ(interface, minB, maxB)
-    tn = telnetlib.Telnet(ip, console)
-    tn.write((queue + "\n").encode('ascii'))
-    d.success('Queue created: ' + str(console))
+    global b4
 
-    # push to odl
-    helper.uploadFlow(src, dst)
+    if b4 != maxB:
+        d.default('Creating queue: ' + str(ip) + ':' + str(console))
+        # create queue
+        queue = helper.createQ(interface, minB, maxB)
+        tn = telnetlib.Telnet(ip, console)
+        # delete existing queue
+        tn.write("ovs-vsctl -- --all destroy QoS -- --all destroy Queue\n".encode('ascii'))
+        tn.write((queue + "\n").encode('ascii'))
+        d.success('Queue created: ' + str(console))
+
+        # push to odl
+        helper.uploadFlow(src, dst)
+    else:
+        d.default('Not setting bandwidth: no changes detected')
 
 
 
