@@ -12,3 +12,5 @@ def nodes(request):
     return JsonResponse(a.json())
   except:
     return JsonResponse({})
+
+
