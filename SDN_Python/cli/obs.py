@@ -12,12 +12,16 @@ import logger as d
 import db
 import socketio
 import telnetlib
+import requests
+import time
 
 # defaults
 sio = socketio.Client()
 b5 = 0
 b4 = 0
 
+# default url
+webUrl = "http://localhost:8000/"
 
 try:
     sio.connect('http://127.0.0.1:5000')
@@ -28,6 +32,12 @@ except KeyboardInterrupt:
 except:
         sys.exit()
 
+
+
+def sendData(dat):
+    d.warning(str(dat))
+    res = requests.post(webUrl + 'obs/', data=dat)
+    d.success(str(res.text))
 
 # done connecting to websocket; connect to telnet
 @sio.on('5005')
@@ -59,6 +69,11 @@ def op5(data):
 
         # push to odl
         helper.uploadFlow(src, dst)
+
+        # sending data to web app
+        webData = {'start':  str(info['start']), 'stop':  str(time.time()), 'duration':  str(time.time() - info['start']), 'old': str(b5), 'new': str(maxB)}
+        sendData(webData)
+        
         b5 = maxB
     else:
         d.default('Not setting bandwidth: no changes detected')

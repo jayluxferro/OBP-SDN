@@ -15,6 +15,7 @@ import db
 import socketio
 import pprint
 from time import sleep
+import time
 
 # defaults
 sio = socketio.Client()
@@ -61,7 +62,7 @@ def getNodes():
                                 console = 5014
                             else:
                                 console = 5005
-                            switchData.append({ 'port': port, 'interface': interface, 'rx': rx, 'tx': tx, 'link': link , 'ip': ip , 'console': console })
+                            switchData.append({ 'port': port, 'interface': interface, 'rx': rx, 'tx': tx, 'link': link , 'ip': ip , 'console': console, 'start': time.time() })
             if len(switchData) > 0:
                 switches.append({ 'id': x['id'], 'data': switchData })
             
