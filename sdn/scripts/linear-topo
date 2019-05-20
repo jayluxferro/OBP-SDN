@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -z $1 ];
+then
+  remote_ip='192.168.56.1'
+else
+  remote_ip=$1
+fi
+mn --topo linear,2 --mac --controller=remote,ip=$remote_ip,port=6633 --switch ovs,protocols=OpenFlow13
