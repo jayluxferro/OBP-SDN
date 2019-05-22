@@ -38,6 +38,10 @@ def sendData(dat):
     d.warning(str(dat))
     res = requests.post(webUrl + 'obs/', data=dat)
     d.success(str(res.text))
+   
+    # add packets rx and tx
+    res = requests.post(webUrl + 'packets/', data=dat)
+    d.success(str(res.text))
 
 # done connecting to websocket; connect to telnet
 @sio.on('5005')
@@ -71,7 +75,7 @@ def op5(data):
         helper.uploadFlow(src, dst)
 
         # sending data to web app
-        webData = {'start':  str(info['start']), 'stop':  str(time.time()), 'duration':  str(time.time() - info['start']), 'old': str(b5), 'new': str(maxB)}
+        webData = {'start':  str(info['start']), 'stop':  str(time.time()), 'duration':  str(time.time() - info['start']), 'old': str(b5), 'new': str(maxB), 'tx': str(tx), 'rx': str(tx)}
         sendData(webData)
         
         b5 = maxB

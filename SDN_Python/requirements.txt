@@ -1,3 +1,5 @@
+matplotlib
+numpy
 paramiko
 requests
 django

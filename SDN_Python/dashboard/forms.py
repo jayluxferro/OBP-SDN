@@ -17,3 +17,12 @@ class Obs(forms.Form):
     old = forms.CharField(max_length=200)
     new = forms.CharField(max_length=200)
     duration = forms.CharField(max_length=200)
+
+
+class Packets(forms.Form):
+    tx = forms.CharField(max_length=200)
+    rx = forms.CharField(max_length=200)
+
+
+class Ping(forms.Form):
+    duration = forms.CharField(max_length=200)

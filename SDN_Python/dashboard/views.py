@@ -4,6 +4,7 @@ import requests
 from SDN_Python import helper as h
 from . import forms, models
 from django.views.decorators.csrf import csrf_exempt
+import time
 
 def home(request):
  return render(request, "dashboard.html", {}) 
@@ -87,3 +88,54 @@ def obs(request):
     else:
         return JsonResponse({})
 
+
+@csrf_exempt
+def packets(request):
+    if request.method == "POST":
+        pForm = forms.Packets(request.POST)
+        print(request.POST)
+        if pForm.is_valid():
+            # valid
+            tx = pForm.cleaned_data['tx']
+            rx = pForm.cleaned_data['rx']
+            t = str(time.time())
+            
+            try:
+                pModel = models.Packets()
+                pModel.tx = tx
+                pModel.rx = rx
+                pModel.time = t
+
+                pModel.save()
+                return JsonResponse({'success': True})
+            except:
+                return JsonResponse({'success': False})
+        else:
+            return JsonResponse({})
+    else:
+        return JsonResponse({})
+
+
+@csrf_exempt
+def ping(request):
+    if request.method == "POST":
+        pForm = forms.Ping(request.POST)
+        print(request.POST)
+        if pForm.is_valid():
+            # valid
+            duration = pForm.cleaned_data['duration']
+
+            try:
+                pModel = models.Ping()
+                pModel.duration = duration
+                pModel.time = str(time.time())
+
+                pModel.save()
+
+                return JsonResponse({'success': True})
+            except:
+                return JsonResponse({'success': False})
+        else:
+            return JsonResponse({})
+    else:
+        return JsonResponse({})

@@ -25,3 +25,14 @@ class Obs(models.Model):
     old = models.CharField(max_length=200)
     new = models.CharField(max_length=200)
     duration = models.CharField(max_length=200)
+
+
+class Packets(models.Model):
+    tx = models.CharField(max_length=200)
+    rx = models.CharField(max_length=200)
+    time = models.CharField(max_length=200)
+
+
+class Ping(models.Model):
+    duration = models.CharField(max_length=200)
+    time = models.CharField(max_length=200)

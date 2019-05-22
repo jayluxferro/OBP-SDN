@@ -14,15 +14,25 @@ import json
 
 # defaults
 url = 'http://192.168.198.1:8000/'
-
+clientIp = '192.168.0.8'
 
 
 def sendData(d):
+    # send ping
+    rtt = subprocess.check_output(['ping', '-c', '1', clientIp], shell=False).split()[-2].split('/')[0]
+    sendPing({'duration': str(rtt)})
+    
     print(d)
     session = requests.session()
     res = requests.post(url + 'iperf/', data=d)
     print(res.text)
 
+
+def sendPing(d):
+    print(d)
+    session = requests.session()
+    res = requests.post(url + 'ping/', data=d)
+    print(res.text)
 
 if __name__ == "__main__":
     params = ['iperf']
