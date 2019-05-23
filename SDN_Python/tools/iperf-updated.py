@@ -14,7 +14,7 @@ import json
 
 # defaults
 url = 'http://192.168.198.1:8000/'
-clientIp = '192.168.0.8'
+clientIp = '192.168.100.8'
 
 
 def sendData(d):

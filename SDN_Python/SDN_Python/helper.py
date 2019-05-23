@@ -7,8 +7,8 @@ import requests
 import json
 
 ## odl IP
-#ip = '192.168.198.135'
-ip = 'localhost'
+ip = '192.168.198.135'
+#ip = 'localhost'
 
 def url(url):
   return 'http://{0}:8181/restconf{1}'.format(ip, url)

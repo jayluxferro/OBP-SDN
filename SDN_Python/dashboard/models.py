@@ -9,7 +9,7 @@ class Configs(models.Model):
 
 
 class Iperf(models.Model):
-    data = models.CharField(max_length=1000)
+    data = models.CharField(max_length=10000)
     start = models.CharField(max_length=200)
     stop = models.CharField(max_length=200)
     threads = models.IntegerField()
